@@ -1,9 +1,9 @@
 'use client';
 import { memo, useEffect, useMemo, useState, useSyncExternalStore } from 'react';
 import type { ComponentType, ReactNode } from 'react';
-import { createRenderingPlan, resolveAutoCodec } from '@valixa/auto';
-import type { AutoCapabilities, AutoCodec, AutoUI, PlanNode, RuntimeField } from '@valixa/auto';
-import type { SubmitHandler, SubmitResult, ValixaForm } from '@valixa/core';
+import { createRenderingPlan, resolveAutoCodec } from 'valixa-auto';
+import type { AutoCapabilities, AutoCodec, AutoUI, PlanNode, RuntimeField } from 'valixa-auto';
+import type { SubmitHandler, SubmitResult, ValixaForm } from 'valixa';
 import { useValixaField, useValixaState } from './index.js';
 import type { FieldBinding } from './index.js';
 

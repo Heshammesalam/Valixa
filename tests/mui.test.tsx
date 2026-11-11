@@ -3,10 +3,10 @@ import { act, cleanup, fireEvent, render, renderHook, screen, waitFor } from '@t
 import { userEvent } from '@testing-library/user-event';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Autocomplete, Checkbox, FormControl, FormControlLabel, FormHelperText, InputLabel, MenuItem, Radio, RadioGroup, Select, Switch, TextField } from '@mui/material';
-import { createValixa } from '@valixa/core';
-import { useMuiField } from '@valixa/mui';
-import { useMuiDateField } from '@valixa/mui/x';
-import type { DateCodec } from '@valixa/mui/x';
+import { createValixa } from 'valixa';
+import { useMuiField } from 'valixa-mui';
+import { useMuiDateField } from 'valixa-mui/x';
+import type { DateCodec } from 'valixa-mui/x';
 import dayjs from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';

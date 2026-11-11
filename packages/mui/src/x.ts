@@ -1,8 +1,8 @@
 'use client';
-import type { FieldValue } from '@valixa/core';
+import type { FieldValue } from 'valixa';
 
-import { useValixaField } from '@valixa/react';
-import type { FieldName, ValixaForm } from '@valixa/core';
+import { useValixaField } from 'valixa-react';
+import type { FieldName, ValixaForm } from 'valixa';
 import type { DatePickerProps } from '@mui/x-date-pickers/DatePicker';
 import type { PickerValidDate } from '@mui/x-date-pickers/models';
 

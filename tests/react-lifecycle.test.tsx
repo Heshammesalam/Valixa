@@ -2,9 +2,9 @@
 import { StrictMode } from 'react';
 import { act, cleanup, fireEvent, render, renderHook, screen, waitFor } from '@testing-library/react';
 import { afterEach, describe, expect, expectTypeOf, it, vi } from 'vitest';
-import { createValixa } from '@valixa/core';
-import type { ValixaForm } from '@valixa/core';
-import { connectValixa, defineAdapter, nativeText, useValixa, useValixaAdapter, useValixaContext, useValixaField, useValixaState, ValixaProvider } from '@valixa/react';
+import { createValixa } from 'valixa';
+import type { ValixaForm } from 'valixa';
+import { connectValixa, defineAdapter, nativeText, useValixa, useValixaAdapter, useValixaContext, useValixaField, useValixaState, ValixaProvider } from 'valixa-react';
 
 afterEach(cleanup);
 describe('ownership, adapters and request lifecycle', () => {

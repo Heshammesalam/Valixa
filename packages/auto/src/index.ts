@@ -1,4 +1,4 @@
-import type { Blueprint, BlueprintInput, CollectionBlueprint, CollectionName, FieldName, FieldState, FieldValue, FormDescription, InferValues, ValixaForm, ValueInput } from '@valixa/core';
+import type { Blueprint, BlueprintInput, CollectionBlueprint, CollectionName, FieldName, FieldState, FieldValue, FormDescription, InferValues, ValixaForm, ValueInput } from 'valixa';
 
 export type Widget = 'text' | 'email' | 'password' | 'number' | 'textarea' | 'select' | 'checkbox' | 'radio' | 'switch' | 'autocomplete' | 'date' | 'custom';
 export interface AutoCodec<T, View = any> { readonly view: string; readonly encode: (value: View) => T; readonly decode: (value: T) => View }

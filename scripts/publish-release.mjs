@@ -6,7 +6,7 @@ import { join } from 'node:path';
 import { root, config, publicationOrder } from './release-lib.mjs';
 
 assert(process.env.GITHUB_ACTIONS === 'true', 'Publishing is restricted to the protected GitHub workflow');
-assert(process.env.RELEASE_CONFIGURATION_VERIFIED === 'true', 'Repository admin must verify scope rights, OIDC and environment protections before enabling release');
+assert(process.env.RELEASE_CONFIGURATION_VERIFIED === 'true', 'Repository admin must verify package ownership, OIDC and environment protections before enabling release');
 assert(process.env.RELEASE_APPROVED_VERSION === config.version, 'Exact package version approval is required');
 assert(config.repository === `https://github.com/${process.env.GITHUB_REPOSITORY}`, 'Verified repository must match the workflow');
 assert(process.env.ACTIONS_ID_TOKEN_REQUEST_URL, 'OIDC trusted publisher environment is required; no token fallback');

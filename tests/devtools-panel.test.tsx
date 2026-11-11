@@ -5,11 +5,11 @@ import { renderToString } from 'react-dom/server';
 import { createSSRApp, h, nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import { renderToString as renderVue } from '@vue/server-renderer';
-import { createValixa } from '@valixa/core';
-import { attachValixaDevtools } from '@valixa/devtools';
-import { mountValixaDevtools } from '@valixa/devtools/panel';
-import { ValixaDevtools } from '@valixa/react/devtools';
-import { ValixaDevtools as VueTools } from '@valixa/vue/devtools';
+import { createValixa } from 'valixa';
+import { attachValixaDevtools } from 'valixa-devtools';
+import { mountValixaDevtools } from 'valixa-devtools/panel';
+import { ValixaDevtools } from 'valixa-react/devtools';
+import { ValixaDevtools as VueTools } from 'valixa-vue/devtools';
 
 it('shared panel switches forms, filters, inspects graphs and controls bounded history without exposing secrets', async () => {
   const first = createValixa({ password: ['secret'], confirm: ['', 'same:password'] }), second = createValixa({ name: ['Ada'] });

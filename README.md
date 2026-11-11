@@ -43,7 +43,7 @@ The core package is not published. Examples resolve it through the workspace.
 ## First form
 
 ```ts
-import { createValixa } from '@valixa/core';
+import { createValixa } from 'valixa';
 
 const form = createValixa({
   email: ['', 'required | email'],
@@ -71,7 +71,7 @@ names and values. `setValue('unknown', ...)` and mismatched values fail type che
 
 - `packages/core`: reusable blueprints, validation, form state and subscriptions.
 - `packages/react`: stable form ownership, field subscriptions and custom adapters.
-- `packages/mui`: explicit MUI props and optional `@valixa/mui/x` date bindings.
+- `packages/mui`: explicit MUI props and optional `valixa-mui/x` date bindings.
 - `packages/vue`: scope-owned raw forms, typed projections and custom adapters.
 - `packages/vuetify`: explicit Vuetify bindings and local-file/metadata handling.
 - `packages/angular`: DestroyRef-owned signals and typed native/CVA directives.

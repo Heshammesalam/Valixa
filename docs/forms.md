@@ -1,7 +1,7 @@
 # Nested fields, collections, conditions, async validation and localization
 
 ```ts
-import { blueprint, createValixa, nested, collection } from '@valixa/core';
+import { blueprint, createValixa, nested, collection } from 'valixa';
 const schema = blueprint({
   country: [''],
   user: nested({ city: [''] }),

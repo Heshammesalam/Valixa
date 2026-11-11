@@ -1,4 +1,4 @@
-# @valixa/angular
+# valixa-angular
 
 Phase 5 adds shared typed nested paths, reactive field behavior/pending state,
 `form.array`, `form.setLocale` and `form.cancelValidation`. For collection row
@@ -15,7 +15,7 @@ the core remains framework-independent. No FormGroup or FormControl is required.
 
 ```ts
 import { Component, signal } from '@angular/core';
-import { createValixa, ValixaFieldDirective } from '@valixa/angular';
+import { createValixa, ValixaFieldDirective } from 'valixa-angular';
 
 @Component({
   standalone: true,

@@ -2,8 +2,8 @@
 import { cleanup, render } from '@testing-library/react';
 import { afterEach, expectTypeOf, it } from 'vitest';
 import { TextField, Checkbox, Autocomplete } from '@mui/material';
-import { defineAdapter, nativeText, useValixa, useValixaAdapter, useValixaField } from '@valixa/react';
-import { useMuiField } from '@valixa/mui';
+import { defineAdapter, nativeText, useValixa, useValixaAdapter, useValixaField } from 'valixa-react';
+import { useMuiField } from 'valixa-mui';
 
 afterEach(cleanup);
 it('preserves inference and rejects invalid field names, values and component contracts', () => {

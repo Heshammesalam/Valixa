@@ -1,6 +1,6 @@
-import { blueprint, collection, nested } from '@valixa/core';
-import type { FormOptions } from '@valixa/core';
-import { defineAutoForm, defineAutoCodec } from '@valixa/auto';
+import { blueprint, collection, nested } from 'valixa';
+import type { FormOptions } from 'valixa';
+import { defineAutoForm, defineAutoCodec } from 'valixa-auto';
 
 export const generatedSchema = blueprint({
   name: { initial: '', rules: 'required', dependsOn: [], validate: async (value: string, { signal }) => {

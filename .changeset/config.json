@@ -4,17 +4,17 @@
   "commit": false,
   "fixed": [
     [
-      "@valixa/angular",
-      "@valixa/angular-auto",
-      "@valixa/angular-devtools",
-      "@valixa/angular-material",
-      "@valixa/auto",
-      "@valixa/core",
-      "@valixa/devtools",
-      "@valixa/mui",
-      "@valixa/react",
-      "@valixa/vue",
-      "@valixa/vuetify"
+      "valixa",
+      "valixa-angular",
+      "valixa-angular-auto",
+      "valixa-angular-devtools",
+      "valixa-angular-material",
+      "valixa-auto",
+      "valixa-devtools",
+      "valixa-mui",
+      "valixa-react",
+      "valixa-vue",
+      "valixa-vuetify"
     ]
   ],
   "linked": [],

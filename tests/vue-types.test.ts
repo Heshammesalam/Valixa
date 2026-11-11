@@ -1,8 +1,8 @@
 import { effectScope } from 'vue';
 import { expectTypeOf, it } from 'vitest';
-import { createValixaKey, defineValixaAdapter, provideValixa, useValixa, useValixaAdapter, useValixaField } from '@valixa/vue';
-import { fileMetadata, useVuetifyField, useVuetifyFileField } from '@valixa/vuetify';
-import type { FileMetadata } from '@valixa/vuetify';
+import { createValixaKey, defineValixaAdapter, provideValixa, useValixa, useValixaAdapter, useValixaField } from 'valixa-vue';
+import { fileMetadata, useVuetifyField, useVuetifyFileField } from 'valixa-vuetify';
+import type { FileMetadata } from 'valixa-vuetify';
 
 it('infers names/values and rejects incompatible adapters through emitted declarations', () => {
   const scope = effectScope(); scope.run(() => {

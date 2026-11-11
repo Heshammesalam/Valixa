@@ -1,9 +1,9 @@
 'use client';
 import { Autocomplete, Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, Radio, RadioGroup, Select, Switch, TextField } from '@mui/material';
 import type { ComponentType } from 'react';
-import { choiceValue, selectedOptions } from '@valixa/auto';
-import type { AutoCodec } from '@valixa/auto';
-import type { AutoRenderProps, ReactAutoAdapter } from '@valixa/react/auto';
+import { choiceValue, selectedOptions } from 'valixa-auto';
+import type { AutoCodec } from 'valixa-auto';
+import type { AutoRenderProps, ReactAutoAdapter } from 'valixa-react/auto';
 
 function MuiWidget({ field, config, codec }: AutoRenderProps) {
   const inline = config.errorPlacement !== 'summary' && config.errorPlacement !== 'none';

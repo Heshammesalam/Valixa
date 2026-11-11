@@ -1,7 +1,7 @@
 import { Component, DestroyRef, ElementRef, afterNextRender, effect, inject, input } from '@angular/core';
-import type { ValixaInspection } from '@valixa/devtools';
-import { mountValixaDevtools } from '@valixa/devtools/panel';
-import type { DevtoolsPanel } from '@valixa/devtools/panel';
+import type { ValixaInspection } from 'valixa-devtools';
+import { mountValixaDevtools } from 'valixa-devtools/panel';
+import type { DevtoolsPanel } from 'valixa-devtools/panel';
 
 @Component({ selector: 'valixa-devtools', standalone: true, template: '' })
 export class ValixaDevtools {

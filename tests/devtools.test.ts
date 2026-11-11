@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { blueprint, collection, createValixa, nested } from '@valixa/core';
-import type { LifecycleEvent } from '@valixa/core';
-import { REDACTED, attachValixaDevtools } from '@valixa/devtools';
+import { blueprint, collection, createValixa, nested } from 'valixa';
+import type { LifecycleEvent } from 'valixa';
+import { REDACTED, attachValixaDevtools } from 'valixa-devtools';
 
 afterEach(() => vi.useRealTimers());
 const deferred = <T>() => { let resolve!: (value: T) => void; const promise = new Promise<T>(done => { resolve = done; }); return { promise, resolve }; };

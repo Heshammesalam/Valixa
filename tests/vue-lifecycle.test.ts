@@ -2,8 +2,8 @@
 import { defineComponent, effectScope, h, nextTick, watchEffect } from 'vue';
 import { flushPromises, mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
-import { createValixa } from '@valixa/core';
-import { useValixa, useValixaField, useValixaState } from '@valixa/vue';
+import { createValixa } from 'valixa';
+import { useValixa, useValixaField, useValixaState } from 'valixa-vue';
 
 function deferred<T>() { let resolve!: (value: T) => void; const promise = new Promise<T>(yes => { resolve = yes; }); return { promise, resolve }; }
 describe('Vue ownership and async lifecycle', () => {

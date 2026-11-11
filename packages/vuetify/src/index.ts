@@ -1,9 +1,9 @@
-import type { FieldValue } from '@valixa/core';
+import type { FieldValue } from 'valixa';
 import { computed } from 'vue';
 import type { ComputedRef } from 'vue';
-import { useValixaField } from '@valixa/vue';
-import type { DeepReadonly, FieldName, ValixaForm } from '@valixa/core';
-import type { VueField } from '@valixa/vue';
+import { useValixaField } from 'valixa-vue';
+import type { DeepReadonly, FieldName, ValixaForm } from 'valixa';
+import type { VueField } from 'valixa-vue';
 
 export interface FieldOptions { readonly label?: string; readonly required?: boolean }
 export interface VuetifyCommonProps {

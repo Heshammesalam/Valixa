@@ -1,11 +1,11 @@
-# @valixa/auto
+# valixa-auto
 
 Framework-independent typed UI metadata and immutable rendering plans. Depends only
-on @valixa/core; no DOM or UI framework imports.
+on valixa; no DOM or UI framework imports.
 
 ```ts
-import { blueprint, createValixa } from '@valixa/core';
-import { defineAutoForm, createRenderingPlan } from '@valixa/auto';
+import { blueprint, createValixa } from 'valixa';
+import { defineAutoForm, createRenderingPlan } from 'valixa-auto';
 const schema = blueprint({ name: ['', 'required'], age: [18] });
 const ui = defineAutoForm(schema, { fields: {
   name: { component: 'text', label: 'Full name' },
@@ -25,7 +25,7 @@ Unsupported capabilities and missing custom/date registrations throw before rend
 
 Exports include `defineAutoCodec`, `resolveAutoCodec`, `selectedOptions`, `choiceValue`
 and renderer contracts (`AutoUI`, `PlanNode`, `RuntimeField`, `AutoCapabilities`).
-React/Vue renderers live at @valixa/react/auto and @valixa/vue/auto; UI adapters at
-@valixa/mui/auto and @valixa/vuetify/auto. Angular uses @valixa/angular-auto.
+React/Vue renderers live at valixa-react/auto and valixa-vue/auto; UI adapters at
+valixa-mui/auto and valixa-vuetify/auto. Angular uses valixa-angular-auto.
 
 See docs/phase-6.md in the repository for the complete cross-framework guide.

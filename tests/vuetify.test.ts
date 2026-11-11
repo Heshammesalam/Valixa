@@ -5,9 +5,9 @@ import { mount, flushPromises } from '@vue/test-utils';
 import { createVuetify } from 'vuetify';
 import { VTextField, VBtn, VTextarea, VSelect, VCheckbox, VSwitch } from 'vuetify/components';
 import { describe, expect, it, vi } from 'vitest';
-import { useValixa, useValixaState } from '@valixa/vue';
-import { useVuetifyField } from '@valixa/vuetify';
-import { createValixa } from '@valixa/core';
+import { useValixa, useValixaState } from 'valixa-vue';
+import { useVuetifyField } from 'valixa-vuetify';
+import { createValixa } from 'valixa';
 
 describe('Vue → real Vuetify vertical slice', () => {
   it('reacts through compiled template bindings, validates and awaits submission', async () => {

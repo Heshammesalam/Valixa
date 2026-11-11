@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { VBtn, VTextField } from 'vuetify/components';
-import { nativeText, useValixa, useValixaAdapter, useValixaState } from '@valixa/vue';
-import { useVuetifyField } from '@valixa/vuetify';
+import { nativeText, useValixa, useValixaAdapter, useValixaState } from 'valixa-vue';
+import { useVuetifyField } from 'valixa-vuetify';
 import { reactiveOptions, reactiveSchema } from '../../shared/reactive.js';
 import AddressRow from './ReactiveRow.vue';
 const form = useValixa(reactiveSchema, reactiveOptions), state = useValixaState(form);

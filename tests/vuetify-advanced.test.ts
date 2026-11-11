@@ -5,10 +5,10 @@ import { mount, flushPromises } from '@vue/test-utils';
 import { createVuetify } from 'vuetify';
 import { VAutocomplete, VCombobox, VRadioGroup, VRadio, VTextField, VFileInput } from 'vuetify/components';
 import { describe, expect, it } from 'vitest';
-import { createValixa } from '@valixa/core';
-import { defineValixaAdapter, useValixaAdapter } from '@valixa/vue';
-import { fileMetadata, useVuetifyField, useVuetifyFileField } from '@valixa/vuetify';
-import type { FileField, FileMetadata } from '@valixa/vuetify';
+import { createValixa } from 'valixa';
+import { defineValixaAdapter, useValixaAdapter } from 'valixa-vue';
+import { fileMetadata, useVuetifyField, useVuetifyFileField } from 'valixa-vuetify';
+import type { FileField, FileMetadata } from 'valixa-vuetify';
 
 const global = () => ({ plugins: [createVuetify()] });
 describe('advanced real Vuetify components', () => {

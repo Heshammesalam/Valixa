@@ -3,9 +3,9 @@ import { StrictMode } from 'react';
 import { act, cleanup, fireEvent, render, renderHook, screen, waitFor } from '@testing-library/react';
 import TextField from '@mui/material/TextField';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { createValixa } from '@valixa/core';
-import { useValixa, useValixaField, useValixaState } from '@valixa/react';
-import { useMuiField } from '@valixa/mui';
+import { createValixa } from 'valixa';
+import { useValixa, useValixaField, useValixaState } from 'valixa-react';
+import { useMuiField } from 'valixa-mui';
 
 afterEach(cleanup);
 describe('React → core → MUI vertical slice', () => {

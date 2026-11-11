@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, signal } from '@angular/core';
-import { provideValixaControl } from '@valixa/angular';
+import { provideValixaControl } from 'valixa-angular';
 @Component({ selector: 'seat-counter', standalone: true,
   providers: [provideValixaControl(() => {
     const counter = inject(SeatCounter);

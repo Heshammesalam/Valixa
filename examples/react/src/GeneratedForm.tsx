@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useValixa } from '@valixa/react';
-import { ValixaAutoForm, defineReactAutoRenderer } from '@valixa/react/auto';
-import { createMuiAutoAdapter } from '@valixa/mui/auto';
-import { attachValixaDevtools } from '@valixa/devtools';
-import type { ValixaInspection } from '@valixa/devtools';
-import { ValixaDevtools } from '@valixa/react/devtools';
+import { useValixa } from 'valixa-react';
+import { ValixaAutoForm, defineReactAutoRenderer } from 'valixa-react/auto';
+import { createMuiAutoAdapter } from 'valixa-mui/auto';
+import { attachValixaDevtools } from 'valixa-devtools';
+import type { ValixaInspection } from 'valixa-devtools';
+import { ValixaDevtools } from 'valixa-react/devtools';
 import { generatedSchema, generatedOptions, generatedUI, stringDate, saveGenerated } from '../../shared/generated.js';
 const Counter = defineReactAutoRenderer<number>(({ field, config }) => <button type="button" aria-label="Add seat" disabled={field.state.disabled || field.state.readonly} onClick={() => field.setValue(field.state.value + 1)}>{config.label}: {field.state.value}</button>);
 const adapter = createMuiAutoAdapter({ custom: { counter: Counter }, codecs: { civilDate: stringDate } });

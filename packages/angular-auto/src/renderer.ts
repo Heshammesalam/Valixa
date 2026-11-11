@@ -9,12 +9,12 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { ValixaIds, bindValixa, numberCodec } from '@valixa/angular';
-import type { AngularField, AngularForm, ValueCodec } from '@valixa/angular';
-import { VALIXA_MATERIAL } from '@valixa/angular-material';
-import { choiceValue, createRenderingPlan, resolveAutoCodec, selectedOptions } from '@valixa/auto';
-import type { AutoCapabilities, AutoUI, PlanNode, RuntimeField } from '@valixa/auto';
-import type { CollectionRow, SubmitHandler, SubmitResult } from '@valixa/core';
+import { ValixaIds, bindValixa, numberCodec } from 'valixa-angular';
+import type { AngularField, AngularForm, ValueCodec } from 'valixa-angular';
+import { VALIXA_MATERIAL } from 'valixa-angular-material';
+import { choiceValue, createRenderingPlan, resolveAutoCodec, selectedOptions } from 'valixa-auto';
+import type { AutoCapabilities, AutoUI, PlanNode, RuntimeField } from 'valixa-auto';
+import type { CollectionRow, SubmitHandler, SubmitResult } from 'valixa';
 
 export interface AngularAutoAdapter extends AutoCapabilities {}
 export const angularMaterialAdapter: AngularAutoAdapter = Object.freeze({ name: 'Angular Material', widgets: ['text', 'email', 'password', 'number', 'textarea', 'select', 'checkbox', 'radio', 'switch', 'autocomplete', 'date', 'custom'] as const, dateView: 'date',

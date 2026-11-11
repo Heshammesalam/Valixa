@@ -1,12 +1,12 @@
-# @valixa/angular-auto
+# valixa-angular-auto
 
 Optional standalone Angular Signals + Material Auto Forms, shipped as partial-Ivy
 Angular Package Format. Requires Angular/Material 21.2 and Valixa core/angular/
 angular-material/auto peers. No React/Vue dependency.
 
 Import `ValixaAutoForm` into your standalone component. Author `ui` using
-`defineAutoForm(schema, config)` from @valixa/auto and create an Angular form with
-the existing @valixa/angular factory in an injection context.
+`defineAutoForm(schema, config)` from valixa-auto and create an Angular form with
+the existing valixa-angular factory in an injection context.
 
 ```html
 <valixa-auto-form [form]="form" [ui]="ui" [onSubmit]="save"

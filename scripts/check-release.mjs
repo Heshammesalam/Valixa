@@ -4,6 +4,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { root, config, packages, publicationOrder } from './release-lib.mjs';
+import { canonicalDeclaration } from './api-compatibility.mjs';
 
 const candidate = process.argv.includes('--candidate'), blockers = [], errors = [], inventory = [];
 const check = (condition, message) => { if (!condition) errors.push(message); };
@@ -12,7 +13,7 @@ const names = new Set(packages.map(item => item.manifest.name));
 const baseline = JSON.parse(readFileSync(join(root, 'release/api-baseline.json'), 'utf8'));
 for (const [path, hash] of Object.entries(baseline)) {
   const target = join(root, 'packages', path);
-  check(existsSync(target) && createHash('sha256').update(readFileSync(target)).digest('hex') === hash, `API declaration changed: ${path}`);
+  check(existsSync(target) && createHash('sha256').update(canonicalDeclaration(readFileSync(target, 'utf8'))).digest('hex') === hash, `API declaration changed beyond approved module renames: ${path}`);
 }
 const artifacts = join(root, 'artifacts/release'); mkdirSync(artifacts, { recursive: true });
 for (const item of publicationOrder()) {

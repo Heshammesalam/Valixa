@@ -2,10 +2,10 @@
 import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { renderToString } from 'react-dom/server';
 import { afterEach, expect, it, vi } from 'vitest';
-import { blueprint, collection, createValixa, nested } from '@valixa/core';
-import { defineAutoCodec, defineAutoForm } from '@valixa/auto';
-import { ValixaAutoForm, defineReactAutoRenderer } from '@valixa/react/auto';
-import { createMuiAutoAdapter, muiAdapter } from '@valixa/mui/auto';
+import { blueprint, collection, createValixa, nested } from 'valixa';
+import { defineAutoCodec, defineAutoForm } from 'valixa-auto';
+import { ValixaAutoForm, defineReactAutoRenderer } from 'valixa-react/auto';
+import { createMuiAutoAdapter, muiAdapter } from 'valixa-mui/auto';
 
 afterEach(cleanup);
 it('React/MUI Auto Form validates typed fields, awaits submission, presents errors and resets', async () => {

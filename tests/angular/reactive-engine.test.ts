@@ -5,9 +5,9 @@ import { TestBed } from '@angular/core/testing';
 import { afterEach, expect, it } from 'vitest';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { AngularForm, bindValixa, createValixa, ValixaFieldDirective } from '@valixa/angular';
-import { VALIXA_MATERIAL } from '@valixa/angular-material';
-import type { CollectionRow } from '@valixa/core';
+import { AngularForm, bindValixa, createValixa, ValixaFieldDirective } from 'valixa-angular';
+import { VALIXA_MATERIAL } from 'valixa-angular-material';
+import type { CollectionRow } from 'valixa';
 import { reactiveOptions, reactiveSchema } from '../../examples/shared/reactive.js';
 import type { AddressValues } from '../../examples/shared/reactive.js';
 

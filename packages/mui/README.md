@@ -1,12 +1,12 @@
-# @valixa/mui
+# valixa-mui
 
 Explicit prop adapters for Material UI 7.3 and Valixa React. React, MUI and Emotion
-are peers, never bundled. MUI X 8 is an optional peer used only by `@valixa/mui/x`.
+are peers, never bundled. MUI X 8 is an optional peer used only by `valixa-mui/x`.
 The base entry works without MUI X; the React package works without MUI.
 
 ```tsx
-import { useValixa } from '@valixa/react';
-import { useMuiField } from '@valixa/mui';
+import { useValixa } from 'valixa-react';
+import { useMuiField } from 'valixa-mui';
 import { TextField } from '@mui/material';
 
 function Login() {
@@ -85,8 +85,8 @@ release. Those variants change the value type and are not advertised by this API
 ### Optional DatePicker
 
 ```tsx
-import { useMuiDateField } from '@valixa/mui/x';
-import type { DateCodec } from '@valixa/mui/x';
+import { useMuiDateField } from 'valixa-mui/x';
+import type { DateCodec } from 'valixa-mui/x';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -125,7 +125,7 @@ validation triggers retain core semantics. Submit/manual remains the default.
 Spread adapter props after application props to keep the binding authoritative.
 For custom slot content, merge the returned slot props rather than replacing them;
 preserve Autocomplete's refs, adornments, events and IDs. Use `defineAdapter` from
-`@valixa/react` for a different component contract. No Controller wrapper required.
+`valixa-react` for a different component contract. No Controller wrapper required.
 
 ESM with declarations. This release declares narrow peer ranges for the tested
 major versions. Browser evidence is Chromium on Windows; no Firefox/WebKit/mobile,
@@ -133,5 +133,5 @@ full accessibility conformance, or other MUI major compatibility claim is made.
 
 ## Optional Auto Forms and DevTools
 
-Phase 6 adds @valixa/mui/auto with @valixa/react/auto. Install @valixa/auto explicitly when using these optional entries. Manual root exports remain independent. Dates require explicit codecs; custom renderer registries and group/row metadata are application-owned.
+Phase 6 adds valixa-mui/auto with valixa-react/auto. Install valixa-auto explicitly when using these optional entries. Manual root exports remain independent. Dates require explicit codecs; custom renderer registries and group/row metadata are application-owned.
 See docs/phase-6.md in the repository for examples, capabilities, privacy and compatibility limits.

@@ -1,8 +1,8 @@
 'use client';
 import { useEffect, useRef } from 'react';
-import type { ValixaInspection } from '@valixa/devtools';
-import { mountValixaDevtools } from '@valixa/devtools/panel';
-import type { DevtoolsPanel } from '@valixa/devtools/panel';
+import type { ValixaInspection } from 'valixa-devtools';
+import { mountValixaDevtools } from 'valixa-devtools/panel';
+import type { DevtoolsPanel } from 'valixa-devtools/panel';
 
 /** A borrowed view. Attachment/detachment remains the application's explicit choice. */
 export function ValixaDevtools({ inspections }: { readonly inspections: readonly ValixaInspection[] }) {

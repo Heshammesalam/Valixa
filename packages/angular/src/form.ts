@@ -1,8 +1,8 @@
-import type { CollectionName, FieldValue, ValuesPatch } from '@valixa/core';
+import type { CollectionName, FieldValue, ValuesPatch } from 'valixa';
 import { APP_ID, DestroyRef, Injectable, computed, inject, signal } from '@angular/core';
 import type { Signal } from '@angular/core';
-import { createValixa as createCore } from '@valixa/core';
-import type { Blueprint, BlueprintInput, DeepReadonly, FieldName, FieldState, FormOptions, FormState, InferValues, SubmitHandler, ValixaForm } from '@valixa/core';
+import { createValixa as createCore } from 'valixa';
+import type { Blueprint, BlueprintInput, DeepReadonly, FieldName, FieldState, FormOptions, FormState, InferValues, SubmitHandler, ValixaForm } from 'valixa';
 
 @Injectable({ providedIn: 'root' })
 export class ValixaIds { private next = 0; private readonly app = inject(APP_ID); create(): string { return `${this.app}-valixa-${++this.next}`; } }

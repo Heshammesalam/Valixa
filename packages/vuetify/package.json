@@ -1,5 +1,5 @@
 {
-  "name": "@valixa/vuetify",
+  "name": "valixa-vuetify",
   "version": "1.0.0-rc.1",
   "type": "module",
   "license": "MIT",
@@ -28,13 +28,13 @@
     "prepack": "pnpm build"
   },
   "dependencies": {
-    "@valixa/core": "workspace:^",
-    "@valixa/vue": "workspace:^"
+    "valixa": "workspace:^",
+    "valixa-vue": "workspace:^"
   },
   "peerDependencies": {
     "vue": "~3.5.0",
     "vuetify": "~3.13.0",
-    "@valixa/auto": "^1.0.0-rc.1"
+    "valixa-auto": "^1.0.0-rc.1"
   },
   "engines": {
     "node": ">=20"
@@ -45,12 +45,12 @@
     "tag": "next"
   },
   "peerDependenciesMeta": {
-    "@valixa/auto": {
+    "valixa-auto": {
       "optional": true
     }
   },
   "devDependencies": {
-    "@valixa/auto": "workspace:*"
+    "valixa-auto": "workspace:*"
   },
   "keywords": [
     "forms",

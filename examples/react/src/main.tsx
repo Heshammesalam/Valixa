@@ -7,12 +7,12 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
-import { blueprint } from '@valixa/core';
-import type { ValixaForm } from '@valixa/core';
-import { connectValixa, defineAdapter, nativeText, useValixa, useValixaAdapter, useValixaState } from '@valixa/react';
-import { useMuiField } from '@valixa/mui';
-import { useMuiDateField } from '@valixa/mui/x';
-import type { DateCodec } from '@valixa/mui/x';
+import { blueprint } from 'valixa';
+import type { ValixaForm } from 'valixa';
+import { connectValixa, defineAdapter, nativeText, useValixa, useValixaAdapter, useValixaState } from 'valixa-react';
+import { useMuiField } from 'valixa-mui';
+import { useMuiDateField } from 'valixa-mui/x';
+import type { DateCodec } from 'valixa-mui/x';
 
 const theme = createTheme({ palette: { primary: { main: '#315c51' }, background: { default: '#f4f6f3' } }, typography: { fontFamily: 'Inter, system-ui, sans-serif' }, shape: { borderRadius: 12 } });
 function delay(ms: number, signal?: AbortSignal) {

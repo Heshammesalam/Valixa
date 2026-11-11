@@ -1,5 +1,5 @@
 {
-  "name": "@valixa/angular",
+  "name": "valixa-angular",
   "version": "1.0.0-rc.1",
   "type": "module",
   "license": "MIT",
@@ -18,14 +18,14 @@
     "@angular/core": "~21.2.0",
     "@angular/common": "~21.2.0",
     "@angular/forms": "~21.2.0",
-    "@valixa/core": "^1.0.0-rc.1",
+    "valixa": "^1.0.0-rc.1",
     "rxjs": "^7.8.0"
   },
   "dependencies": {
     "tslib": "^2.8.1"
   },
   "devDependencies": {
-    "@valixa/core": "workspace:*"
+    "valixa": "workspace:*"
   },
   "publishConfig": {
     "access": "public",

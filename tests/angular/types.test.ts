@@ -1,9 +1,9 @@
 import '@angular/compiler';
 import { expect, expectTypeOf, it } from 'vitest';
 import type { DestroyRef } from '@angular/core';
-import { createValixa, numberCodec } from '@valixa/angular';
-import type { ValueCodec } from '@valixa/angular';
-import { dateOnlyCodec } from '@valixa/angular-material';
+import { createValixa, numberCodec } from 'valixa-angular';
+import type { ValueCodec } from 'valixa-angular';
+import { dateOnlyCodec } from 'valixa-angular-material';
 
 it('preserves field/value inference and rejects invalid names and codecs', () => {
   const destroyRef = { destroyed: false, onDestroy: () => () => {} } satisfies DestroyRef;

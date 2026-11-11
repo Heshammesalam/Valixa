@@ -1,7 +1,7 @@
 # TypeScript
 
 ```ts
-import { blueprint, createValixa, nested, collection } from '@valixa/core';
+import { blueprint, createValixa, nested, collection } from 'valixa';
 
 const schema = blueprint({
   user: nested({ email: ['', 'required | email'] }),

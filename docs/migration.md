@@ -20,3 +20,23 @@ Use only tested framework minor lines listed in installation.md. React/Vue optio
 generic/custom registry limitations and Angular multiple-autocomplete rejection remain
 documented capabilities. Future incompatible runtime/type changes require a major
 version, migration examples and independent consumer verification.
+
+## Approved public package names
+
+The first public release uses unscoped names, per the maintainer decision to avoid an npm organization. This is an intentional import-path change from the unpublished workspace names; function/type contracts are retained.
+
+| Previous workspace name | Public name |
+| --- | --- |
+| `@valixa/core` | `valixa` |
+| `@valixa/react` | `valixa-react` |
+| `@valixa/mui` | `valixa-mui` |
+| `@valixa/vue` | `valixa-vue` |
+| `@valixa/vuetify` | `valixa-vuetify` |
+| `@valixa/angular` | `valixa-angular` |
+| `@valixa/angular-material` | `valixa-angular-material` |
+| `@valixa/auto` | `valixa-auto` |
+| `@valixa/devtools` | `valixa-devtools` |
+| `@valixa/angular-auto` | `valixa-angular-auto` |
+| `@valixa/angular-devtools` | `valixa-angular-devtools` |
+
+Preserve subpaths: for example `@valixa/react/auto` becomes `valixa-react/auto`. Install related packages at the same candidate version. Declaration checks normalize only these module specifiers and their ng-packagr-generated local namespace aliases; they do not normalize selectors, field names or type changes.

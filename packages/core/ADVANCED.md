@@ -1,6 +1,6 @@
 # Advanced reactive forms
 
-These APIs extend the existing `@valixa/core` store. No framework or DOM is imported into core. Existing tuple/definition fields and atomic object/array values retain their meaning.
+These APIs extend the existing `valixa` store. No framework or DOM is imported into core. Existing tuple/definition fields and atomic object/array values retain their meaning.
 
 ## Dependencies and automatic validation
 
@@ -65,7 +65,7 @@ Visibility is application state: use `visible` in React conditional rendering, V
 ## Explicit nested schemas and paths
 
 ```ts
-import { createValixa, nested } from '@valixa/core';
+import { createValixa, nested } from 'valixa';
 const form = createValixa({
   user: nested({ name: ['', 'required'], email: ['', 'email'] }),
   profile: { initial: { city: 'Cairo' as string } }, // atomic
@@ -84,7 +84,7 @@ Nested path segments escape `.` as `\.` and `\` as `\\` (double these backslashe
 ## Dynamic collections
 
 ```ts
-import { collection, createValixa } from '@valixa/core';
+import { collection, createValixa } from 'valixa';
 const form = createValixa({ addresses: collection({ city: ['', 'required'], street: [''] }) });
 const addresses = form.array('addresses');
 addresses.append({ city: '', street: '' });
@@ -128,7 +128,7 @@ Full validation/submit runs field and form validation concurrently against froze
 English is the default. `locale`, `fallbackLocale`, locale-keyed `labels`, and existing rule `messages` configure presentation. `setLocale(locale)` rerenders structured built-in/custom-false/exception/timeout messages without revalidation. `state.errorDetails` retains `code`, `field`, `label`, `param` and `source`; literal custom/server/form-returned messages additionally retain `message`. String validators and server errors are application literals and are not implicitly translated. `messages` overrides rule catalogs in every locale.
 
 ```ts
-import { registerLocale } from '@valixa/core';
+import { registerLocale } from 'valixa';
 registerLocale('fr', { messages: { required: '{label} est obligatoire.' }, labels: { email: 'Courriel' } });
 const form = createValixa({ email: ['', 'required'] }, {
   locale: 'ar', fallbackLocale: 'en', labels: { ar: { email: 'البريد الإلكتروني' } }

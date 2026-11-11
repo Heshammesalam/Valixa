@@ -1,5 +1,5 @@
-import { escapePath } from '@valixa/core';
-import type { DependencyDiagnostics, FieldState, FormDescription, LifecycleEvent, ValixaForm } from '@valixa/core';
+import { escapePath } from 'valixa';
+import type { DependencyDiagnostics, FieldState, FormDescription, LifecycleEvent, ValixaForm } from 'valixa';
 
 export const REDACTED = '[redacted]';
 export interface DevtoolsOptions {

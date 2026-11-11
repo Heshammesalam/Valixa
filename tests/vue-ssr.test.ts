@@ -4,9 +4,9 @@ import { renderToString } from '@vue/server-renderer';
 import { createVuetify } from 'vuetify';
 import { VTextField } from 'vuetify/components';
 import { expect, it, vi } from 'vitest';
-import { createValixa } from '@valixa/core';
-import { useValixaField, useValixaState } from '@valixa/vue';
-import { useVuetifyField } from '@valixa/vuetify';
+import { createValixa } from 'valixa';
+import { useValixaField, useValixaState } from 'valixa-vue';
+import { useVuetifyField } from 'valixa-vuetify';
 
 it('SSR renders actual Vuetify bindings without subscribing external forms', async () => {
   const form = createValixa({ email: ['user@example.com', 'email'] });

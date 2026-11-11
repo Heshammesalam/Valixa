@@ -1,6 +1,6 @@
 # Architecture and phase boundaries
 
-`@valixa/core` is a synchronous external store with immutable snapshots and private mutable state. Core has no runtime dependencies, framework imports or DOM operations. Separate packages supply React/MUI, Vue/Vuetify and Angular/Material projections. Applications own UI composition and rendering.
+`valixa` is a synchronous external store with immutable snapshots and private mutable state. Core has no runtime dependencies, framework imports or DOM operations. Separate packages supply React/MUI, Vue/Vuetify and Angular/Material projections. Applications own UI composition and rendering.
 
 ## Modules
 
@@ -39,7 +39,7 @@ See the [Phase 5 audit](phase-5-audit.md), [advanced public guide](../packages/c
 
 ## Optional presentation and inspection
 
-`@valixa/auto` binds explicit, typed UI metadata to value-free blueprint descriptions.
+`valixa-auto` binds explicit, typed UI metadata to value-free blueprint descriptions.
 Plans are immutable and contain no live values. Optional React/Vue `/auto` entries
 render field-subscribed views; MUI/Vuetify registries own UI conversions. Dedicated
 Angular APF renderers use signals, DI and typed template contexts. Row views borrow
@@ -48,7 +48,7 @@ collection stores and reconcile by stable keys. Reset events clear widget drafts
 Core `observeEvents` emits value-free metadata at real scheduling, validation,
 submission and collection boundaries. No framework or DOM imports enter core.
 Descriptions are lazily cached; disabled instrumentation allocates no event objects.
-`@valixa/devtools` explicitly attaches readonly sanitized current inspection and a
+`valixa-devtools` explicitly attaches readonly sanitized current inspection and a
 bounded metadata timeline. Optional `/panel` supplies native DOM/SVG; framework
 bindings manage panel subscriptions. Attachment owners detach controllers. No global
 registry, transport or persistence is introduced. Root framework entries do not

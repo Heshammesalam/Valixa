@@ -1,6 +1,6 @@
 # Core public API
 
-All exports below come from `@valixa/core`. Core performs no rendering and imports
+All exports below come from `valixa`. Core performs no rendering and imports
 no framework or DOM APIs. Values must be acyclic plain objects, arrays or primitive
 data; class instances, dates, files, functions, and symbols are rejected as values.
 Use strings for dates until value normalization is implemented.
@@ -12,7 +12,7 @@ also accepts the same input. `createValixa(inputOrBlueprint, options?)` returns 
 `ValixaForm<InferValues<S>>`. Each instance owns independent values and state.
 
 ```ts
-import { blueprint, createValixa } from '@valixa/core';
+import { blueprint, createValixa } from 'valixa';
 
 const signup = blueprint({
   email: ['', 'required | email'],
@@ -132,7 +132,7 @@ and `validationEnabled`.
 Unchanged field snapshots retain identity. Notifications are synchronous, with
 `setValues` batching multiple writes; validation has separate pending/result
 transitions. Listeners must not throw. Unsubscribe on consumer teardown, then
-dispose the form when its owner is destroyed. React hooks live in `@valixa/react`;
+dispose the form when its owner is destroyed. React hooks live in `valixa-react`;
 the core package itself has no framework integration dependencies.
 
 ## Validation and cancellation
@@ -203,4 +203,4 @@ Other exported types: `Errors`, `FormState`, `FieldState`, `ValidationResult`,
 
 `form.observeEvents(listener, {types?})` returns an unsubscribe function. Immutable events contain per-form sequence/type and optional field/request/reason/index/to/key metadata; no values, messages or handler output. Observer exceptions are isolated. Actual cancelled timers/jobs emit cancellation; independent async work keeps actual resolution order. Invalid validation emits failed then completed; cancelled runs do not commit completion. Root disposal emits then clears observers. Use listeners for diagnostic reads, since reentrant writes can interleave ordinary operations. No event objects are allocated without an interested listener.
 
-Optional @valixa/auto and @valixa/devtools consume these contracts without introducing framework/DOM imports into core. See the repository Phase 6 guide for full event ordering and privacy.
+Optional valixa-auto and valixa-devtools consume these contracts without introducing framework/DOM imports into core. See the repository Phase 6 guide for full event ordering and privacy.

@@ -2,13 +2,13 @@
 
 Baseline: actual Phase 6 declarations captured before stabilization, with SHA-256
 per declaration file in release/api-baseline.json. `release:check` rebuilds and
-requires exact declaration equality, including exported subpath and APF types.
+requires declaration equality after canonicalizing only the approved module-name changes and generated namespace aliases, including exported subpath and APF types.
 Existing JavaScript, negative TypeScript fixtures, strict Angular templates and
 installed consumers remain independent behavioral checks.
 
-No intentional runtime or TypeScript breaking change was introduced during Phase 7.
+The approved publication-name change is an intentional import-path break from unpublished workspace names. No runtime or TypeScript signature breaking change was introduced during Phase 7.
 Package version/metadata/ranges and build/release tooling changed; public declarations
-retain their original hashes. This does not claim compatibility with arbitrary
+retain their baseline hashes after module-specifier canonicalization. This does not claim compatibility with arbitrary
 unstated framework majors or with code that relied on mutable snapshots/internal paths.
 
 | Package group | Contract retained |

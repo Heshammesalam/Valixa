@@ -58,7 +58,7 @@ external prerequisites or exact immutable artifacts have been verified.
    Prefer a separate reviewer when the team supports one. Verify configuration in UI.
 4. Authenticate to npm through its normal web login flow on the maintainer's device;
    never paste tokens/passwords into chat, scripts, commits or CI secrets. Verify rights
-   under **@valixa**; unauthenticated package-name 404 does not reserve a scope.
+   as public unscoped packages from the maintainer account; 404 name lookups are not a name reservation.
 5. Configure npm trusted publishing for each approved package using owner
    **Heshammesalam**, repository **Valixa**, workflow **release.yml**, environment
    **npm-release**. Verify the initial-package bootstrap path with npm's current UI.
@@ -79,7 +79,7 @@ The verify job runs all gates before the protected publish job can request appro
 The publish helper executes, in dependency order, the equivalent of:
 
 ```sh
-npm publish artifacts/release/valixa-core-1.0.0-rc.1.tgz --ignore-scripts --access public --tag next --provenance --registry https://registry.npmjs.org/
+npm publish artifacts/release/valixa-1.0.0-rc.1.tgz --ignore-scripts --access public --tag next --provenance --registry https://registry.npmjs.org/
 ```
 
 It checks exact checksums and registry preflight first, then verifies each registry

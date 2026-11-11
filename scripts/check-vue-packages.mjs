@@ -1,3 +1,4 @@
+import { packageName } from './release-lib.mjs';
 import assert from 'node:assert/strict';
 import { attachAdvancedTypes, verifyAdvancedConsumer } from './advanced-consumer.mjs';
 import { execFileSync } from 'node:child_process';
@@ -14,16 +15,16 @@ const run = (args, cwd = root) => execFileSync(process.execPath, [pnpm, ...args]
 const version = name => JSON.parse(readFileSync(require.resolve(`${name}/package.json`), 'utf8')).version;
 const artifacts = resolve(root, 'artifacts/packages'); mkdirSync(artifacts, { recursive: true });
 const tarballs = Object.fromEntries(['core', 'vue', 'vuetify'].map(name => {
-  run(['--filter', `@valixa/${name}`, 'pack', '--pack-destination', artifacts]);
+  run(['--filter', packageName(name), 'pack', '--pack-destination', artifacts]);
   const metadata = JSON.parse(readFileSync(join(root, `packages/${name}/package.json`), 'utf8'));
-  return [`@valixa/${name}`, `file:${join(artifacts, `valixa-${name}-${metadata.version}.tgz`).replaceAll('\\', '/')}`];
+  return [packageName(name), `file:${join(artifacts, `${metadata.name}-${metadata.version}.tgz`).replaceAll('\\', '/')}`];
 }));
 const exampleRequire = createRequire(join(root, 'examples/vue-vuetify/package.json'));
 const viteRequire = createRequire(exampleRequire.resolve('vite'));
 const { rollup } = await import(pathToFileURL(viteRequire.resolve('rollup')).href);
 for (const variant of ['vue', 'vuetify']) {
   const directory = mkdtempSync(join(tmpdir(), `valixa-${variant}-`));
-  const selected = variant === 'vue' ? ['@valixa/core', '@valixa/vue'] : Object.keys(tarballs);
+  const selected = variant === 'vue' ? ['valixa', 'valixa-vue'] : Object.keys(tarballs);
   const dependencies = Object.fromEntries(selected.map(name => [name, tarballs[name]]));
   dependencies.vue = version('vue'); dependencies['@vue/server-renderer'] = version('@vue/server-renderer');
   if (variant === 'vuetify') dependencies.vuetify = version('vuetify');
@@ -47,12 +48,12 @@ for (const variant of ['vue', 'vuetify']) {
     return next(url, context);
   }`);
   writeFileSync(join(directory, 'register.mjs'), `import {register} from 'node:module'; register(new URL('./styles.mjs', import.meta.url));`);
-  const uiImports = variant === 'vue' ? '' : `import {createVuetify} from 'vuetify'; import {VTextField} from 'vuetify/components'; import {useVuetifyField} from '@valixa/vuetify';`;
+  const uiImports = variant === 'vue' ? '' : `import {createVuetify} from 'vuetify'; import {VTextField} from 'vuetify/components'; import {useVuetifyField} from 'valixa-vuetify';`;
   const uiRender = variant === 'vue' ? `return () => h('input', {value: field.state.value.value});`
     : `const props = useVuetifyField(form, 'email', {kind:'text'}); return () => h(VTextField, {...props.value, label:'Email'});`;
   writeFileSync(join(directory, 'smoke.mjs'), `
     import assert from 'node:assert/strict'; import {createSSRApp, effectScope, h} from 'vue'; import {renderToString} from '@vue/server-renderer';
-    import {useValixa, useValixaField} from '@valixa/vue'; ${uiImports}
+    import {useValixa, useValixaField} from 'valixa-vue'; ${uiImports}
     const scope = effectScope(); const owned = scope.run(() => useValixa({email:['', 'required | email']}));
     assert.equal((await owned.validate()).valid, false); owned.setValue('email', 'user@example.com');
     assert.equal((await owned.submit(data => data.email)).status, 'success'); scope.stop();
@@ -68,8 +69,8 @@ for (const variant of ['vue', 'vuetify']) {
   execFileSync(process.execPath, ['--import', './register.mjs', 'smoke.mjs'], { cwd: directory, stdio: 'inherit' });
   verifyAdvancedConsumer(directory);
   writeFileSync(join(directory, 'consumer.ts'), `
-    import {effectScope} from 'vue'; import {useValixa, useValixaField, defineValixaAdapter, useValixaAdapter} from '@valixa/vue';
-    ${variant === 'vuetify' ? `import {useVuetifyField, fileMetadata, useVuetifyFileField} from '@valixa/vuetify'; import type {FileMetadata} from '@valixa/vuetify';` : ''}
+    import {effectScope} from 'vue'; import {useValixa, useValixaField, defineValixaAdapter, useValixaAdapter} from 'valixa-vue';
+    ${variant === 'vuetify' ? `import {useVuetifyField, fileMetadata, useVuetifyFileField} from 'valixa-vuetify'; import type {FileMetadata} from 'valixa-vuetify';` : ''}
     effectScope().run(() => {
       const form = useValixa({email:[''], age:[18], agree:[false]}); const field = useValixaField(form, 'email'); const email: string = field.state.value.value;
       // @ts-expect-error unknown field
@@ -90,8 +91,8 @@ for (const variant of ['vue', 'vuetify']) {
   attachAdvancedTypes(directory, 'consumer.ts', `effectScope().run(()=>{const field=useValixaField(advancedForm,'user.age');const value:number=field.state.value.value;${variant === 'vue' ? '' : "useVuetifyField(advancedForm,'user.age',{kind:'number',emptyValue:0});"}});`);
   execFileSync(process.execPath, [require.resolve('typescript/bin/tsc'), '--strict', '--exactOptionalPropertyTypes', '--noEmit', '--skipLibCheck', '--module', 'NodeNext', '--moduleResolution', 'NodeNext', '--target', 'ES2022', 'consumer.ts'], { cwd: directory, stdio: 'inherit' });
   const exportName = variant === 'vue' ? 'useValixa' : 'useVuetifyField';
-  writeFileSync(join(directory, 'tree.mjs'), `export {${exportName}} from './node_modules/@valixa/${variant}/dist/index.js';`);
-  const bundle = await rollup({ input: join(directory, 'tree.mjs'), external: ['vue', '@valixa/core', '@valixa/vue'] });
+  writeFileSync(join(directory, 'tree.mjs'), `export {${exportName}} from './node_modules/${packageName(variant)}/dist/index.js';`);
+  const bundle = await rollup({ input: join(directory, 'tree.mjs'), external: ['vue', 'valixa', 'valixa-vue'] });
   const { output } = await bundle.generate({ format: 'es' }); await bundle.close();
   assert(output[0].code.includes(exportName));
   assert(!output[0].code.includes(variant === 'vue' ? 'No Valixa form was provided' : 'VFileInput must emit'));

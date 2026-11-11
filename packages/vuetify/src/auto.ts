@@ -1,8 +1,8 @@
 import { h } from 'vue';
 import { VAutocomplete, VCheckbox, VRadio, VRadioGroup, VSelect, VSwitch, VTextarea, VTextField } from 'vuetify/components';
-import { choiceValue, selectedOptions } from '@valixa/auto';
-import type { AutoCodec } from '@valixa/auto';
-import type { VueAutoAdapter, VueAutoRenderProps } from '@valixa/vue/auto';
+import { choiceValue, selectedOptions } from 'valixa-auto';
+import type { AutoCodec } from 'valixa-auto';
+import type { VueAutoAdapter, VueAutoRenderProps } from 'valixa-vue/auto';
 import type { VNodeChild } from 'vue';
 
 function renderWidget({ field, config, codec }: VueAutoRenderProps): VNodeChild {

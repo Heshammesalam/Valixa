@@ -6,7 +6,7 @@ import { dirname, join, relative } from 'node:path';
 export function verifyAdvancedConsumer(directory) {
   writeFileSync(join(directory, 'advanced-smoke.mjs'), `
     import assert from 'node:assert/strict';
-    import {createValixa,nested,collection} from '@valixa/core';
+    import {createValixa,nested,collection} from 'valixa';
     const form=createValixa({a:['old'],b:['mismatch','same:a'],other:['','required'],user:nested({name:['','required']}),rows:collection({city:['','required']})});
     await form.validate();const unrelated=form.getFieldState('other');form.setValue('a','next');assert.equal(form.getFieldState('other'),unrelated);assert.deepEqual(form.dependencies.dependencies.b,['a']);
     form.setValue('b','next');form.setValue('other','ok');form.setValue('user.name','Ada');
@@ -18,7 +18,7 @@ export function verifyAdvancedConsumer(directory) {
   `);
   execFileSync(process.execPath, ['advanced-smoke.mjs'], { cwd: directory, stdio: 'inherit' });
   writeFileSync(join(directory, 'advanced-types.ts'), `
-    import {createValixa,nested,collection} from '@valixa/core';
+    import {createValixa,nested,collection} from 'valixa';
     export const advancedForm=createValixa({user:nested({age:[0]}),rows:collection({city:['']})});
     advancedForm.setValue('user.age',1);advancedForm.array('rows').append({city:'Cairo'});
     if(false){

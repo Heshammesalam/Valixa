@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { nativeText, useValixa, useValixaAdapter, useValixaState } from '@valixa/vue';
+import { nativeText, useValixa, useValixaAdapter, useValixaState } from 'valixa-vue';
 import { delay } from './api.js';
 const form = useValixa({ email: ['', 'required | email'], password: ['', 'required | min:8'] });
 const email = useValixaAdapter(form, 'email', nativeText), password = useValixaAdapter(form, 'password', nativeText);

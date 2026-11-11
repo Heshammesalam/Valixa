@@ -6,7 +6,7 @@ export const config = JSON.parse(readFileSync(join(root, 'release/config.json'),
 export const packages = readdirSync(join(root, 'packages'), { withFileTypes: true }).filter(entry => entry.isDirectory()).map(entry => {
   const directory = join(root, 'packages', entry.name);
   const manifest = JSON.parse(readFileSync(join(directory, 'package.json'), 'utf8'));
-  return { directory, folder: entry.name, manifest, packedDirectory: manifest.name.startsWith('@valixa/angular') ? join(directory, 'dist') : directory };
+  return { directory, folder: entry.name, manifest, packedDirectory: entry.name.startsWith('angular') ? join(directory, 'dist') : directory };
 }).filter(item => !item.manifest.private);
 export function publicationOrder() {
   const remaining = new Map(packages.map(item => [item.manifest.name, item])), result = [];
@@ -17,3 +17,5 @@ export function publicationOrder() {
   }
   return result;
 }
+
+export const packageName = folder => folder === 'core' ? 'valixa' : `valixa-${folder}`;

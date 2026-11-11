@@ -8,8 +8,8 @@ import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
 import { MatDatepickerInput } from '@angular/material/datepicker';
 import { DateAdapter } from '@angular/material/core';
-import { VALIXA_CONTROL, ValixaFieldDirective, nativeControlAdapter, valueAccessorAdapter } from '@valixa/angular';
-import type { ControlStatus, ValixaControlAdapter } from '@valixa/angular';
+import { VALIXA_CONTROL, ValixaFieldDirective, nativeControlAdapter, valueAccessorAdapter } from 'valixa-angular';
+import type { ControlStatus, ValixaControlAdapter } from 'valixa-angular';
 
 /** Actual Material selectors and DI tokens define supported hosts; no component-name guessing. */
 @Directive({

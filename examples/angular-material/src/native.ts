@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { createValixa, ValixaFieldDirective } from '@valixa/angular';
+import { createValixa, ValixaFieldDirective } from 'valixa-angular';
 import { delay } from './api.js';
 @Component({ selector: 'native-login', standalone: true, imports: [ValixaFieldDirective], template: `
   <form novalidate (submit)="onSubmit($event)"><h2>Native Angular login</h2><p class="intro">Your HTML, with signal-based form behavior.</p>

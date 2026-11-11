@@ -1,4 +1,4 @@
-import { blueprint } from '@valixa/core';
+import { blueprint } from 'valixa';
 import { delay } from './api.js';
 export const registration = blueprint({ name: ['', 'required | min:2'], email: ['', 'required | email'],
   username: { initial: '', rules: 'required | min:3', validate: async (value: string, { signal }) => {

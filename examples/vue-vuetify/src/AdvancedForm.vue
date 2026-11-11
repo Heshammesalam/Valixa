@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { VAutocomplete, VCombobox, VSelect, VSwitch, VRadioGroup, VRadio, VFileInput, VTextField, VTextarea, VBtn, VAlert } from 'vuetify/components';
-import { defineValixaAdapter, useValixa, useValixaAdapter, useValixaState } from '@valixa/vue';
-import { fileMetadata, useVuetifyField, useVuetifyFileField } from '@valixa/vuetify';
-import type { FileMetadata } from '@valixa/vuetify';
+import { defineValixaAdapter, useValixa, useValixaAdapter, useValixaState } from 'valixa-vue';
+import { fileMetadata, useVuetifyField, useVuetifyFileField } from 'valixa-vuetify';
+import type { FileMetadata } from 'valixa-vuetify';
 import SeatCounter from './SeatCounter.vue';
 import { delay } from './api.js';
 type City = { id: number; title: string };

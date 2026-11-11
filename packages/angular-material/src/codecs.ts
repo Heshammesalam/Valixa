@@ -1,4 +1,4 @@
-import type { ValueCodec } from '@valixa/angular';
+import type { ValueCodec } from 'valixa-angular';
 
 /** NativeDateAdapter civil date codec. 'invalid' must be rejected by a blueprint validator. */
 export const dateOnlyCodec: ValueCodec<string | null, Date | null> = Object.freeze({

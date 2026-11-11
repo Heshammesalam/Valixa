@@ -1,5 +1,5 @@
 {
-  "name": "@valixa/core",
+  "name": "valixa",
   "version": "1.0.0-rc.1",
   "description": "Headless, framework-independent form state and validation",
   "type": "module",

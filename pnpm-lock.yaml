@@ -87,39 +87,6 @@ importers:
       '@types/react-dom':
         specifier: ^19.2.0
         version: 19.3.0(@types/react@19.3.0)
-      '@valixa/angular':
-        specifier: workspace:*
-        version: link:packages/angular
-      '@valixa/angular-auto':
-        specifier: workspace:*
-        version: link:packages/angular-auto
-      '@valixa/angular-devtools':
-        specifier: workspace:*
-        version: link:packages/angular-devtools
-      '@valixa/angular-material':
-        specifier: workspace:*
-        version: link:packages/angular-material
-      '@valixa/auto':
-        specifier: workspace:*
-        version: link:packages/auto
-      '@valixa/core':
-        specifier: workspace:*
-        version: link:packages/core
-      '@valixa/devtools':
-        specifier: workspace:*
-        version: link:packages/devtools
-      '@valixa/mui':
-        specifier: workspace:*
-        version: link:packages/mui
-      '@valixa/react':
-        specifier: workspace:*
-        version: link:packages/react
-      '@valixa/vue':
-        specifier: workspace:*
-        version: link:packages/vue
-      '@valixa/vuetify':
-        specifier: workspace:*
-        version: link:packages/vuetify
       '@vitejs/plugin-vue':
         specifier: ^6.0.10
         version: 6.0.10(vite@8.3.6(@types/node@24.19.2)(esbuild@0.28.2)(less@4.9.1)(sass@1.97.3)(tsx@4.23.15))(vue@3.5.45(typescript@5.9.3))
@@ -156,6 +123,39 @@ importers:
       typescript:
         specifier: ~5.9.3
         version: 5.9.3
+      valixa:
+        specifier: workspace:*
+        version: link:packages/core
+      valixa-angular:
+        specifier: workspace:*
+        version: link:packages/angular
+      valixa-angular-auto:
+        specifier: workspace:*
+        version: link:packages/angular-auto
+      valixa-angular-devtools:
+        specifier: workspace:*
+        version: link:packages/angular-devtools
+      valixa-angular-material:
+        specifier: workspace:*
+        version: link:packages/angular-material
+      valixa-auto:
+        specifier: workspace:*
+        version: link:packages/auto
+      valixa-devtools:
+        specifier: workspace:*
+        version: link:packages/devtools
+      valixa-mui:
+        specifier: workspace:*
+        version: link:packages/mui
+      valixa-react:
+        specifier: workspace:*
+        version: link:packages/react
+      valixa-vue:
+        specifier: workspace:*
+        version: link:packages/vue
+      valixa-vuetify:
+        specifier: workspace:*
+        version: link:packages/vuetify
       vitest:
         specifier: ^4.0.0
         version: 4.1.12(@types/node@24.19.2)(jsdom@26.1.0)(vite@8.3.6(@types/node@24.19.2)(esbuild@0.28.2)(less@4.9.1)(sass@1.97.3)(tsx@4.23.15))
@@ -198,33 +198,33 @@ importers:
       '@angular/ssr':
         specifier: ~21.2.0
         version: 21.2.29(d20d3fd9021528461cef00152c3365b0)
-      '@valixa/angular':
-        specifier: workspace:*
-        version: link:../../packages/angular
-      '@valixa/angular-auto':
-        specifier: workspace:*
-        version: link:../../packages/angular-auto
-      '@valixa/angular-devtools':
-        specifier: workspace:*
-        version: link:../../packages/angular-devtools
-      '@valixa/angular-material':
-        specifier: workspace:*
-        version: link:../../packages/angular-material
-      '@valixa/auto':
-        specifier: workspace:*
-        version: link:../../packages/auto
-      '@valixa/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-      '@valixa/devtools':
-        specifier: workspace:*
-        version: link:../../packages/devtools
       rxjs:
         specifier: ~7.8.0
         version: 7.8.2
       tslib:
         specifier: ^2.8.1
         version: 2.9.1
+      valixa:
+        specifier: workspace:*
+        version: link:../../packages/core
+      valixa-angular:
+        specifier: workspace:*
+        version: link:../../packages/angular
+      valixa-angular-auto:
+        specifier: workspace:*
+        version: link:../../packages/angular-auto
+      valixa-angular-devtools:
+        specifier: workspace:*
+        version: link:../../packages/angular-devtools
+      valixa-angular-material:
+        specifier: workspace:*
+        version: link:../../packages/angular-material
+      valixa-auto:
+        specifier: workspace:*
+        version: link:../../packages/auto
+      valixa-devtools:
+        specifier: workspace:*
+        version: link:../../packages/devtools
     devDependencies:
       '@angular/build':
         specifier: ~21.2.0
@@ -238,7 +238,7 @@ importers:
 
   examples/core:
     dependencies:
-      '@valixa/core':
+      valixa:
         specifier: workspace:*
         version: link:../../packages/core
 
@@ -256,21 +256,6 @@ importers:
       '@mui/x-date-pickers':
         specifier: ~8.29.0
         version: 8.29.5(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.2.9))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.2.9))(@types/react@19.3.0)(react@19.2.9))(@mui/material@7.3.11(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.2.9))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.2.9))(@types/react@19.3.0)(react@19.2.9))(@types/react@19.3.0)(react-dom@19.2.9(react@19.2.9))(react@19.2.9))(@mui/system@7.3.11(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.2.9))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.2.9))(@types/react@19.3.0)(react@19.2.9))(@types/react@19.3.0)(react@19.2.9))(@types/react@19.3.0)(dayjs@1.11.23)(react-dom@19.2.9(react@19.2.9))(react@19.2.9)
-      '@valixa/auto':
-        specifier: workspace:*
-        version: link:../../packages/auto
-      '@valixa/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-      '@valixa/devtools':
-        specifier: workspace:*
-        version: link:../../packages/devtools
-      '@valixa/mui':
-        specifier: workspace:*
-        version: link:../../packages/mui
-      '@valixa/react':
-        specifier: workspace:*
-        version: link:../../packages/react
       dayjs:
         specifier: ^1.11.13
         version: 1.11.23
@@ -280,6 +265,21 @@ importers:
       react-dom:
         specifier: ~19.2.0
         version: 19.2.9(react@19.2.9)
+      valixa:
+        specifier: workspace:*
+        version: link:../../packages/core
+      valixa-auto:
+        specifier: workspace:*
+        version: link:../../packages/auto
+      valixa-devtools:
+        specifier: workspace:*
+        version: link:../../packages/devtools
+      valixa-mui:
+        specifier: workspace:*
+        version: link:../../packages/mui
+      valixa-react:
+        specifier: workspace:*
+        version: link:../../packages/react
     devDependencies:
       vite:
         specifier: ^6.4.0
@@ -287,19 +287,19 @@ importers:
 
   examples/vue-vuetify:
     dependencies:
-      '@valixa/auto':
-        specifier: workspace:*
-        version: link:../../packages/auto
-      '@valixa/core':
+      valixa:
         specifier: workspace:*
         version: link:../../packages/core
-      '@valixa/devtools':
+      valixa-auto:
+        specifier: workspace:*
+        version: link:../../packages/auto
+      valixa-devtools:
         specifier: workspace:*
         version: link:../../packages/devtools
-      '@valixa/vue':
+      valixa-vue:
         specifier: workspace:*
         version: link:../../packages/vue
-      '@valixa/vuetify':
+      valixa-vuetify:
         specifier: workspace:*
         version: link:../../packages/vuetify
       vue:
@@ -337,7 +337,7 @@ importers:
         specifier: ^2.8.1
         version: 2.9.1
     devDependencies:
-      '@valixa/core':
+      valixa:
         specifier: workspace:*
         version: link:../core
 
@@ -365,18 +365,18 @@ importers:
         specifier: ^2.8.1
         version: 2.9.1
     devDependencies:
-      '@valixa/angular':
-        specifier: workspace:*
-        version: link:../angular
-      '@valixa/angular-material':
-        specifier: workspace:*
-        version: link:../angular-material
-      '@valixa/auto':
-        specifier: workspace:*
-        version: link:../auto
-      '@valixa/core':
+      valixa:
         specifier: workspace:*
         version: link:../core
+      valixa-angular:
+        specifier: workspace:*
+        version: link:../angular
+      valixa-angular-material:
+        specifier: workspace:*
+        version: link:../angular-material
+      valixa-auto:
+        specifier: workspace:*
+        version: link:../auto
 
   packages/angular-devtools:
     dependencies:
@@ -393,7 +393,7 @@ importers:
         specifier: ^2.8.1
         version: 2.9.1
     devDependencies:
-      '@valixa/devtools':
+      valixa-devtools:
         specifier: workspace:*
         version: link:../devtools
 
@@ -421,16 +421,16 @@ importers:
         specifier: ^2.8.1
         version: 2.9.1
     devDependencies:
-      '@valixa/angular':
-        specifier: workspace:*
-        version: link:../angular
-      '@valixa/core':
+      valixa:
         specifier: workspace:*
         version: link:../core
+      valixa-angular:
+        specifier: workspace:*
+        version: link:../angular
 
   packages/auto:
     dependencies:
-      '@valixa/core':
+      valixa:
         specifier: workspace:^
         version: link:../core
 
@@ -438,7 +438,7 @@ importers:
 
   packages/devtools:
     dependencies:
-      '@valixa/core':
+      valixa:
         specifier: workspace:^
         version: link:../core
 
@@ -456,58 +456,58 @@ importers:
       '@mui/x-date-pickers':
         specifier: ^8.29.0
         version: 8.29.5(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.2.9))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.2.9))(@types/react@19.3.0)(react@19.2.9))(@mui/material@7.3.11(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.2.9))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.2.9))(@types/react@19.3.0)(react@19.2.9))(@types/react@19.3.0)(react-dom@19.2.9(react@19.2.9))(react@19.2.9))(@mui/system@7.3.11(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.2.9))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.3.0)(react@19.2.9))(@types/react@19.3.0)(react@19.2.9))(@types/react@19.3.0)(react@19.2.9))(@types/react@19.3.0)(dayjs@1.11.23)(react-dom@19.2.9(react@19.2.9))(react@19.2.9)
-      '@valixa/core':
-        specifier: workspace:^
-        version: link:../core
-      '@valixa/react':
-        specifier: workspace:^
-        version: link:../react
       react:
         specifier: ^19.2.0
         version: 19.2.9
+      valixa:
+        specifier: workspace:^
+        version: link:../core
+      valixa-react:
+        specifier: workspace:^
+        version: link:../react
     devDependencies:
-      '@valixa/auto':
+      valixa-auto:
         specifier: workspace:*
         version: link:../auto
 
   packages/react:
     dependencies:
-      '@valixa/core':
-        specifier: workspace:^
-        version: link:../core
       react:
         specifier: ^19.2.0
         version: 19.2.9
+      valixa:
+        specifier: workspace:^
+        version: link:../core
     devDependencies:
-      '@valixa/auto':
+      valixa-auto:
         specifier: workspace:*
         version: link:../auto
-      '@valixa/devtools':
+      valixa-devtools:
         specifier: workspace:*
         version: link:../devtools
 
   packages/vue:
     dependencies:
-      '@valixa/core':
+      valixa:
         specifier: workspace:^
         version: link:../core
       vue:
         specifier: ~3.5.0
         version: 3.5.45(typescript@5.9.3)
     devDependencies:
-      '@valixa/auto':
+      valixa-auto:
         specifier: workspace:*
         version: link:../auto
-      '@valixa/devtools':
+      valixa-devtools:
         specifier: workspace:*
         version: link:../devtools
 
   packages/vuetify:
     dependencies:
-      '@valixa/core':
+      valixa:
         specifier: workspace:^
         version: link:../core
-      '@valixa/vue':
+      valixa-vue:
         specifier: workspace:^
         version: link:../vue
       vue:
@@ -517,7 +517,7 @@ importers:
         specifier: ~3.13.0
         version: 3.13.7(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3))
     devDependencies:
-      '@valixa/auto':
+      valixa-auto:
         specifier: workspace:*
         version: link:../auto
 

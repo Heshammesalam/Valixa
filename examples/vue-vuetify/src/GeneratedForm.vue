@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { h, onScopeDispose, ref } from 'vue';
-import { useValixa } from '@valixa/vue';
-import { ValixaAutoForm, defineVueAutoRenderer } from '@valixa/vue/auto';
-import { createVuetifyAutoAdapter } from '@valixa/vuetify/auto';
-import { attachValixaDevtools } from '@valixa/devtools';
-import { ValixaDevtools } from '@valixa/vue/devtools';
+import { useValixa } from 'valixa-vue';
+import { ValixaAutoForm, defineVueAutoRenderer } from 'valixa-vue/auto';
+import { createVuetifyAutoAdapter } from 'valixa-vuetify/auto';
+import { attachValixaDevtools } from 'valixa-devtools';
+import { ValixaDevtools } from 'valixa-vue/devtools';
 import { generatedSchema, generatedOptions, generatedUI, stringDate, saveGenerated } from '../../shared/generated.js';
 const form = useValixa(generatedSchema, generatedOptions), result = ref('');
 const adapter = createVuetifyAutoAdapter({ codecs: { civilDate: stringDate }, custom: { counter: defineVueAutoRenderer<number>(({ field, config }) => h('button', { type: 'button', 'aria-label': 'Add seat', disabled: field.state.value.disabled || field.state.value.readonly, onClick: () => field.setValue(field.state.value.value + 1) }, `${config.label}: ${field.state.value.value}`)) } });

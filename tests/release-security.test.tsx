@@ -6,14 +6,14 @@ import { renderToString } from 'react-dom/server';
 import { createSSRApp, defineComponent, h, nextTick } from 'vue';
 import { renderToString as renderVue } from '@vue/server-renderer';
 import { expect, it } from 'vitest';
-import { blueprint, createValixa, nested, parsePath } from '@valixa/core';
-import { defineAutoForm } from '@valixa/auto';
-import { useValixaField } from '@valixa/react';
-import { useValixaField as vueField } from '@valixa/vue';
-import { ValixaAutoForm } from '@valixa/react/auto';
-import { muiAdapter } from '@valixa/mui/auto';
-import { attachValixaDevtools } from '@valixa/devtools';
-import { mountValixaDevtools } from '@valixa/devtools/panel';
+import { blueprint, createValixa, nested, parsePath } from 'valixa';
+import { defineAutoForm } from 'valixa-auto';
+import { useValixaField } from 'valixa-react';
+import { useValixaField as vueField } from 'valixa-vue';
+import { ValixaAutoForm } from 'valixa-react/auto';
+import { muiAdapter } from 'valixa-mui/auto';
+import { attachValixaDevtools } from 'valixa-devtools';
+import { mountValixaDevtools } from 'valixa-devtools/panel';
 
 it('rejects prototype paths and invalid patches atomically', () => {
   const form = createValixa({ user: nested({ name: ['Ada'] }) }), snapshot = form.state;

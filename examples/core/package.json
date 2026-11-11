@@ -2,5 +2,5 @@
   "name": "@valixa/example-core",
   "private": true,
   "type": "module",
-  "dependencies": { "@valixa/core": "workspace:*" }
+  "dependencies": { "valixa": "workspace:*" }
 }

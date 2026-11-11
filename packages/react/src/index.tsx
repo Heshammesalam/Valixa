@@ -1,10 +1,10 @@
 'use client';
-import type { FieldValue } from '@valixa/core';
+import type { FieldValue } from 'valixa';
 
 import { createContext, createElement, useCallback, useContext, useEffect, useId, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 import type { ComponentType, ReactNode } from 'react';
-import { createValixa } from '@valixa/core';
-import type { Blueprint, BlueprintInput, FieldName, FieldState, FormOptions, FormState, InferValues, ValixaForm } from '@valixa/core';
+import { createValixa } from 'valixa';
+import type { Blueprint, BlueprintInput, FieldName, FieldState, FormOptions, FormState, InferValues, ValixaForm } from 'valixa';
 
 /** Owns one form per mount. Later definition/options identities are ignored. */
 export function useValixa<const S extends BlueprintInput>(input: S | Blueprint<S>, options?: FormOptions<InferValues<S>>): ValixaForm<InferValues<S>> {

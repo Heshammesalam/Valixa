@@ -1,8 +1,8 @@
-import type { FieldValue } from '@valixa/core';
+import type { FieldValue } from 'valixa';
 import { computed, onScopeDispose, shallowReadonly, shallowRef, watch } from 'vue';
 import type { ComputedRef, Ref } from 'vue';
-import { useValixaField } from '@valixa/vue';
-import type { DeepReadonly, FieldName, ValixaForm } from '@valixa/core';
+import { useValixaField } from 'valixa-vue';
+import type { DeepReadonly, FieldName, ValixaForm } from 'valixa';
 import type { FieldOptions, VuetifyCommonProps } from './index.js';
 
 export interface FileMetadata { readonly name: string; readonly size: number; readonly type: string; readonly lastModified: number }

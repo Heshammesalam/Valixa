@@ -12,8 +12,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { afterEach, describe, expect, it } from 'vitest';
-import { createValixa, numberCodec, provideValixaControl, ValixaFieldDirective } from '@valixa/angular';
-import { VALIXA_MATERIAL, autocompleteCodec, dateOnlyCodec } from '@valixa/angular-material';
+import { createValixa, numberCodec, provideValixaControl, ValixaFieldDirective } from 'valixa-angular';
+import { VALIXA_MATERIAL, autocompleteCodec, dateOnlyCodec } from 'valixa-angular-material';
 
 afterEach(() => TestBed.resetTestingModule());
 type City = { id: number; title: string };

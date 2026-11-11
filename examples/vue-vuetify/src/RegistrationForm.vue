@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { VSelect, VCheckbox, VBtn, VAlert } from 'vuetify/components';
-import { useValixa, useValixaState } from '@valixa/vue';
-import { useVuetifyField } from '@valixa/vuetify';
+import { useValixa, useValixaState } from 'valixa-vue';
+import { useVuetifyField } from 'valixa-vuetify';
 import { registration } from './registration.js';
 import RegistrationText from './RegistrationText.vue';
 import { delay } from './api.js';

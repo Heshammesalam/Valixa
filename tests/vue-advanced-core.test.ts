@@ -5,10 +5,10 @@ import { mount, flushPromises } from '@vue/test-utils';
 import { createVuetify } from 'vuetify';
 import { VTextField } from 'vuetify/components';
 import { expect, it } from 'vitest';
-import { createValixa, nested } from '@valixa/core';
-import type { CollectionRow } from '@valixa/core';
-import { nativeText, useValixaAdapter, useValixaField, useValixaState } from '@valixa/vue';
-import { useVuetifyField } from '@valixa/vuetify';
+import { createValixa, nested } from 'valixa';
+import type { CollectionRow } from 'valixa';
+import { nativeText, useValixaAdapter, useValixaField, useValixaState } from 'valixa-vue';
+import { useVuetifyField } from 'valixa-vuetify';
 import { reactiveOptions, reactiveSchema } from '../examples/shared/reactive.js';
 import type { AddressValues } from '../examples/shared/reactive.js';
 

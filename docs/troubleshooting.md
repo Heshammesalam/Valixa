@@ -3,7 +3,7 @@
 | Symptom | Check |
 | --- | --- |
 | Package not found on npm | Candidate preparation is not publication. Check the readiness report/registry or install verified local tarballs. |
-| Cannot resolve /auto or /devtools peer | Install matching @valixa/auto or @valixa/devtools explicitly; Angular uses dedicated packages. |
+| Cannot resolve /auto or /devtools peer | Install matching valixa-auto or valixa-devtools explicitly; Angular uses dedicated packages. |
 | CommonJS require fails | Shipping output is ESM. Use import or a compatible bundler. |
 | Input does not update | Bind through the framework field adapter, honor its event shape, and avoid mutating snapshots. |
 | Values change but a component stays stale | Read a subscribed field/state projection; a raw core snapshot read is not a UI subscription. |

@@ -1,8 +1,8 @@
 import { computed, defineComponent, h, markRaw, onMounted, onScopeDispose, shallowRef, toRaw, watch } from 'vue';
 import type { Component, PropType, Slots, VNodeChild } from 'vue';
-import { createRenderingPlan, resolveAutoCodec } from '@valixa/auto';
-import type { AutoCapabilities, AutoCodec, AutoUI, PlanNode, RuntimeField } from '@valixa/auto';
-import type { SubmitHandler, ValixaForm } from '@valixa/core';
+import { createRenderingPlan, resolveAutoCodec } from 'valixa-auto';
+import type { AutoCapabilities, AutoCodec, AutoUI, PlanNode, RuntimeField } from 'valixa-auto';
+import type { SubmitHandler, ValixaForm } from 'valixa';
 import { useValixaField, useValixaState } from './index.js';
 import type { VueField } from './index.js';
 

@@ -1,8 +1,8 @@
-import type { FieldValue } from '@valixa/core';
+import type { FieldValue } from 'valixa';
 import { computed, customRef, getCurrentInstance, getCurrentScope, inject, markRaw, onMounted, onScopeDispose, provide, shallowReadonly, useId } from 'vue';
 import type { ComputedRef, EffectScope, InjectionKey, Ref } from 'vue';
-import { createValixa } from '@valixa/core';
-import type { Blueprint, BlueprintInput, FieldName, FieldState, FormOptions, FormState, InferValues, ValixaForm } from '@valixa/core';
+import { createValixa } from 'valixa';
+import type { Blueprint, BlueprintInput, FieldName, FieldState, FormOptions, FormState, InferValues, ValixaForm } from 'valixa';
 
 function requireScope(): EffectScope {
   const scope = getCurrentScope();

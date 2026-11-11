@@ -7,5 +7,6 @@
   "environment": "npm-release",
   "workflow": "release.yml",
   "versioning": "fixed",
-  "scope": "@valixa"
+  "scope": null,
+  "packageNaming": "unscoped"
 }

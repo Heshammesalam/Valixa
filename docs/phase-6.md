@@ -7,8 +7,8 @@ Nothing derives an email widget, password field or date representation from a ru
 ## Shared metadata
 
 ```ts
-import { blueprint } from '@valixa/core';
-import { defineAutoForm } from '@valixa/auto';
+import { blueprint } from 'valixa';
+import { defineAutoForm } from 'valixa-auto';
 
 const schema = blueprint({ name: ['', 'required'], age: [18] });
 const ui = defineAutoForm(schema, {
@@ -44,9 +44,9 @@ Movement preserves rows; reset/removal follows core lifetime and disposal rules.
 ## React and MUI
 
 ```tsx
-import { useValixa } from '@valixa/react';
-import { ValixaAutoForm } from '@valixa/react/auto';
-import { muiAdapter } from '@valixa/mui/auto';
+import { useValixa } from 'valixa-react';
+import { ValixaAutoForm } from 'valixa-react/auto';
+import { muiAdapter } from 'valixa-mui/auto';
 
 function Editor() {
   const form = useValixa(schema);
@@ -69,9 +69,9 @@ Use `createMuiAutoAdapter({custom, codecs})` for registries.
 
 ```vue
 <script setup lang="ts">
-import { useValixa } from '@valixa/vue';
-import { ValixaAutoForm } from '@valixa/vue/auto';
-import { vuetifyAdapter } from '@valixa/vuetify/auto';
+import { useValixa } from 'valixa-vue';
+import { ValixaAutoForm } from 'valixa-vue/auto';
+import { vuetifyAdapter } from 'valixa-vuetify/auto';
 const form = useValixa(schema);
 async function saveUser(values: typeof schema.__values) { return save(values); }
 </script>
@@ -90,8 +90,8 @@ and type the submit handler. Runtime plan checks still reject mismatched paths.
 
 ## Angular and Material
 
-Import standalone components from `@valixa/angular-auto` and create an Angular form
-using the existing `@valixa/angular` factory in an injection context:
+Import standalone components from `valixa-angular-auto` and create an Angular form
+using the existing `valixa-angular` factory in an injection context:
 
 ```html
 <valixa-auto-form [form]="form" [ui]="ui" [onSubmit]="save"
@@ -151,7 +151,7 @@ This intentionally resets focus/local widget state on form reset.
 ## Local opt-in diagnostics
 
 ```ts
-import { attachValixaDevtools } from '@valixa/devtools';
+import { attachValixaDevtools } from 'valixa-devtools';
 const inspection = attachValixaDevtools(form, {
   name: 'Registration', historyLimit: 100
 });
@@ -193,7 +193,7 @@ subscribers see disposal before cleanup; retained disposal history is cleared.
 
 ## Panel bindings
 
-`@valixa/devtools/panel` exports `mountValixaDevtools(host, inspections)` returning
+`valixa-devtools/panel` exports `mountValixaDevtools(host, inspections)` returning
 `update(inspections)` and `destroy()`. It uses the host's ownerDocument, text nodes
 and native SVG; no application UI library is needed. It supports form selection,
 state/selected-field/errors/behavior metadata, dependency graph, row identities,
@@ -205,9 +205,9 @@ Thin bindings accept an explicit `inspections` list:
 
 | Framework | Import | Usage |
 | --- | --- | --- |
-| React | `@valixa/react/devtools` | `<ValixaDevtools inspections={[inspection]} />` |
-| Vue | `@valixa/vue/devtools` | `<ValixaDevtools :inspections="[inspection]" />` |
-| Angular | `@valixa/angular-devtools` | `<valixa-devtools [inspections]="[inspection]"/>` |
+| React | `valixa-react/devtools` | `<ValixaDevtools inspections={[inspection]} />` |
+| Vue | `valixa-vue/devtools` | `<ValixaDevtools :inspections="[inspection]" />` |
+| Angular | `valixa-angular-devtools` | `<valixa-devtools [inspections]="[inspection]"/>` |
 
 Panels borrow inspections: unmount/destroy releases panel subscriptions but does not
 detach inspections. The attaching owner must detach during effect/scope/DestroyRef

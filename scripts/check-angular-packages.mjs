@@ -1,3 +1,4 @@
+import { packageName } from './release-lib.mjs';
 import assert from 'node:assert/strict';
 import { attachAdvancedTypes, verifyAdvancedConsumer } from './advanced-consumer.mjs';
 import { execFileSync } from 'node:child_process';
@@ -21,13 +22,13 @@ for (const name of ['core', 'angular', 'angular-material']) {
   // Angular packages are packed from ng-packagr output, never the workspace source manifest.
   run(['--dir', directory, 'pack', '--pack-destination', artifacts]);
   const metadata = JSON.parse(readFileSync(join(directory, 'package.json'), 'utf8'));
-  tarballs[`@valixa/${name}`] = `file:${join(artifacts, `valixa-${name}-${metadata.version}.tgz`).replaceAll('\\', '/')}`;
+  tarballs[packageName(name)] = `file:${join(artifacts, `${metadata.name}-${metadata.version}.tgz`).replaceAll('\\', '/')}`;
 }
 
 for (const material of [false, true]) {
   const variant = material ? 'angular-material' : 'angular';
   const directory = mkdtempSync(join(tmpdir(), `valixa-${variant}-`));
-  const selected = material ? Object.keys(tarballs) : ['@valixa/core', '@valixa/angular'];
+  const selected = material ? Object.keys(tarballs) : ['valixa', 'valixa-angular'];
   const dependencies = Object.fromEntries(selected.map(name => [name, tarballs[name]]));
   for (const name of ['@angular/core', '@angular/common', '@angular/forms', '@angular/compiler', '@angular/platform-browser', '@angular/platform-server', 'rxjs', 'tslib']) dependencies[name] = version(name);
   if (material) for (const name of ['@angular/material', '@angular/cdk']) dependencies[name] = version(name);
@@ -39,7 +40,7 @@ for (const material of [false, true]) {
   const consumerRequire = createRequire(join(directory, 'package.json'));
   if (!material) assert.throws(() => consumerRequire.resolve('@angular/material'));
   for (const name of ['react', 'vue']) assert.throws(() => consumerRequire.resolve(name));
-  for (const name of selected.filter(name => name !== '@valixa/core')) {
+  for (const name of selected.filter(name => name !== 'valixa')) {
     const packageRoot = join(directory, 'node_modules', ...name.split('/'));
     const manifest = JSON.parse(readFileSync(join(packageRoot, 'package.json'), 'utf8'));
     assert.equal(manifest.type, 'module'); assert.equal(manifest.sideEffects, false); assert(!manifest.scripts);
@@ -49,7 +50,7 @@ for (const material of [false, true]) {
     assert(readFileSync(join(packageRoot, entry.types), 'utf8').includes('ɵɵDirectiveDeclaration'));
     assert(!JSON.stringify(manifest).includes('workspace:'));
   }
-  const imports = material ? `import {MatInputModule} from '@angular/material/input'; import {MatFormFieldModule} from '@angular/material/form-field'; import {VALIXA_MATERIAL,dateOnlyCodec} from '@valixa/angular-material';` : '';
+  const imports = material ? `import {MatInputModule} from '@angular/material/input'; import {MatFormFieldModule} from '@angular/material/form-field'; import {VALIXA_MATERIAL,dateOnlyCodec} from 'valixa-angular-material';` : '';
   const template = material ? `<form novalidate (submit)="onSubmit($event)"><mat-form-field><mat-label>Email</mat-label><input matInput [valixaField]="email"><mat-error>{{email.error()}}</mat-error></mat-form-field><button>Save</button><output>{{message()}}</output></form>`
     : `<form novalidate (submit)="onSubmit($event)"><label [for]="email.id">Email</label><input [valixaField]="email"><p>{{email.error()}}</p><button>Save</button><output>{{message()}}</output></form>`;
   const componentImports = material ? '[...VALIXA_MATERIAL,MatInputModule,MatFormFieldModule]' : '[ValixaFieldDirective]';
@@ -57,7 +58,7 @@ for (const material of [false, true]) {
     import '@angular/compiler'; import assert from 'node:assert/strict';
     import {Component,provideZonelessChangeDetection} from '@angular/core'; import {bootstrapApplication} from '@angular/platform-browser';
     import {renderApplication,provideServerRendering} from '@angular/platform-server';
-    import {createValixa,ValixaFieldDirective} from '@valixa/angular'; ${imports}
+    import {createValixa,ValixaFieldDirective} from 'valixa-angular'; ${imports}
     let cleanup; const form = createValixa({email:['','required | email']},{id:'js',destroyRef:{onDestroy:fn=>{cleanup=fn;return()=>{};},destroyed:false}});
     assert.equal((await form.validate()).valid,false);form.setValue('email','user@example.com');assert.equal((await form.submit(data=>data.email)).status,'success');cleanup();
     class SsrApp {form=createValixa({email:['user@example.com','email']},{id:'ssr-consumer'});email=this.form.field('email');}
@@ -69,7 +70,7 @@ for (const material of [false, true]) {
   verifyAdvancedConsumer(directory);
   mkdirSync(join(directory, 'src'));
   const source = `import {Component,signal,provideZonelessChangeDetection} from '@angular/core'; import {bootstrapApplication} from '@angular/platform-browser';
-    import {createValixa,ValixaFieldDirective} from '@valixa/angular'; ${imports}
+    import {createValixa,ValixaFieldDirective} from 'valixa-angular'; ${imports}
     @Component({selector:'consumer-root',standalone:true,imports:${componentImports},template:${JSON.stringify(template)}})
     class App {form=createValixa({email:['','required | email'],age:[18]},{id:'consumer'});email=this.form.field('email');message=signal('');
       submit=this.form.handleSubmit(async data=>{this.message.set('Saved '+data.email);});onSubmit(event:Event){void this.submit(event).catch(()=>this.message.set('Failed'));}}
@@ -87,11 +88,11 @@ for (const material of [false, true]) {
   const compilerManifest = consumerRequire.resolve('@angular/compiler-cli/package.json');
   const compilerBin = JSON.parse(readFileSync(compilerManifest, 'utf8')).bin.ngc;
   const ngc = resolve(compilerManifest, '..', compilerBin);
-  attachAdvancedTypes(directory, 'src/main.ts', `import {bindValixa,numberCodec} from '@valixa/angular';
+  attachAdvancedTypes(directory, 'src/main.ts', `import {bindValixa,numberCodec} from 'valixa-angular';
     @Component({standalone:true,imports:[ValixaFieldDirective],template:'<input [valixaField]="field" [valixaCodec]="codec">'})
     class AdvancedConsumption{form=bindValixa(advancedForm);field=this.form.field('user.age');codec=numberCodec(0);}`);
   execFileSync(process.execPath, [ngc, '-p', 'tsconfig.json', '--noEmit'], { cwd: directory, stdio: 'inherit' });
-  writeFileSync(join(directory, 'src/bad.ts'), `import {Component} from '@angular/core';import {createValixa,ValixaFieldDirective} from '@valixa/angular';
+  writeFileSync(join(directory, 'src/bad.ts'), `import {Component} from '@angular/core';import {createValixa,ValixaFieldDirective} from 'valixa-angular';
     @Component({standalone:true,imports:[ValixaFieldDirective],template:${JSON.stringify('<input [valixaField]="form.field(\'missing\')">')}})
     class Bad {form=createValixa({email:['']},{id:'bad'});}`);
   writeFileSync(join(directory, 'tsconfig.bad.json'), JSON.stringify({ ...config, files: ['src/bad.ts'] }));
@@ -100,7 +101,7 @@ for (const material of [false, true]) {
   catch (error) { diagnostics = String(error.stderr) + String(error.stdout); }
   assert(diagnostics.includes('missing') && diagnostics.includes('not assignable'), 'Strict Angular templates must reject unknown fields');
   if (material) {
-    writeFileSync(join(directory, 'src/bad.ts'), `import {Component} from '@angular/core';import {createValixa} from '@valixa/angular';${imports}
+    writeFileSync(join(directory, 'src/bad.ts'), `import {Component} from '@angular/core';import {createValixa} from 'valixa-angular';${imports}
       @Component({standalone:true,imports:${componentImports},template:${JSON.stringify('<input matInput [valixaField]="form.field(\'age\')" [valixaCodec]="codec">')}})
       class Bad {form=createValixa({age:[18]},{id:'bad-codec'});codec=dateOnlyCodec;}`);
     let diagnostics = '';

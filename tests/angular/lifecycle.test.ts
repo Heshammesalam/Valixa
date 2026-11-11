@@ -4,8 +4,8 @@ import { ChangeDetectionStrategy, Component, Input, signal, provideZonelessChang
 import { TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { createValixa, ValixaFieldDirective } from '@valixa/angular';
-import type { AngularField } from '@valixa/angular';
+import { createValixa, ValixaFieldDirective } from 'valixa-angular';
+import type { AngularField } from 'valixa-angular';
 
 afterEach(() => TestBed.resetTestingModule());
 @Component({ selector: 'counted-field', standalone: true, changeDetection: ChangeDetectionStrategy.OnPush, template: `<output>{{ render() }}</output>` })

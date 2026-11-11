@@ -1,5 +1,5 @@
 {
-  "name": "@valixa/mui",
+  "name": "valixa-mui",
   "version": "1.0.0-rc.1",
   "description": "Explicit Material UI component adapters for Valixa",
   "type": "module",
@@ -32,8 +32,8 @@
     "prepack": "pnpm build"
   },
   "dependencies": {
-    "@valixa/core": "workspace:^",
-    "@valixa/react": "workspace:^"
+    "valixa": "workspace:^",
+    "valixa-react": "workspace:^"
   },
   "peerDependencies": {
     "react": "^19.2.0",
@@ -41,13 +41,13 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/x-date-pickers": "^8.29.0",
-    "@valixa/auto": "^1.0.0-rc.1"
+    "valixa-auto": "^1.0.0-rc.1"
   },
   "peerDependenciesMeta": {
     "@mui/x-date-pickers": {
       "optional": true
     },
-    "@valixa/auto": {
+    "valixa-auto": {
       "optional": true
     }
   },
@@ -60,7 +60,7 @@
     "tag": "next"
   },
   "devDependencies": {
-    "@valixa/auto": "workspace:*"
+    "valixa-auto": "workspace:*"
   },
   "keywords": [
     "forms",

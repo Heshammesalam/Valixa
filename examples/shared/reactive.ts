@@ -1,5 +1,5 @@
-import { collection, nested } from '@valixa/core';
-import type { FormOptions, InferValues } from '@valixa/core';
+import { collection, nested } from 'valixa';
+import type { FormOptions, InferValues } from 'valixa';
 
 export const addressSchema = { city: ['', 'required'], confirm: ['', 'same:city'] } as const;
 export type AddressValues = InferValues<typeof addressSchema>;

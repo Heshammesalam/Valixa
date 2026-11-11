@@ -1,10 +1,10 @@
-# @valixa/devtools
+# valixa-devtools
 
 Explicit local-only, readonly form inspection. No automatic attachment, global
 registry, telemetry, network transmission, persistence or DOM dependency in the root.
 
 ```ts
-import { attachValixaDevtools } from '@valixa/devtools';
+import { attachValixaDevtools } from 'valixa-devtools';
 const inspection = attachValixaDevtools(form, { name: 'Registration', historyLimit: 100 });
 inspection.getSnapshot(); // sanitized readonly current data + bounded events
 inspection.inspectField('email'); // lazy selected-field projection
@@ -25,11 +25,11 @@ continues updating. Detach/disposal clears owned data, but cannot revoke a snaps
 already retained by application code. `enabled:false` creates no subscriptions.
 Gate attachment/imports with your application's development build flag.
 
-Optional SSR-safe entry `@valixa/devtools/panel` exports
+Optional SSR-safe entry `valixa-devtools/panel` exports
 `mountValixaDevtools(host, inspections)` with `update`/`destroy`. The native DOM/SVG
 panel borrows controllers. Its destroy only unsubscribes the panel; the attaching
-owner must detach inspections. Optional bindings: @valixa/react/devtools,
-@valixa/vue/devtools, @valixa/angular-devtools.
+owner must detach inspections. Optional bindings: valixa-react/devtools,
+valixa-vue/devtools, valixa-angular-devtools.
 
 Core `observeEvents(listener,{types?})` provides immutable value-free events with
 per-form sequence/request IDs. DevTools adds ordinal/scope. Cancellation comes from

@@ -1,5 +1,5 @@
 {
-  "name": "@valixa/react",
+  "name": "valixa-react",
   "version": "1.0.0-rc.1",
   "description": "React external-store hooks and typed component bindings for Valixa",
   "type": "module",
@@ -32,12 +32,12 @@
     "prepack": "pnpm build"
   },
   "dependencies": {
-    "@valixa/core": "workspace:^"
+    "valixa": "workspace:^"
   },
   "peerDependencies": {
     "react": "^19.2.0",
-    "@valixa/auto": "^1.0.0-rc.1",
-    "@valixa/devtools": "^1.0.0-rc.1"
+    "valixa-auto": "^1.0.0-rc.1",
+    "valixa-devtools": "^1.0.0-rc.1"
   },
   "engines": {
     "node": ">=20"
@@ -48,16 +48,16 @@
     "tag": "next"
   },
   "peerDependenciesMeta": {
-    "@valixa/auto": {
+    "valixa-auto": {
       "optional": true
     },
-    "@valixa/devtools": {
+    "valixa-devtools": {
       "optional": true
     }
   },
   "devDependencies": {
-    "@valixa/auto": "workspace:*",
-    "@valixa/devtools": "workspace:*"
+    "valixa-auto": "workspace:*",
+    "valixa-devtools": "workspace:*"
   },
   "keywords": [
     "forms",

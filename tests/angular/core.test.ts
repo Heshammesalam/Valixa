@@ -3,8 +3,8 @@ import './setup.js';
 import { Component, DestroyRef, provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { createValixa, ValixaFieldDirective } from '@valixa/angular';
-import type { AngularForm } from '@valixa/angular';
+import { createValixa, ValixaFieldDirective } from 'valixa-angular';
+import type { AngularForm } from 'valixa-angular';
 
 afterEach(() => TestBed.resetTestingModule());
 @Component({ standalone: true, imports: [ValixaFieldDirective], template: `<input aria-label="Name" [valixaField]="name"><span>{{ name.error() }}</span><output>{{ form.submitting() }}</output>` })

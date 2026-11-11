@@ -3,11 +3,11 @@ import './setup.js';
 import { Component, provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { afterEach, expect, it, vi } from 'vitest';
-import { blueprint, collection } from '@valixa/core';
-import { createValixa } from '@valixa/angular';
-import { defineAutoCodec, defineAutoForm } from '@valixa/auto';
-import { ValixaAutoForm, ValixaAutoRenderer, angularMaterialAdapter } from '@valixa/angular-auto';
-import { dateOnlyCodec } from '@valixa/angular-material';
+import { blueprint, collection } from 'valixa';
+import { createValixa } from 'valixa-angular';
+import { defineAutoCodec, defineAutoForm } from 'valixa-auto';
+import { ValixaAutoForm, ValixaAutoRenderer, angularMaterialAdapter } from 'valixa-angular-auto';
+import { dateOnlyCodec } from 'valixa-angular-material';
 
 const schema = blueprint({ email: ['', 'required | email'], age: [18], seats: [1], rows: collection({ city: ['', 'required'] }) });
 const rowUI = defineAutoForm(blueprint({ city: ['', 'required'] }), { fields: { city: { component: 'text', label: 'Row city' } } });

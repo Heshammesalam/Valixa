@@ -1,4 +1,4 @@
-# @valixa/vuetify
+# valixa-vuetify
 
 Explicit Vuetify 3.13 bindings on top of Valixa Vue. Vue 3.5 and Vuetify 3.13 are
 peers, never bundled. Core remains independent from both frameworks.
@@ -7,8 +7,8 @@ peers, never bundled. Core remains independent from both frameworks.
 
 ```vue
 <script setup lang="ts">
-import { useValixa, useValixaState } from '@valixa/vue';
-import { useVuetifyField } from '@valixa/vuetify';
+import { useValixa, useValixaState } from 'valixa-vue';
+import { useVuetifyField } from 'valixa-vuetify';
 const form = useValixa({ email: ['', 'required | email'] });
 const state = useValixaState(form);
 const email = useVuetifyField(form, 'email', { kind: 'text', required: true });
@@ -104,8 +104,8 @@ stores local File objects in shallow adapter state and sends only `codec.encode`
 output to the normal typed core field. No bytes are serialized into core or logs.
 
 ```ts
-import { fileMetadata, useVuetifyFileField } from '@valixa/vuetify';
-import type { FileMetadata } from '@valixa/vuetify';
+import { fileMetadata, useVuetifyFileField } from 'valixa-vuetify';
+import type { FileMetadata } from 'valixa-vuetify';
 // Blueprint: uploads: { initial: [] as FileMetadata[] }
 const upload = useVuetifyFileField(form, 'uploads', fileMetadata, { multiple: true });
 const files = upload.props; // top-level computed binding for the template
@@ -142,7 +142,7 @@ validation. `form.setError` maps known server payloads. `submit` executes immedi
 `handleSubmit` returns a callback. Bind a setup-created callback and catch request
 rejections. See the Vue package guide for complete validation/submission patterns.
 
-For custom UI, use `defineValixaAdapter` / `useValixaAdapter` from `@valixa/vue`.
+For custom UI, use `defineValixaAdapter` / `useValixaAdapter` from `valixa-vue`.
 Map any value prop, update event and custom error/disabled props explicitly. There
 is no wrapper requirement or guessing. The advanced example maps `value`,
 `inactive`, `issue` and an `amount` event carrying `{ amount: number }`.
@@ -165,5 +165,5 @@ paths, a dependency graph and debounce scheduling; those are separate phases.
 
 ## Optional Auto Forms and DevTools
 
-Phase 6 adds @valixa/vuetify/auto with @valixa/vue/auto. Install @valixa/auto explicitly when using these optional entries. Manual root exports remain independent. Dates require explicit codecs; custom renderer registries and group/row metadata are application-owned.
+Phase 6 adds valixa-vuetify/auto with valixa-vue/auto. Install valixa-auto explicitly when using these optional entries. Manual root exports remain independent. Dates require explicit codecs; custom renderer registries and group/row metadata are application-owned.
 See docs/phase-6.md in the repository for examples, capabilities, privacy and compatibility limits.

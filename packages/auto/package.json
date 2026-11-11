@@ -1,5 +1,5 @@
 {
-  "name": "@valixa/auto",
+  "name": "valixa-auto",
   "version": "1.0.0-rc.1",
   "type": "module",
   "license": "MIT",
@@ -24,7 +24,7 @@
     "prepack": "pnpm build"
   },
   "dependencies": {
-    "@valixa/core": "workspace:^"
+    "valixa": "workspace:^"
   },
   "engines": {
     "node": ">=20"

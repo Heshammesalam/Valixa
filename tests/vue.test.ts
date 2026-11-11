@@ -2,8 +2,8 @@
 import { defineComponent, effectScope, h, isProxy, nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import { describe, expect, it, vi } from 'vitest';
-import { createValixa } from '@valixa/core';
-import { createValixaKey, injectValixa, nativeText, provideValixa, useValixa, useValixaAdapter, useValixaField, useValixaState } from '@valixa/vue';
+import { createValixa } from 'valixa';
+import { createValixaKey, injectValixa, nativeText, provideValixa, useValixa, useValixaAdapter, useValixaField, useValixaState } from 'valixa-vue';
 
 describe('Vue core integration', () => {
   it('requires a scope before owning resources', () => {

@@ -2,9 +2,9 @@ import { Component, DestroyRef, inject, input, signal } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { AngularForm, bindValixa, createValixa, ValixaFieldDirective } from '@valixa/angular';
-import { VALIXA_MATERIAL } from '@valixa/angular-material';
-import type { CollectionRow } from '@valixa/core';
+import { AngularForm, bindValixa, createValixa, ValixaFieldDirective } from 'valixa-angular';
+import { VALIXA_MATERIAL } from 'valixa-angular-material';
+import type { CollectionRow } from 'valixa';
 import { reactiveOptions, reactiveSchema } from '../../shared/reactive.js';
 import type { AddressValues } from '../../shared/reactive.js';
 

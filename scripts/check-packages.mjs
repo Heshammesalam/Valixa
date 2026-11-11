@@ -1,3 +1,4 @@
+import { packageName } from './release-lib.mjs';
 import assert from 'node:assert/strict';
 import { attachAdvancedTypes, verifyAdvancedConsumer } from './advanced-consumer.mjs';
 import { execFileSync } from 'node:child_process';
@@ -17,8 +18,8 @@ mkdirSync(artifacts, { recursive: true });
 const packages = ['core', 'react', 'mui'];
 const tarballs = Object.fromEntries(packages.map(name => {
   const metadata = JSON.parse(readFileSync(join(root, `packages/${name}/package.json`), 'utf8'));
-  run(['--filter', `@valixa/${name}`, 'pack', '--pack-destination', artifacts]);
-  return [`@valixa/${name}`, `file:${join(artifacts, `valixa-${name}-${metadata.version}.tgz`).replaceAll('\\', '/')}`];
+  run(['--filter', packageName(name), 'pack', '--pack-destination', artifacts]);
+  return [packageName(name), `file:${join(artifacts, `${metadata.name}-${metadata.version}.tgz`).replaceAll('\\', '/')}`];
 }));
 function installedVersion(name) { return JSON.parse(readFileSync(require.resolve(`${name}/package.json`), 'utf8')).version; }
 const peerNames = ['react', 'react-dom', '@types/react', '@types/react-dom', '@mui/material', '@emotion/react', '@emotion/styled'];
@@ -28,7 +29,7 @@ const tsc = require.resolve('typescript/bin/tsc');
 for (const variant of ['react', 'mui', 'mui-x']) {
   // Outside the workspace and all ancestor node_modules: dependencies cannot fall back to workspace aliases.
   const directory = mkdtempSync(join(tmpdir(), `valixa-${variant}-`));
-  const selected = variant === 'react' ? ['@valixa/core', '@valixa/react'] : Object.keys(tarballs);
+  const selected = variant === 'react' ? ['valixa', 'valixa-react'] : Object.keys(tarballs);
   const dependencies = Object.fromEntries(selected.map(name => [name, tarballs[name]]));
   const selectedPeers = variant === 'react' ? Object.fromEntries(Object.entries(peers).filter(([name]) => !name.startsWith('@mui/') && !name.startsWith('@emotion/'))) : peers;
   if (variant === 'mui-x') {
@@ -46,12 +47,12 @@ for (const variant of ['react', 'mui', 'mui-x']) {
     const manifest = JSON.parse(readFileSync(join(packageDirectory, 'package.json'), 'utf8'));
     for (const specifier of Object.values(manifest.dependencies ?? {})) assert(!specifier.startsWith('workspace:'), 'Tarballs must rewrite workspace dependencies');
   }
-  const muiImports = variant === 'react' ? '' : `import { TextField } from '@mui/material'; import { useMuiField } from '@valixa/mui';`;
+  const muiImports = variant === 'react' ? '' : `import { TextField } from '@mui/material'; import { useMuiField } from 'valixa-mui';`;
   const muiBody = variant === 'react' ? `return createElement('input', {value: field.state.value, readOnly: true});`
     : `return createElement(TextField, {label: 'Email', ...useMuiField(owned, 'email').textField()});`;
-  const xSmoke = variant === 'mui-x' ? `await import('@valixa/mui/x');` : '';
+  const xSmoke = variant === 'mui-x' ? `await import('valixa-mui/x');` : '';
   const xTypes = variant === 'mui-x' ? `
-    import {useMuiDateField} from '@valixa/mui/x'; import type {DateCodec} from '@valixa/mui/x';
+    import {useMuiDateField} from 'valixa-mui/x'; import type {DateCodec} from 'valixa-mui/x';
     import {DatePicker} from '@mui/x-date-pickers/DatePicker';
     import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs';
     import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider';
@@ -66,8 +67,8 @@ for (const variant of ['react', 'mui', 'mui-x']) {
   writeFileSync(join(directory, 'smoke.mjs'), `
     import assert from 'node:assert/strict';
     import {createElement} from 'react'; import {renderToString} from 'react-dom/server';
-    import {createValixa} from '@valixa/core';
-    import {useValixa, useValixaField} from '@valixa/react';
+    import {createValixa} from 'valixa';
+    import {useValixa, useValixaField} from 'valixa-react';
     ${muiImports}
     const form = createValixa({email: ['', 'required | email']});
     assert.equal((await form.validate()).valid, false);
@@ -81,7 +82,7 @@ for (const variant of ['react', 'mui', 'mui-x']) {
   execFileSync(process.execPath, ['smoke.mjs'], { cwd: directory, stdio: 'inherit' });
   verifyAdvancedConsumer(directory);
   writeFileSync(join(directory, 'consumer.tsx'), `
-    import {useValixa, useValixaField} from '@valixa/react';
+    import {useValixa, useValixaField} from 'valixa-react';
     ${muiImports}
     ${xTypes}
     export function App() {

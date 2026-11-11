@@ -1,11 +1,11 @@
-# @valixa/angular-devtools
+# valixa-angular-devtools
 
 Optional standalone Angular binding for the shared native DevTools panel. Requires
-Angular 21.2 and @valixa/devtools; no Material dependency. Partial-Ivy APF.
+Angular 21.2 and valixa-devtools; no Material dependency. Partial-Ivy APF.
 
 ```ts
-import { ValixaDevtools } from '@valixa/angular-devtools';
-import { attachValixaDevtools } from '@valixa/devtools';
+import { ValixaDevtools } from 'valixa-angular-devtools';
+import { attachValixaDevtools } from 'valixa-devtools';
 // In the form owner's injection context:
 const inspection = attachValixaDevtools(form.core, { name: 'Registration' });
 inject(DestroyRef).onDestroy(() => inspection.detach());
@@ -21,4 +21,4 @@ and does not detach inspections on component destruction. The attaching owner mu
 detach. Values/messages are redacted by default; no network/storage is used. Gate
 attachment and optional imports to development builds.
 
-See @valixa/devtools and docs/phase-6.md in the repository for privacy, bounds and events.
+See valixa-devtools and docs/phase-6.md in the repository for privacy, bounds and events.

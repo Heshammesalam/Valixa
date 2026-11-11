@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { act, cleanup, fireEvent, render, renderHook, screen, waitFor } from '@testing-library/react';
-import { createValixa, nested } from '@valixa/core';
-import { useValixaState } from '@valixa/react';
+import { createValixa, nested } from 'valixa';
+import { useValixaState } from 'valixa-react';
 import { afterEach, expect, it } from 'vitest';
 import { ReactiveForm } from '../examples/react/src/ReactiveForm.js';
 

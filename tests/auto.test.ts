@@ -1,7 +1,7 @@
 import { describe, expect, expectTypeOf, it, vi } from 'vitest';
-import { blueprint, collection, createValixa, nested } from '@valixa/core';
-import type { FormDescription } from '@valixa/core';
-import { choiceValue, createRenderingPlan, defineAutoCodec, defineAutoForm, selectedOptions } from '@valixa/auto';
+import { blueprint, collection, createValixa, nested } from 'valixa';
+import type { FormDescription } from 'valixa';
+import { choiceValue, createRenderingPlan, defineAutoCodec, defineAutoForm, selectedOptions } from 'valixa-auto';
 
 const capabilities = { name: 'test', widgets: ['text', 'number', 'select', 'date', 'custom'] as const, dateView: 'string', custom: ['counter'] };
 describe('headless Auto Form contracts', () => {

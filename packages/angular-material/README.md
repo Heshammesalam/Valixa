@@ -1,4 +1,4 @@
-# @valixa/angular-material
+# valixa-angular-material
 
 Angular Material 21.2 control bindings for Valixa's Angular signal bridge. Angular
 and Material remain peers. Built in partial-Ivy Angular Package Format.
@@ -9,8 +9,8 @@ and Material remain peers. Built in partial-Ivy Angular Package Format.
 import { Component } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { createValixa } from '@valixa/angular';
-import { VALIXA_MATERIAL } from '@valixa/angular-material';
+import { createValixa } from 'valixa-angular';
+import { VALIXA_MATERIAL } from 'valixa-angular-material';
 
 @Component({
   standalone: true,
@@ -140,7 +140,7 @@ rules for any Material min/max/filter constraints; picker UI constraints do not
 replace submission validation. Other date libraries need an explicit matching codec
 and have not been tested here.
 
-Numeric MatInput uses `numberCodec` from `@valixa/angular`, with a typed empty value
+Numeric MatInput uses `numberCodec` from `valixa-angular`, with a typed empty value
 such as null or zero. Unsupported implicit numeric coercion is rejected at runtime
 when no codec is supplied. Strict consumer templates also check codec/field types.
 
@@ -152,7 +152,7 @@ map your known server payloads rather than guessing HTTP response shapes. Core
 semantics, including conservative error invalidation and stale-run protection,
 remain authoritative. No dependency graph or scheduler is included.
 
-Custom controls use `provideValixaControl` or an existing CVA from `@valixa/angular`.
+Custom controls use `provideValixaControl` or an existing CVA from `valixa-angular`.
 No wrapper component is required. Explicit adapters map value/status/events and own
 their teardown; controlled input/output components get accepted values echoed back,
 while native/CVA bindings preserve their already-updated view.

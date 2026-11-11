@@ -6,22 +6,24 @@ No npm package, public release tag or GitHub release has been published by this 
 
 ## Exact prepared inventory
 
-All candidates are **1.0.0-rc.1**, tag **next**, MIT, public-scoped ESM, sideEffects false.
+The maintainer approved public packages without an npm organization: core is `valixa`, integrations are `valixa-*`. Historical pre-rename results below do not establish verification of renamed artifacts until the new gates complete.
+
+All candidates are **1.0.0-rc.1**, tag **next**, MIT, unscoped public ESM, sideEffects false.
 Stable target **1.0.0** is not automatically applied to these candidates.
 
 | Order | Package | Entry points / dependencies |
 | --- | --- | --- |
-| 1 | @valixa/core | .; no runtime dependencies |
-| 2 | @valixa/angular | . APF; core peer and tslib |
-| 3 | @valixa/auto | .; core |
-| 4 | @valixa/devtools | ., /panel; core |
-| 5 | @valixa/angular-devtools | . APF; devtools peer and tslib |
-| 6 | @valixa/angular-material | . APF; core/angular peers and tslib |
-| 7 | @valixa/react | ., /auto, /devtools; core, optional auto/devtools peers |
-| 8 | @valixa/vue | ., /auto, /devtools; core, optional auto/devtools peers |
-| 9 | @valixa/angular-auto | . APF; core/angular/angular-material/auto peers and tslib |
-| 10 | @valixa/mui | ., /x, /auto; core/react, optional auto/MUI X peers |
-| 11 | @valixa/vuetify | ., /auto; core/vue, optional auto peer |
+| 1 | valixa | .; no runtime dependencies |
+| 2 | valixa-angular | . APF; core peer and tslib |
+| 3 | valixa-auto | .; core |
+| 4 | valixa-devtools | ., /panel; core |
+| 5 | valixa-angular-devtools | . APF; devtools peer and tslib |
+| 6 | valixa-angular-material | . APF; core/angular peers and tslib |
+| 7 | valixa-react | ., /auto, /devtools; core, optional auto/devtools peers |
+| 8 | valixa-vue | ., /auto, /devtools; core, optional auto/devtools peers |
+| 9 | valixa-angular-auto | . APF; core/angular/angular-material/auto peers and tslib |
+| 10 | valixa-mui | ., /x, /auto; core/react, optional auto/MUI X peers |
+| 11 | valixa-vuetify | ., /auto; core/vue, optional auto peer |
 
 Repository created and verified public with owner admin access:
 [Heshammesalam/Valixa](https://github.com/Heshammesalam/Valixa).
@@ -33,8 +35,7 @@ artifacts/release/manifest.json; package source manifests are the dependency inv
 
 ## Public API / compatibility
 
-No intentional product features or public breaking API changes. All **31** baseline
-declaration files retain their hashes. See [API compatibility](phase-7-api-compatibility.md)
+No intentional product features or public breaking API changes. All **31** baseline declaration files retain their signature hashes after canonicalizing only the approved module-name changes. See [API compatibility](phase-7-api-compatibility.md)
 and [migration](migration.md). ESM, plain acyclic domains and explicit codecs remain
 contracts. Angular multiple autocomplete, Vue generic-boundary/custom key limits and
 native versus Material date views remain documented, not silently broadened.
@@ -130,17 +131,17 @@ blob hashes after upload (295 files in initial source commit).
 
 | Tarball | Bytes | Packed files |
 | --- | --- | --- |
-| @valixa/core@1.0.0-rc.1 | 73507 | 65 |
-| @valixa/angular@1.0.0-rc.1 | 17487 | 7 |
-| @valixa/auto@1.0.0-rc.1 | 10781 | 8 |
-| @valixa/devtools@1.0.0-rc.1 | 23560 | 13 |
-| @valixa/angular-devtools@1.0.0-rc.1 | 3387 | 7 |
-| @valixa/angular-material@1.0.0-rc.1 | 9445 | 7 |
-| @valixa/react@1.0.0-rc.1 | 15564 | 18 |
-| @valixa/vue@1.0.0-rc.1 | 17216 | 18 |
-| @valixa/angular-auto@1.0.0-rc.1 | 16789 | 7 |
-| @valixa/mui@1.0.0-rc.1 | 15026 | 18 |
-| @valixa/vuetify@1.0.0-rc.1 | 15682 | 18 |
+| valixa@1.0.0-rc.1 | 73507 | 65 |
+| valixa-angular@1.0.0-rc.1 | 17487 | 7 |
+| valixa-auto@1.0.0-rc.1 | 10781 | 8 |
+| valixa-devtools@1.0.0-rc.1 | 23560 | 13 |
+| valixa-angular-devtools@1.0.0-rc.1 | 3387 | 7 |
+| valixa-angular-material@1.0.0-rc.1 | 9445 | 7 |
+| valixa-react@1.0.0-rc.1 | 15564 | 18 |
+| valixa-vue@1.0.0-rc.1 | 17216 | 18 |
+| valixa-angular-auto@1.0.0-rc.1 | 16789 | 7 |
+| valixa-mui@1.0.0-rc.1 | 15026 | 18 |
+| valixa-vuetify@1.0.0-rc.1 | 15682 | 18 |
 
 Complete hashes/metadata/file lists are in artifacts/release/manifest.json.
 A subsequent real Linux CI run exposed the cold-cache metadata assumption in consumer
@@ -185,19 +186,10 @@ as accidental future minor bumps.
 
 ## Remaining publication blockers
 
-1. Local **npm whoami returns 401**. The authenticated npm account and permission
-   to publish under **@valixa** are unverified. All 11 public registry name lookups
-   returned 404, which is not proof of scope ownership, reservations or permission.
-   No package was renamed and no npm token was requested/stored.
-2. npm trusted publisher/initial-package bootstrap, GitHub protected `npm-release`
-   reviewers/main deployment policy and branch required checks must be configured
-   and verified by the maintainer. YAML alone does not establish protections.
-   `VALIXA_RELEASE_READY` remains unset; publication is deliberately disabled.
-3. Review the exact candidate list/checksums and approve the specific versions/tag.
-   General publish intent was received, but unverified builds/rights/protections are
-   never bypassed. Stable 1.0.0 requires explicit promotion and re-verification.
-4. Review actual Linux CI results after source upload. No Linux/Node matrix success
-   is claimed until those jobs have executed on the final reviewed source.
+1. Browser npm login is verified as `heshammesalam`. The account has no organizations, and the maintainer declined creating one. Public unscoped names were approved instead. All 11 exact unscoped registry lookups returned 404; successful publication/name ownership is not inferred from that.
+2. Renamed tarballs, imports, declarations and clean consumers are being reverified. Prior scoped-name CI passed on Node 20/22/24 at commit `0cfa77d71d29eb048e1bce7f42072ce840d74421`, run https://github.com/Heshammesalam/Valixa/actions/runs/42989799753. That evidence is historical, not a renamed-package pass.
+3. npm trusted publisher/initial-package bootstrap and the protected `npm-release` environment must be configured and verified. `VALIXA_RELEASE_READY` remains unset. Browser login does not authorize the local CLI, whose earlier whoami returned 401; no npm token was requested or stored.
+4. Approve the exact final versions/tag after the renamed artifact checks. Stable 1.0.0 requires promotion and a fresh complete verification. No package publication has occurred.
 
 The next publication action, after resolving these blockers and exact approval, is
 manual dispatch of **Approved npm release** with `version: 1.0.0-rc.1`, environment

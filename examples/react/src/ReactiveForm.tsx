@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Button, Stack, TextField } from '@mui/material';
-import type { CollectionRow } from '@valixa/core';
-import { nativeText, useValixa, useValixaAdapter, useValixaState } from '@valixa/react';
-import { useMuiField } from '@valixa/mui';
+import type { CollectionRow } from 'valixa';
+import { nativeText, useValixa, useValixaAdapter, useValixaState } from 'valixa-react';
+import { useMuiField } from 'valixa-mui';
 import { reactiveOptions, reactiveSchema } from '../../shared/reactive.js';
 import type { AddressValues } from '../../shared/reactive.js';
 

@@ -3,9 +3,9 @@ import './setup.js';
 import { Component, provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { expect, it, vi } from 'vitest';
-import { createValixa } from '@valixa/core';
-import { attachValixaDevtools } from '@valixa/devtools';
-import { ValixaDevtools } from '@valixa/angular-devtools';
+import { createValixa } from 'valixa';
+import { attachValixaDevtools } from 'valixa-devtools';
+import { ValixaDevtools } from 'valixa-angular-devtools';
 
 @Component({ standalone: true, imports: [ValixaDevtools], template: '<valixa-devtools [inspections]="[inspection]"/>' })
 class Host {

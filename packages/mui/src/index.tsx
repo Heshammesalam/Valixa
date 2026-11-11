@@ -1,5 +1,5 @@
 'use client';
-import type { FieldValue } from '@valixa/core';
+import type { FieldValue } from 'valixa';
 
 import { useCallback } from 'react';
 import TextField from '@mui/material/TextField';
@@ -10,8 +10,8 @@ import type { SwitchProps } from '@mui/material/Switch';
 import type { RadioGroupProps } from '@mui/material/RadioGroup';
 import type { RadioProps } from '@mui/material/Radio';
 import type { AutocompleteProps } from '@mui/material/Autocomplete';
-import type { FieldName, ValixaForm } from '@valixa/core';
-import { useValixaField } from '@valixa/react';
+import type { FieldName, ValixaForm } from 'valixa';
+import { useValixaField } from 'valixa-react';
 
 type TextValue = string | null | undefined;
 type TextOptions<T> = { parse?: (raw: string) => T; type?: string; helperText?: string };

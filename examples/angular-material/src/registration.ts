@@ -4,8 +4,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
-import { createValixa } from '@valixa/angular';
-import { VALIXA_MATERIAL } from '@valixa/angular-material';
+import { createValixa } from 'valixa-angular';
+import { VALIXA_MATERIAL } from 'valixa-angular-material';
 import { delay } from './api.js';
 
 @Component({ selector: 'registration-form', standalone: true, imports: [...VALIXA_MATERIAL, MatInputModule, MatFormFieldModule, MatSelectModule, MatCheckboxModule, MatButtonModule],

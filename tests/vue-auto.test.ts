@@ -4,10 +4,10 @@ import { defineComponent, h, nextTick } from 'vue';
 import { flushPromises, mount } from '@vue/test-utils';
 import { createVuetify } from 'vuetify';
 import { expect, it, vi } from 'vitest';
-import { blueprint, collection, createValixa } from '@valixa/core';
-import { defineAutoForm } from '@valixa/auto';
-import { ValixaAutoForm, defineVueAutoRenderer } from '@valixa/vue/auto';
-import { createVuetifyAutoAdapter, vuetifyAdapter } from '@valixa/vuetify/auto';
+import { blueprint, collection, createValixa } from 'valixa';
+import { defineAutoForm } from 'valixa-auto';
+import { ValixaAutoForm, defineVueAutoRenderer } from 'valixa-vue/auto';
+import { createVuetifyAutoAdapter, vuetifyAdapter } from 'valixa-vuetify/auto';
 
 it('Vue/Vuetify Auto Form validates, awaits @submit listener promises and resets', async () => {
   const schema = blueprint({ email: ['', 'required | email'], age: [18] }), form = createValixa(schema);

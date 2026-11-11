@@ -6,9 +6,9 @@ import { provideServerRendering, renderApplication } from '@angular/platform-ser
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { expect, it } from 'vitest';
-import { createValixa } from '@valixa/angular';
-import type { AngularForm } from '@valixa/angular';
-import { VALIXA_MATERIAL } from '@valixa/angular-material';
+import { createValixa } from 'valixa-angular';
+import type { AngularForm } from 'valixa-angular';
+import { VALIXA_MATERIAL } from 'valixa-angular-material';
 
 let renderedForm: AngularForm<{ email: string }> | undefined;
 @Component({ selector: 'ssr-material', standalone: true, imports: [...VALIXA_MATERIAL, MatInputModule, MatFormFieldModule], template: `

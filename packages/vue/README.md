@@ -1,4 +1,4 @@
-# @valixa/vue
+# valixa-vue
 
 Vue 3.5 Composition API bindings for the framework-independent Valixa core. Vue is
 a peer, never bundled. JavaScript and TypeScript share the same runtime API.
@@ -8,7 +8,7 @@ a peer, never bundled. JavaScript and TypeScript share the same runtime API.
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useValixa, useValixaState, useValixaAdapter, nativeText } from '@valixa/vue';
+import { useValixa, useValixaState, useValixaAdapter, nativeText } from 'valixa-vue';
 const form = useValixa({ email: ['', 'required | email'] });
 const state = useValixaState(form);
 const email = useValixaAdapter(form, 'email', nativeText);
@@ -61,7 +61,7 @@ they throw before creating forms/subscriptions. For non-component usage:
 
 ```js
 import { effectScope } from 'vue';
-import { useValixa, useValixaState } from '@valixa/vue';
+import { useValixa, useValixaState } from 'valixa-vue';
 const scope = effectScope();
 const form = scope.run(() => useValixa({ email: ['', 'required | email'] }));
 const state = scope.run(() => useValixaState(form));
@@ -163,6 +163,6 @@ dependency. Core still only stores acyclic plain data.
 
 ## Optional Auto Forms and DevTools
 
-Phase 6 adds @valixa/vue/auto and @valixa/vuetify/auto. Install @valixa/auto explicitly when using these optional entries. Manual root exports remain independent. Dates require explicit codecs; custom renderer registries and group/row metadata are application-owned.
-The /devtools entry binds the shared panel to an explicit inspections list. Install @valixa/devtools, attach in the form owner lifecycle and detach on cleanup; panel unmount only releases panel subscriptions. Values/messages are redacted by default.
+Phase 6 adds valixa-vue/auto and valixa-vuetify/auto. Install valixa-auto explicitly when using these optional entries. Manual root exports remain independent. Dates require explicit codecs; custom renderer registries and group/row metadata are application-owned.
+The /devtools entry binds the shared panel to an explicit inspections list. Install valixa-devtools, attach in the form owner lifecycle and detach on cleanup; panel unmount only releases panel subscriptions. Values/messages are redacted by default.
 See docs/phase-6.md in the repository for examples, capabilities, privacy and compatibility limits.

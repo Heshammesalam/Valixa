@@ -1,10 +1,10 @@
-# @valixa/react
+# valixa-react
 
-Headless React hooks for `@valixa/core`. React is a peer dependency, never bundled.
+Headless React hooks for `valixa`. React is a peer dependency, never bundled.
 This release targets React 19.2; see the repository report for tested versions.
 
 ```tsx
-import { useValixa, useValixaField, useValixaState } from '@valixa/react';
+import { useValixa, useValixaField, useValixaState } from 'valixa-react';
 
 function Login() {
   const form = useValixa({ email: ['', 'required | email'] });
@@ -127,6 +127,6 @@ Strict Mode, render isolation, cleanup and submission behavior have automated te
 
 ## Optional Auto Forms and DevTools
 
-Phase 6 adds @valixa/react/auto and @valixa/mui/auto. Install @valixa/auto explicitly when using these optional entries. Manual root exports remain independent. Dates require explicit codecs; custom renderer registries and group/row metadata are application-owned.
-The /devtools entry binds the shared panel to an explicit inspections list. Install @valixa/devtools, attach in the form owner lifecycle and detach on cleanup; panel unmount only releases panel subscriptions. Values/messages are redacted by default.
+Phase 6 adds valixa-react/auto and valixa-mui/auto. Install valixa-auto explicitly when using these optional entries. Manual root exports remain independent. Dates require explicit codecs; custom renderer registries and group/row metadata are application-owned.
+The /devtools entry binds the shared panel to an explicit inspections list. Install valixa-devtools, attach in the form owner lifecycle and detach on cleanup; panel unmount only releases panel subscriptions. Values/messages are redacted by default.
 See docs/phase-6.md in the repository for examples, capabilities, privacy and compatibility limits.

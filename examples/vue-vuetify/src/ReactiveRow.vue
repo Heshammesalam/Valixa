@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { VTextField } from 'vuetify/components';
-import type { CollectionRow } from '@valixa/core';
-import { useVuetifyField } from '@valixa/vuetify';
+import type { CollectionRow } from 'valixa';
+import { useVuetifyField } from 'valixa-vuetify';
 import type { AddressValues } from '../../shared/reactive.js';
 const props = defineProps<{ row: CollectionRow<AddressValues> }>();
 const city = useVuetifyField(props.row.form, 'city', { kind: 'text' }), confirm = useVuetifyField(props.row.form, 'confirm', { kind: 'text' });

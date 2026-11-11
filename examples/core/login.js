@@ -1,4 +1,4 @@
-import { blueprint, createValixa } from '@valixa/core';
+import { blueprint, createValixa } from 'valixa';
 
 const login = blueprint({
   email: ['', 'required | email'],

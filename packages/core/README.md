@@ -1,10 +1,10 @@
-# @valixa/core
+# valixa
 
 Framework-independent form state, validation, subscriptions and submission.
 ESM and TypeScript declarations, with no runtime dependencies.
 
 ```js
-import { createValixa } from '@valixa/core';
+import { createValixa } from 'valixa';
 
 const form = createValixa({ email: ['', 'required | email'] });
 form.setValue('email', 'user@example.com');

@@ -8,8 +8,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { createValixa } from '@valixa/angular';
-import { VALIXA_MATERIAL } from '@valixa/angular-material';
+import { createValixa } from 'valixa-angular';
+import { VALIXA_MATERIAL } from 'valixa-angular-material';
 
 afterEach(() => TestBed.resetTestingModule());
 @Component({ standalone: true, imports: [...VALIXA_MATERIAL, MatInputModule, MatFormFieldModule],
