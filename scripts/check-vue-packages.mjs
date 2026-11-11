@@ -28,9 +28,9 @@ for (const variant of ['vue', 'vuetify']) {
   dependencies.vue = version('vue'); dependencies['@vue/server-renderer'] = version('@vue/server-renderer');
   if (variant === 'vuetify') dependencies.vuetify = version('vuetify');
   writeFileSync(join(directory, 'package.json'), JSON.stringify({ private: true, type: 'module', dependencies,
-    pnpm: { overrides: Object.fromEntries(selected.map(name => [name, tarballs[name]])) } }, null, 2));
+    pnpm: { overrides: { ...JSON.parse(readFileSync(join(root,'package.json'),'utf8')).pnpm.overrides, ...Object.fromEntries(selected.map(name => [name, tarballs[name]])) } } }, null, 2));
   writeFileSync(join(directory, '.npmrc'), 'auto-install-peers=false\n');
-  run(['install', '--ignore-workspace', '--offline', '--ignore-scripts', '--lockfile=false'], directory);
+  run(['install', '--ignore-workspace', '--prefer-offline', '--ignore-scripts', '--lockfile=false'], directory);
   const consumerRequire = createRequire(join(directory, 'package.json'));
   assert.throws(() => consumerRequire.resolve('react'));
   if (variant === 'vue') assert.throws(() => consumerRequire.resolve('vuetify'));

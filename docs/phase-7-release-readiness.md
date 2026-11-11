@@ -25,7 +25,7 @@ Stable target **1.0.0** is not automatically applied to these candidates.
 
 Repository created and verified public with owner admin access:
 [Heshammesalam/Valixa](https://github.com/Heshammesalam/Valixa).
-All manifests now carry that repository/directory, homepage, bugs URL, description,
+Initial reviewed source commit: `1b079070f9349c9f0a0119368c8273e64bda254f` (295 exact matching blobs). All manifests now carry that repository/directory, homepage, bugs URL, description,
 keywords, license, typed exports, files, engines and public publish configuration.
 Internal packed dependencies/peers target the matching candidate, not workspace/file
 paths. Root/examples remain private. Full tarball file inventory and hashes are in
@@ -49,7 +49,7 @@ native versus Material date views remain documented, not silently broadened.
 | Angular SSR/hydration | Actual prerender/hydration production native route tested in all three engines; installed consumer SSR |
 | React/Vue SSR | Manual and Auto/panel installed-consumer SSR; native hydration regressions in jsdom |
 | Broader hydration | Auto/MUI/Vuetify production hydration is not established; no blanket full-hydration claim |
-| Linux / Node 20/22 CI | Configured; not represented as locally executed success |
+| Linux CI | First actual run: browser and benchmark pass; package jobs exposed an offline-metadata assumption, fixed in consumer installers; full matrix rerun required |
 
 ## Security and dependency audit
 
@@ -87,49 +87,68 @@ plus the isolated JS/TS core case all passed.
 
 ### Performance measurements
 
-Phase 6 paired optimized baseline/current suite: four warmups, 11 samples, 50 writes
-per update batch; medians in milliseconds/operation. No panel is mounted in Node.
+### Counterbalanced performance investigation
 
-| Fields | Baseline update | Tools disabled | Ratio | Events only | Inspection enabled |
-| --- | --- | --- | --- | --- | --- |
-| 10 | 0.02304 | 0.02089 | 0.91× | 0.00952 | 0.01420 |
-| 100 | 0.01921 | 0.02098 | 1.09× | 0.01400 | 0.01744 |
-| 1000 | 0.03850 | 0.02102 | 0.55× | 0.01737 | 0.04180 |
+The original sequential benchmark varied materially across runs (including a noisy
+1,000-field validation comparison). The release investigation alternates which engine
+runs first on each pair, warms both for 20 iterations, records 31 samples, batches 200
+writes and five full validations per sample, and checks results outside timed work.
+No timing threshold is asserted. Medians are milliseconds/operation:
 
-| Fields | Baseline full validation | Tools disabled validation | Inspection validation | Baseline initialization/disposal | Current initialization/disposal |
-| --- | --- | --- | --- | --- | --- |
-| 10 | 0.04640 | 0.05270 | 0.15020 | 0.15910 | 0.17260 |
-| 100 | 0.52520 | 0.46980 | 2.33310 | 1.22320 | 0.88670 |
-| 1000 | 5.08600 | 8.28540 | 14.31650 | 7.31830 | 6.86230 |
+| Fields | Baseline update | Current disabled update | Ratio | Baseline full validation | Current full validation | Ratio |
+| --- | --- | --- | --- | --- | --- | --- |
+| 10 | 0.00841 | 0.00819 | 0.975× | 0.03650 | 0.03612 | 0.990× |
+| 100 | 0.02574 | 0.02480 | 0.963× | 0.29970 | 0.27778 | 0.927× |
+| 1000 | 0.28787 | 0.28092 | 0.976× | 4.31612 | 4.28508 | 0.993× |
 
-Enabled inspection has measurable cost, especially full-schema validation; it is
-development opt-in. Timing ratios include same-process order/JIT/host effects and
-are not CI thresholds. No validation semantics changed. A small guard skips diagnostic failure classification and event calls when no observer is attached; public declarations remain identical. A noisy initial 1,000-field validation comparison was investigated with a separate quiet paired run (3.3499 ms baseline / 3.6596 ms before the guard). Full raw before-guard samples are saved in artifacts/phase-7-performance-before-guard.json; host/JIT/order variation prevents a zero-overhead or universal speedup claim.
-Dependency invalidation and dynamic collection workloads/assertions remain in the
-unchanged benchmark/compare commands; raw samples are benchmarks/results.json and
-benchmarks/phase-5-1-results.json.
+Counterbalanced initialization/disposal ratios at 10/100/1000 fields were 0.985×/0.817×/1.020×.
+This did not reproduce a consistent material algorithmic regression. It does not
+establish universal speed parity: sequential raw results still show host/order/JIT
+variation. Investigation found unnecessary diagnostic failure classification even
+without observers; a small guard removes that work without changing validation or
+event semantics/public declarations. Before-guard raw samples are preserved in
+artifacts/phase-7-performance-before-guard.json. Full counterbalanced samples are
+artifacts/phase-7-paired-performance.json (`pnpm benchmark:release`, exit 0).
 
-| History limit | Approx. retained bytes/form + inspection | Serialized event bytes |
+The unchanged benchmark/benchmark:compare suites continue to measure dependency
+invalidation and dynamic rows, with all assertions passing. The Phase 6 suite separately
+measures real enabled inspection, bounded history and disabled observers. Enabled
+inspection has measurable full-schema projection cost and is intentionally development
+opt-in. Browser action-to-visible measurements include automation/UI/DevTools/host
+contention, not pure renderer CPU or a framework ranking; latest raw measurements
+remain in artifacts/phase-6/*-browser-latency.json. Large UI-control-count rendering
+and browser heap profiling are not claimed.
+
+### Final local evidence
+
+All ten required release-verification commands completed with **exit 0** after the
+disabled hot-path guard. Machine-readable evidence is artifacts/release/verification.json
+(`complete: true`, 190 unit/integration tests, 15 Chromium + 45 cross-browser flows,
+12 consumer cases). This is local evidence; it is not substituted for a same-SHA CI
+verification when publishing. Public source files were independently verified by Git
+blob hashes after upload (295 files in initial source commit).
+
+| Tarball | Bytes | Packed files |
 | --- | --- | --- |
-| 0 | 3197 | 2 |
-| 100 | 12922 | 8401 |
-| 1000 | 99966 | 82403 |
+| @valixa/core@1.0.0-rc.1 | 73507 | 65 |
+| @valixa/angular@1.0.0-rc.1 | 17487 | 7 |
+| @valixa/auto@1.0.0-rc.1 | 10781 | 8 |
+| @valixa/devtools@1.0.0-rc.1 | 23560 | 13 |
+| @valixa/angular-devtools@1.0.0-rc.1 | 3387 | 7 |
+| @valixa/angular-material@1.0.0-rc.1 | 9445 | 7 |
+| @valixa/react@1.0.0-rc.1 | 15564 | 18 |
+| @valixa/vue@1.0.0-rc.1 | 17216 | 18 |
+| @valixa/angular-auto@1.0.0-rc.1 | 16789 | 7 |
+| @valixa/mui@1.0.0-rc.1 | 15026 | 18 |
+| @valixa/vuetify@1.0.0-rc.1 | 15682 | 18 |
 
-Heap estimates use forced GC and are not allocation-throughput guarantees. Events
-retain metadata only. Browser Auto Form measurements below include Playwright/UI/
-DevTools/host contention, one sample from the supplied form (not pure renderer CPU,
-not large-form or framework-ranking claims); milliseconds:
-
-| Framework | Initial screen | Field edit | Conditional update | Add row |
-| --- | --- | --- | --- | --- |
-| react | 4310.4 | 167.4 | 768.7 | 261.7 |
-| vue | 348.8 | 122.8 | 649.2 | 233.1 |
-| angular | 403.1 | 123.1 | 422.9 | 188.6 |
-
-Raw samples: artifacts/phase-6/core-performance.json and *-browser-latency.json.
-The release cross-browser run overwrites per-framework latency artifacts as each
-engine completes; these final samples are from the later required Chromium run.
-
+Complete hashes/metadata/file lists are in artifacts/release/manifest.json.
+A subsequent real Linux CI run exposed the cold-cache metadata assumption in consumer
+installers; Windows/local cached success did not conceal it. Consumer installation
+now allows public metadata fetching with exact direct peer versions and patched-tool
+overrides. CI collects all Node matrix outcomes (fail-fast disabled), uses supported
+immutable official action releases, and must be checked on the updated source SHA.
+See [live CI results](https://github.com/Heshammesalam/Valixa/actions/workflows/ci.yml).
 Raw command logs: artifacts/phase-7-baseline-check.log, phase-7-check.log,
 phase-7-phase6.log, phase-7-examples.log, phase-7-chromium.log,
 phase-7-browsers.log, phase-7-consumers.log, phase-7-tarballs.log,
@@ -148,7 +167,7 @@ Original seven installed consumers are retained. Phase 6 headless/React/Vue/Angu
 consumers are extended with independent React/Vue production bundling and browser
 validation/submission/redaction. An additional core-only clean consumer verifies
 vanilla JavaScript plus TypeScript, async submit, nested paths, rows, locale and
-negative inference. No workspace aliases or unrelated optional frameworks are used.
+negative inference. No workspace aliases or unrelated optional frameworks are used. Fresh consumers prefer cached packages but may fetch public registry metadata, with exact direct peer versions and patched tooling overrides; they do not assume a pre-populated developer metadata cache.
 
 A new Vue production check initially failed: Windows 8.3 TEMP aliases produced
 duplicate core module identities in Vite. Canonicalizing the actual temporary path

@@ -35,9 +35,9 @@ for (const variant of ['react', 'mui', 'mui-x']) {
     dependencies['@mui/x-date-pickers'] = installedVersion('@mui/x-date-pickers'); dependencies.dayjs = installedVersion('dayjs');
   }
   writeFileSync(join(directory, 'package.json'), JSON.stringify({ private: true, type: 'module', dependencies: { ...dependencies, ...selectedPeers },
-    pnpm: { overrides: Object.fromEntries(selected.map(name => [name, tarballs[name]])) } }, null, 2));
+    pnpm: { overrides: { ...JSON.parse(readFileSync(join(root,'package.json'),'utf8')).pnpm.overrides, ...Object.fromEntries(selected.map(name => [name, tarballs[name]])) } } }, null, 2));
   writeFileSync(join(directory, '.npmrc'), 'auto-install-peers=false\n');
-  run(['install', '--ignore-workspace', '--offline', '--ignore-scripts', '--lockfile=false'], directory);
+  run(['install', '--ignore-workspace', '--prefer-offline', '--ignore-scripts', '--lockfile=false'], directory);
   const consumerRequire = createRequire(join(directory, 'package.json'));
   if (variant === 'react') assert.throws(() => consumerRequire.resolve('@mui/material'), 'React package must work without MUI');
   if (variant !== 'mui-x') assert.throws(() => consumerRequire.resolve('@mui/x-date-pickers'), 'MUI X must remain optional');

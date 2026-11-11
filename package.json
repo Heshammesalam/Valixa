@@ -35,7 +35,8 @@
     "release:check:candidate": "node scripts/check-release.mjs --candidate",
     "test:browser:release": "playwright test --config playwright.release.config.ts",
     "audit:security": "pnpm audit --audit-level=low",
-    "release:verify": "node scripts/verify-release.mjs"
+    "release:verify": "node scripts/verify-release.mjs",
+    "benchmark:release": "node --expose-gc --import tsx benchmarks/phase-7-paired.ts"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.0",

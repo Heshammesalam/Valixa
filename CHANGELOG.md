@@ -3,6 +3,7 @@
 ## 1.0.0-rc.1 — prepared, not published
 
 - Stabilize Phase 1–6 APIs without intentional declaration changes.
+- Skip diagnostic failure classification when no event observer is attached; retain event/validation semantics.
 - Prepare fixed versions, complete repository metadata, compatible peer ranges and normalized Angular tarballs.
 - Patch affected build/test-tool glob/minimatch versions without audit suppression.
 - Add tarball checksums, content/API checks, independent production consumers, Firefox/WebKit runs and native hydration/XSS regressions.

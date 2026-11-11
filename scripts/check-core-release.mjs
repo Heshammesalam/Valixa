@@ -10,7 +10,7 @@ assert(pnpm?.includes('pnpm')); const file = join(root, 'artifacts/packages', `v
 const directory = mkdtempSync(join(tmpdir(), 'valixa-core-release-'));
 writeFileSync(join(directory, 'package.json'), JSON.stringify({ private: true, type: 'module', dependencies: { '@valixa/core': `file:${file}` } }));
 writeFileSync(join(directory, '.npmrc'), 'auto-install-peers=false\n');
-execFileSync(process.execPath, [pnpm, 'install', '--ignore-workspace', '--offline', '--ignore-scripts', '--lockfile=false'], { cwd: directory, stdio: 'inherit' });
+execFileSync(process.execPath, [pnpm, 'install', '--ignore-workspace', '--prefer-offline', '--ignore-scripts', '--lockfile=false'], { cwd: directory, stdio: 'inherit' });
 const consumer = createRequire(join(directory, 'package.json'));
 for (const dependency of ['react', 'vue', '@angular/core', '@valixa/auto', '@valixa/devtools']) assert.throws(() => consumer.resolve(dependency));
 writeFileSync(join(directory, 'smoke.mjs'), `import assert from 'node:assert/strict'; import {blueprint,createValixa,nested,collection} from '@valixa/core';
