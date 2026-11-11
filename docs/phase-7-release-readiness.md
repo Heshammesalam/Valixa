@@ -1,12 +1,12 @@
 # Phase 7 release readiness
 
-Review date: 11 November 2026. **Verdict: NOT READY for public npm publication.**
+Review date: 11 November 2026. **Verdict: READY WITH DOCUMENTED LIMITATIONS for an explicitly approved first public RC bootstrap; protected OIDC publication is NOT READY until npm publisher setup.**
 The local candidate and an approved public npm release are different states.
 No npm package, public release tag or GitHub release has been published by this work.
 
 ## Exact prepared inventory
 
-The maintainer approved public packages without an npm organization: core is `valixa`, integrations are `valixa-*`. Historical pre-rename results below do not establish verification of renamed artifacts until the new gates complete.
+The maintainer approved public packages without an npm organization: core is `valixa`, integrations are `valixa-*`. All ten local verification gates passed again for the renamed artifacts on 11 November 2026. The matching source commit is `205512661d37e237cec0f47164d5bd043b81d39e`; its Linux CI is tracked separately below.
 
 All candidates are **1.0.0-rc.1**, tag **next**, MIT, unscoped public ESM, sideEffects false.
 Stable target **1.0.0** is not automatically applied to these candidates.
@@ -35,7 +35,7 @@ artifacts/release/manifest.json; package source manifests are the dependency inv
 
 ## Public API / compatibility
 
-No intentional product features or public breaking API changes. All **31** baseline declaration files retain their signature hashes after canonicalizing only the approved module-name changes. See [API compatibility](phase-7-api-compatibility.md)
+No product features or type signatures were changed. The approved package/import renames require consumers to update imports. All **31** baseline declaration files match after canonicalizing approved module-name changes and generated namespace aliases. See [API compatibility](phase-7-api-compatibility.md)
 and [migration](migration.md). ESM, plain acyclic domains and explicit codecs remain
 contracts. Angular multiple autocomplete, Vue generic-boundary/custom key limits and
 native versus Material date views remain documented, not silently broadened.
@@ -50,7 +50,7 @@ native versus Material date views remain documented, not silently broadened.
 | Angular SSR/hydration | Actual prerender/hydration production native route tested in all three engines; installed consumer SSR |
 | React/Vue SSR | Manual and Auto/panel installed-consumer SSR; native hydration regressions in jsdom |
 | Broader hydration | Auto/MUI/Vuetify production hydration is not established; no blanket full-hydration claim |
-| Linux CI | First actual run: browser and benchmark pass; package jobs exposed an offline-metadata assumption, fixed in consumer installers; full matrix rerun required |
+| Linux CI | Renamed source run [42994106136](https://github.com/Heshammesalam/Valixa/actions/runs/42994106136): all five jobs passed, Node 20/22/24, browsers and benchmarks |
 
 ## Security and dependency audit
 
@@ -131,17 +131,17 @@ blob hashes after upload (295 files in initial source commit).
 
 | Tarball | Bytes | Packed files |
 | --- | --- | --- |
-| valixa@1.0.0-rc.1 | 73507 | 65 |
-| valixa-angular@1.0.0-rc.1 | 17487 | 7 |
-| valixa-auto@1.0.0-rc.1 | 10781 | 8 |
-| valixa-devtools@1.0.0-rc.1 | 23560 | 13 |
-| valixa-angular-devtools@1.0.0-rc.1 | 3387 | 7 |
-| valixa-angular-material@1.0.0-rc.1 | 9445 | 7 |
-| valixa-react@1.0.0-rc.1 | 15564 | 18 |
-| valixa-vue@1.0.0-rc.1 | 17216 | 18 |
-| valixa-angular-auto@1.0.0-rc.1 | 16789 | 7 |
-| valixa-mui@1.0.0-rc.1 | 15026 | 18 |
-| valixa-vuetify@1.0.0-rc.1 | 15682 | 18 |
+| valixa@1.0.0-rc.1 | 73453 | 65 |
+| valixa-angular@1.0.0-rc.1 | 17541 | 7 |
+| valixa-auto@1.0.0-rc.1 | 10840 | 8 |
+| valixa-devtools@1.0.0-rc.1 | 23604 | 13 |
+| valixa-angular-devtools@1.0.0-rc.1 | 3377 | 7 |
+| valixa-angular-material@1.0.0-rc.1 | 9509 | 7 |
+| valixa-react@1.0.0-rc.1 | 15536 | 18 |
+| valixa-vue@1.0.0-rc.1 | 17201 | 18 |
+| valixa-angular-auto@1.0.0-rc.1 | 16777 | 7 |
+| valixa-mui@1.0.0-rc.1 | 15017 | 18 |
+| valixa-vuetify@1.0.0-rc.1 | 15668 | 18 |
 
 Complete hashes/metadata/file lists are in artifacts/release/manifest.json.
 A subsequent real Linux CI run exposed the cold-cache metadata assumption in consumer
@@ -187,12 +187,13 @@ as accidental future minor bumps.
 ## Remaining publication blockers
 
 1. Browser npm login is verified as `heshammesalam`. The account has no organizations, and the maintainer declined creating one. Public unscoped names were approved instead. All 11 exact unscoped registry lookups returned 404; successful publication/name ownership is not inferred from that.
-2. Renamed tarballs, imports, declarations and clean consumers are being reverified. Prior scoped-name CI passed on Node 20/22/24 at commit `0cfa77d71d29eb048e1bce7f42072ce840d74421`, run https://github.com/Heshammesalam/Valixa/actions/runs/42989799753. That evidence is historical, not a renamed-package pass.
-3. npm trusted publisher/initial-package bootstrap and the protected `npm-release` environment must be configured and verified. `VALIXA_RELEASE_READY` remains unset. Browser login does not authorize the local CLI, whose earlier whoami returned 401; no npm token was requested or stored.
+2. Renamed tarballs, imports, declarations and all 12 clean consumers passed all ten local gates. Renamed Linux CI run 42994106136 passed all five jobs on Node 20/22/24, production browsers and benchmarks. All 299 uploaded source blobs match the reviewed snapshot exactly.
+3. The `npm-release` environment was created and verified: required reviewer `Heshammesalam`, administrator bypass disabled, only branch `main` allowed (zero tag rules). Self-review remains allowed for this single-maintainer repository. Private vulnerability reporting is enabled. npm trusted publisher setup still requires packages to exist; `VALIXA_RELEASE_READY` remains unset. After the maintainer completed normal login privately, CLI whoami succeeded as `heshammesalam`. No npm token was requested, read or stored by this work. The proposed one-time local bootstrap has no GitHub OIDC provenance and needs explicit approval; see [first publication proposal](releases/first-publication.md).
 4. Approve the exact final versions/tag after the renamed artifact checks. Stable 1.0.0 requires promotion and a fresh complete verification. No package publication has occurred.
 
-The next publication action, after resolving these blockers and exact approval, is
-manual dispatch of **Approved npm release** with `version: 1.0.0-rc.1`, environment
-**npm-release**, tag **next**, in the table order. See [exact workflow/commands and
-rollback](releasing.md). Do not infer successful publication until npm confirms each
-version and SHA-512 integrity. No irreversible public release action was executed.
+The next proposed action is the [one-time first publication](releases/first-publication.md)
+of these exact tarballs at `1.0.0-rc.1`, tag `next`, after explicit approval of its
+provenance limitation. The protected OIDC workflow remains disabled pending setup;
+it must not be dispatched as if those prerequisites were satisfied. See
+[workflow and rollback](releasing.md). Do not infer successful publication until
+npm confirms each version and SHA-512 integrity. No public release action was executed.

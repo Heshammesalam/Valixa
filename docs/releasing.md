@@ -73,6 +73,12 @@ external prerequisites or exact immutable artifacts have been verified.
 
 ## Exact publishing workflow
 
+For the initial unscoped packages, see the separately reviewed
+[first-publication proposal](releases/first-publication.md). It requires exact
+approval of the one-time local bootstrap without GitHub OIDC provenance. The
+protected workflow below remains unchanged and disabled until trusted publishers
+can be configured for the newly created packages.
+
 After explicit approval of all 11 names at 1.0.0-rc.1 and completion of prerequisites,
 dispatch **Approved npm release** on main with input `version: 1.0.0-rc.1`.
 The verify job runs all gates before the protected publish job can request approval.
