@@ -1,0 +1,52 @@
+{
+  "name": "@valixa/core",
+  "version": "1.0.0-rc.1",
+  "description": "Headless, framework-independent form state and validation",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "API.md",
+    "ADVANCED.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepack": "pnpm build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "tag": "next"
+  },
+  "keywords": [
+    "forms",
+    "validation",
+    "typescript",
+    "headless",
+    "valixa"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Heshammesalam/Valixa.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/Heshammesalam/Valixa#readme",
+  "bugs": {
+    "url": "https://github.com/Heshammesalam/Valixa/issues"
+  }
+}

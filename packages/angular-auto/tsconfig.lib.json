@@ -1,0 +1,6 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": { "target": "ES2022", "module": "ES2022", "moduleResolution": "Bundler", "lib": ["ES2022", "DOM"], "experimentalDecorators": true, "useDefineForClassFields": false, "declaration": true, "declarationMap": true, "sourceMap": true },
+  "angularCompilerOptions": { "compilationMode": "partial", "strictTemplates": true, "strictInjectionParameters": true },
+  "include": ["src/**/*.ts"]
+}

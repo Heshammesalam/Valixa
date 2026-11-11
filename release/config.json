@@ -1,0 +1,11 @@
+{
+  "repository": "https://github.com/Heshammesalam/Valixa",
+  "version": "1.0.0-rc.1",
+  "stableTarget": "1.0.0",
+  "tag": "next",
+  "registry": "https://registry.npmjs.org/",
+  "environment": "npm-release",
+  "workflow": "release.yml",
+  "versioning": "fixed",
+  "scope": "@valixa"
+}

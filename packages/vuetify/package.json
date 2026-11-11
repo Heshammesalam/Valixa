@@ -1,0 +1,72 @@
+{
+  "name": "@valixa/vuetify",
+  "version": "1.0.0-rc.1",
+  "type": "module",
+  "license": "MIT",
+  "description": "Explicit Vuetify model bindings and file boundaries for Valixa Vue",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./auto": {
+      "types": "./dist/auto.d.ts",
+      "import": "./dist/auto.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepack": "pnpm build"
+  },
+  "dependencies": {
+    "@valixa/core": "workspace:^",
+    "@valixa/vue": "workspace:^"
+  },
+  "peerDependencies": {
+    "vue": "~3.5.0",
+    "vuetify": "~3.13.0",
+    "@valixa/auto": "^1.0.0-rc.1"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "tag": "next"
+  },
+  "peerDependenciesMeta": {
+    "@valixa/auto": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@valixa/auto": "workspace:*"
+  },
+  "keywords": [
+    "forms",
+    "validation",
+    "typescript",
+    "headless",
+    "valixa",
+    "vue"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Heshammesalam/Valixa.git",
+    "directory": "packages/vuetify"
+  },
+  "homepage": "https://github.com/Heshammesalam/Valixa#readme",
+  "bugs": {
+    "url": "https://github.com/Heshammesalam/Valixa/issues"
+  }
+}

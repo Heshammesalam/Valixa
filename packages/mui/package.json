@@ -1,0 +1,81 @@
+{
+  "name": "@valixa/mui",
+  "version": "1.0.0-rc.1",
+  "description": "Explicit Material UI component adapters for Valixa",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./x": {
+      "types": "./dist/x.d.ts",
+      "import": "./dist/x.js"
+    },
+    "./auto": {
+      "types": "./dist/auto.d.ts",
+      "import": "./dist/auto.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepack": "pnpm build"
+  },
+  "dependencies": {
+    "@valixa/core": "workspace:^",
+    "@valixa/react": "workspace:^"
+  },
+  "peerDependencies": {
+    "react": "^19.2.0",
+    "@mui/material": "~7.3.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/x-date-pickers": "^8.29.0",
+    "@valixa/auto": "^1.0.0-rc.1"
+  },
+  "peerDependenciesMeta": {
+    "@mui/x-date-pickers": {
+      "optional": true
+    },
+    "@valixa/auto": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "tag": "next"
+  },
+  "devDependencies": {
+    "@valixa/auto": "workspace:*"
+  },
+  "keywords": [
+    "forms",
+    "validation",
+    "typescript",
+    "headless",
+    "valixa"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Heshammesalam/Valixa.git",
+    "directory": "packages/mui"
+  },
+  "homepage": "https://github.com/Heshammesalam/Valixa#readme",
+  "bugs": {
+    "url": "https://github.com/Heshammesalam/Valixa/issues"
+  }
+}

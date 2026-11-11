@@ -1,0 +1,16 @@
+node_modules/
+dist/
+coverage/
+*.tgz
+artifacts/
+test-results/
+playwright-report/
+.angular/
+out-tsc/
+
+.env
+.env.*
+!.env.example
+.npmrc
+*.pem
+*.key

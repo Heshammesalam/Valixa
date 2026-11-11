@@ -1,0 +1,27 @@
+{
+  "name": "@valixa/example-react",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@valixa/core": "workspace:*",
+    "@valixa/react": "workspace:*",
+    "@valixa/mui": "workspace:*",
+    "react": "~19.2.0",
+    "react-dom": "~19.2.0",
+    "@mui/material": "~7.3.0",
+    "@mui/x-date-pickers": "~8.29.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "dayjs": "^1.11.13",
+    "@valixa/auto": "workspace:*",
+    "@valixa/devtools": "workspace:*"
+  },
+  "devDependencies": {
+    "vite": "^6.4.0"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.0.5/schema.json",
+  "changelog": "@changesets/cli/changelog",
+  "commit": false,
+  "fixed": [
+    [
+      "@valixa/angular",
+      "@valixa/angular-auto",
+      "@valixa/angular-devtools",
+      "@valixa/angular-material",
+      "@valixa/auto",
+      "@valixa/core",
+      "@valixa/devtools",
+      "@valixa/mui",
+      "@valixa/react",
+      "@valixa/vue",
+      "@valixa/vuetify"
+    ]
+  ],
+  "linked": [],
+  "access": "public",
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch",
+  "ignore": []
+}

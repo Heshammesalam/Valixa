@@ -1,0 +1,79 @@
+{
+  "name": "@valixa/react",
+  "version": "1.0.0-rc.1",
+  "description": "React external-store hooks and typed component bindings for Valixa",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./auto": {
+      "types": "./dist/auto.d.ts",
+      "import": "./dist/auto.js"
+    },
+    "./devtools": {
+      "types": "./dist/devtools.d.ts",
+      "import": "./dist/devtools.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepack": "pnpm build"
+  },
+  "dependencies": {
+    "@valixa/core": "workspace:^"
+  },
+  "peerDependencies": {
+    "react": "^19.2.0",
+    "@valixa/auto": "^1.0.0-rc.1",
+    "@valixa/devtools": "^1.0.0-rc.1"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "tag": "next"
+  },
+  "peerDependenciesMeta": {
+    "@valixa/auto": {
+      "optional": true
+    },
+    "@valixa/devtools": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@valixa/auto": "workspace:*",
+    "@valixa/devtools": "workspace:*"
+  },
+  "keywords": [
+    "forms",
+    "validation",
+    "typescript",
+    "headless",
+    "valixa",
+    "react"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Heshammesalam/Valixa.git",
+    "directory": "packages/react"
+  },
+  "homepage": "https://github.com/Heshammesalam/Valixa#readme",
+  "bugs": {
+    "url": "https://github.com/Heshammesalam/Valixa/issues"
+  }
+}

@@ -1,0 +1,6 @@
+@import '@angular/material/prebuilt-themes/azure-blue.css';
+* { box-sizing: border-box; } body { margin: 0; font-family: Inter, system-ui, sans-serif; background: #f4f6f3; color: #1c3028; }
+main { max-width: 700px; padding: 48px 24px; margin: auto; } h1 { font-size: 52px; margin: 14px 0 8px; letter-spacing: -.04em; } .eyebrow { font-size: 11px; letter-spacing: .12em; }
+header p, .intro, footer { color: #52615a; } nav, .actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0; } .card { padding: 28px; border: 1px solid #d2dbd4; border-radius: 16px; background: white; }
+h2 { font-size: 25px; margin: 0 0 8px; } .intro { line-height: 1.6; margin-bottom: 24px; } mat-form-field { width: 100%; } .native { display: grid; gap: 10px; } .native input { border: 1px solid #8b9b92; padding: 12px; border-radius: 8px; }
+.native [role=alert] { color: #a62222; } fieldset { border: 1px solid #d2dbd4; padding: 12px; margin: 16px 0; } footer { margin-top: 24px; font-size: 12px; } @media(max-width: 500px) { main { padding: 24px 16px; } .card { padding: 20px; } }

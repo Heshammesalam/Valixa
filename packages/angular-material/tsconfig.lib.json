@@ -1,0 +1,1 @@
+{ "extends": "../angular/tsconfig.lib.json", "include": ["src/**/*.ts"] }

@@ -1,0 +1,61 @@
+{
+  "name": "@valixa/angular",
+  "version": "1.0.0-rc.1",
+  "type": "module",
+  "license": "MIT",
+  "description": "Angular signal ownership and typed control bindings for Valixa",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/types/valixa-angular.d.ts",
+      "default": "./dist/fesm2022/valixa-angular.mjs"
+    }
+  },
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json -c tsconfig.lib.json && node ../../scripts/normalize-angular.mjs angular"
+  },
+  "peerDependencies": {
+    "@angular/core": "~21.2.0",
+    "@angular/common": "~21.2.0",
+    "@angular/forms": "~21.2.0",
+    "@valixa/core": "^1.0.0-rc.1",
+    "rxjs": "^7.8.0"
+  },
+  "dependencies": {
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {
+    "@valixa/core": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "tag": "next"
+  },
+  "keywords": [
+    "forms",
+    "validation",
+    "typescript",
+    "headless",
+    "valixa",
+    "angular"
+  ],
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "types": "./dist/types/valixa-angular.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Heshammesalam/Valixa.git",
+    "directory": "packages/angular"
+  },
+  "homepage": "https://github.com/Heshammesalam/Valixa#readme",
+  "bugs": {
+    "url": "https://github.com/Heshammesalam/Valixa/issues"
+  }
+}

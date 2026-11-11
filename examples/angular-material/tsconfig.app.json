@@ -1,0 +1,6 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": { "module": "ES2022", "moduleResolution": "Bundler", "experimentalDecorators": true, "useDefineForClassFields": false, "lib": ["ES2022", "DOM"], "types": ["node"], "outDir": "./out-tsc" },
+  "angularCompilerOptions": { "strictTemplates": true, "strictInjectionParameters": true },
+  "files": ["src/main.ts", "src/main.server.ts"], "include": ["src/**/*.ts"]
+}

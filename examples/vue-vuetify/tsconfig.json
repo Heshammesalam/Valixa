@@ -1,0 +1,6 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": { "noEmit": true, "module": "ESNext", "moduleResolution": "Bundler", "lib": ["ES2022", "DOM", "DOM.Iterable"], "types": ["vite/client"], "jsx": "preserve" },
+  "vueCompilerOptions": { "strictTemplates": true, "checkUnknownProps": false },
+  "include": ["src/**/*.ts", "src/**/*.vue", "vite.config.ts"]
+}

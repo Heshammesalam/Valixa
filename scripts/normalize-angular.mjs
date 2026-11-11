@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { packages } from './release-lib.mjs';
+const item = packages.find(item => item.folder === process.argv[2]);
+assert(item?.folder.startsWith('angular'), 'Expected an Angular package directory');
+const path = join(item.packedDirectory, 'package.json'), manifest = JSON.parse(readFileSync(path, 'utf8'));
+manifest.files = ['fesm2022', 'types', 'README.md', 'LICENSE'];
+manifest.types = manifest.exports['.'].types;
+writeFileSync(path, JSON.stringify(manifest, null, 2) + '\n');
