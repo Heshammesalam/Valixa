@@ -1,6 +1,9 @@
 # Changelog
 
-## 1.0.0-rc.1 — prepared, not published
+## 1.0.0-rc.1 — published 2026-11-11
+
+All eleven public unscoped packages were published with tag `next`. Downloaded npm
+tarballs match the approved SHA-512 inventory. See [publication record](docs/releases/publication-1.0.0-rc.1.md).
 
 - Stabilize Phase 1–6 APIs without intentional declaration changes.
 - Skip diagnostic failure classification when no event observer is attached; retain event/validation semantics.

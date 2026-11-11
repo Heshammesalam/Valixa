@@ -1,8 +1,9 @@
 # Phase 7 release readiness
 
-Review date: 11 November 2026. **Verdict: READY WITH DOCUMENTED LIMITATIONS for an explicitly approved first public RC bootstrap; protected OIDC publication is NOT READY until npm publisher setup.**
-The local candidate and an approved public npm release are different states.
-No npm package, public release tag or GitHub release has been published by this work.
+Review date: 11 November 2026. **Verdict: READY WITH DOCUMENTED LIMITATIONS; first public RC publication completed after explicit approval. Protected OIDC publication remains NOT READY until npm publisher setup.**
+All eleven public unscoped packages are published at 1.0.0-rc.1 and verified by
+downloading their npm tarballs. No GitHub release or release tag was created.
+See the [publication record](releases/publication-1.0.0-rc.1.md).
 
 ## Exact prepared inventory
 
@@ -184,16 +185,13 @@ checklist, publication order, version train, rollback/deprecation and copy-paste
 commands are provided. Historical pre-1.0 Changesets are archived, not re-applied
 as accidental future minor bumps.
 
-## Remaining publication blockers
+## Publication outcome and remaining OIDC setup
 
-1. Browser npm login is verified as `heshammesalam`. The account has no organizations, and the maintainer declined creating one. Public unscoped names were approved instead. All 11 exact unscoped registry lookups returned 404; successful publication/name ownership is not inferred from that.
+1. All eleven approved public unscoped packages were published under `heshammesalam`, without creating an npm organization. Each exact version, `next` tag and downloaded SHA-512 was confirmed. npm also created `0.0.0-stage` placeholder records and assigned `latest` automatically during first-package processing; these observed registry effects were recorded, not hidden or removed.
 2. Renamed tarballs, imports, declarations and all 12 clean consumers passed all ten local gates. Renamed Linux CI run 42994106136 passed all five jobs on Node 20/22/24, production browsers and benchmarks. All 299 uploaded source blobs match the reviewed snapshot exactly.
-3. The `npm-release` environment was created and verified: required reviewer `Heshammesalam`, administrator bypass disabled, only branch `main` allowed (zero tag rules). Self-review remains allowed for this single-maintainer repository. Private vulnerability reporting is enabled. npm trusted publisher setup still requires packages to exist; `VALIXA_RELEASE_READY` remains unset. After the maintainer completed normal login privately, CLI whoami succeeded as `heshammesalam`. No npm token was requested, read or stored by this work. The proposed one-time local bootstrap has no GitHub OIDC provenance and needs explicit approval; see [first publication proposal](releases/first-publication.md).
-4. Approve the exact final versions/tag after the renamed artifact checks. Stable 1.0.0 requires promotion and a fresh complete verification. No package publication has occurred.
+3. The `npm-release` environment was created and verified: required reviewer `Heshammesalam`, administrator bypass disabled, only branch `main` allowed (zero tag rules). Self-review remains allowed for this single-maintainer repository. Private vulnerability reporting is enabled. npm trusted publishers are not configured; `VALIXA_RELEASE_READY` remains unset. Initial publication used the maintainer's verified normal npm CLI session and private web authentication confirmations. No npm token was requested, read or stored by this work. The explicitly approved bootstrap has no GitHub OIDC provenance.
+4. The exact 1.0.0-rc.1/next publication was approved before execution. Stable 1.0.0 remains unpublished and requires its own approval and complete verification. Future OIDC releases require explicit trusted-publisher configuration.
 
-The next proposed action is the [one-time first publication](releases/first-publication.md)
-of these exact tarballs at `1.0.0-rc.1`, tag `next`, after explicit approval of its
-provenance limitation. The protected OIDC workflow remains disabled pending setup;
-it must not be dispatched as if those prerequisites were satisfied. See
-[workflow and rollback](releasing.md). Do not infer successful publication until
-npm confirms each version and SHA-512 integrity. No public release action was executed.
+The [one-time first publication](releases/first-publication.md) is complete. The
+protected OIDC workflow remains disabled pending trusted-publisher setup; do not
+dispatch it as if those prerequisites were satisfied. See [workflow and rollback](releasing.md).

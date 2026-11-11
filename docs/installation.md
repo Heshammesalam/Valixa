@@ -1,15 +1,15 @@
 # Installation
 
-The prepared release candidate is **1.0.0-rc.1**. Preparation does not mean npm
-publication; see the release-readiness report for registry/authentication status.
-Until publication is confirmed, use verified local tarballs from artifacts/release.
+The published release candidate is **1.0.0-rc.1**, available as public unscoped
+packages. Use exact matching versions or the `next` tag. Stable 1.0.0 is not published.
 
 ```sh
-npm install ./artifacts/release/valixa-1.0.0-rc.1.tgz
+npm install valixa@next
 ```
 
-After an explicitly approved publication, install matching Valixa versions together.
-For candidates, use an exact version or the reviewed `next` tag, not an assumed latest.
+Install matching Valixa versions together. npm also assigned `latest` automatically
+during the first publication; that does not make this candidate a stable release.
+See the [registry verification record](releases/publication-1.0.0-rc.1.md).
 
 | Application | Valixa packages | Framework peers |
 | --- | --- | --- |

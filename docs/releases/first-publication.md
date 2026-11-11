@@ -1,6 +1,8 @@
 # First public publication proposal
 
-Status: prepared for exact maintainer approval; **not executed**.
+Status: explicitly approved and executed on 11 November 2026. All eleven versions
+and downloaded tarballs are confirmed; see [publication record](publication-1.0.0-rc.1.md).
+The proposal below is retained as the approved scope and bootstrap method.
 
 The maintainer approved all eleven public unscoped names. This proposal adds the
 exact version and bootstrap method; it does not treat that naming decision as

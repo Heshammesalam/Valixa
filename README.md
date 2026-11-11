@@ -23,7 +23,11 @@ original workloads; `pnpm benchmark:compare` pairs preserved Phase 5 with curren
 
 ## Release status and documentation
 
-The prepared candidate is **1.0.0-rc.1**; stable target **1.0.0**. Preparation is not npm publication. See the [release-readiness report](docs/phase-7-release-readiness.md) for actual registry and verification status, the [documentation index](docs/index.md) for installation/framework guides, and [release procedure](docs/releasing.md) for approval and OIDC requirements.
+All eleven public unscoped packages are published at **1.0.0-rc.1**, tag **next**. This is a release candidate; stable target **1.0.0** has not been published. See the [registry verification record](docs/releases/publication-1.0.0-rc.1.md), [release-readiness report](docs/phase-7-release-readiness.md), [documentation index](docs/index.md), and [release procedure](docs/releasing.md).
+
+```sh
+npm install valixa@next
+```
 
 Repository: [Heshammesalam/Valixa](https://github.com/Heshammesalam/Valixa).
 
@@ -38,7 +42,7 @@ pnpm check
 
 `check` builds declarations and ESM, type-checks source/tests/TypeScript examples,
 runs Vitest, and executes both JavaScript and TypeScript consumer examples.
-The core package is not published. Examples resolve it through the workspace.
+Local examples resolve packages through the workspace. Published consumers install `valixa@next` and the required `valixa-*` integrations.
 
 ## First form
 

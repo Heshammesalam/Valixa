@@ -1,0 +1,181 @@
+{
+  "complete": true,
+  "packages": [
+    {
+      "name": "valixa",
+      "version": "1.0.0-rc.1",
+      "bytes": 73453,
+      "integrity": "sha512-G6yq6hJMp6uUdPxWnGuCoId3Alxo/m5p9bGn8usDhzvdg5b+pUQQjUQB/XFM08ERQqKNj24nou5HPucEat7F7g==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryVersions": [
+        "0.0.0-stage",
+        "1.0.0-rc.1"
+      ],
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-11T10:14:52.025Z"
+    },
+    {
+      "name": "valixa-angular",
+      "version": "1.0.0-rc.1",
+      "bytes": 17541,
+      "integrity": "sha512-IpGaqyoiavOLBQBynLCdR9QgkFUXVMDEd4AJMq+CIB/w4H8DQUHXRKA6EIHIv6hldi9BzraUNORekXKnLT+2Rg==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryVersions": [
+        "0.0.0-stage",
+        "1.0.0-rc.1"
+      ],
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-11T10:14:52.651Z"
+    },
+    {
+      "name": "valixa-auto",
+      "version": "1.0.0-rc.1",
+      "bytes": 10840,
+      "integrity": "sha512-9HMProZrH7n7AUJCgaYZ9js6sEB2imnSzBaC24MwabyQTk4W1lNaZDaH5A9CuwVA52oUNEANznhUznmBClHvVA==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryVersions": [
+        "0.0.0-stage",
+        "1.0.0-rc.1"
+      ],
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-11T10:14:53.214Z"
+    },
+    {
+      "name": "valixa-devtools",
+      "version": "1.0.0-rc.1",
+      "bytes": 23604,
+      "integrity": "sha512-SUEpbFYdutzrwldmDCbIx2xDOT1zZp+w5pEL615ipKaxQuopeWqsiKZYmkm1syyNjNzAtCEgmIVpltWDNkpsYw==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryVersions": [
+        "0.0.0-stage",
+        "1.0.0-rc.1"
+      ],
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-11T10:14:54.073Z"
+    },
+    {
+      "name": "valixa-angular-devtools",
+      "version": "1.0.0-rc.1",
+      "bytes": 3377,
+      "integrity": "sha512-trYi7BcQ5Sdbu051GKjIbvnK/HraVJbTPTfxDlOL8aolIlEcgnuz9Qzf+bFJLN8jV2so0qcVKieAsy2rVDvy5g==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryVersions": [
+        "0.0.0-stage",
+        "1.0.0-rc.1"
+      ],
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-11T10:14:54.612Z"
+    },
+    {
+      "name": "valixa-angular-material",
+      "version": "1.0.0-rc.1",
+      "bytes": 9509,
+      "integrity": "sha512-IIC3j63qtyI6gxBYPsiWLqZyHuS7h518GHSU0aj4a3UfeeRySP4/+ji1j3bgJE7VuAmV1c9D2kiK8Aw7alC6yw==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryVersions": [
+        "0.0.0-stage",
+        "1.0.0-rc.1"
+      ],
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-11T10:14:55.147Z"
+    },
+    {
+      "name": "valixa-react",
+      "version": "1.0.0-rc.1",
+      "bytes": 15536,
+      "integrity": "sha512-RHdW2p9bkT/149LcnxWmMVLkCb5C1LY55t4MkL30K4w0CWNDyShzV/1+qBJXG4bMOSgAhhC4HDp3pByyRdkZaQ==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryVersions": [
+        "0.0.0-stage",
+        "1.0.0-rc.1"
+      ],
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-11T10:14:55.675Z"
+    },
+    {
+      "name": "valixa-vue",
+      "version": "1.0.0-rc.1",
+      "bytes": 17201,
+      "integrity": "sha512-u6pyungpL3HVLZkhc5wJQht7kCnt8iXkUF9fVS4ozK7ZZIwgAYDTIT8AEugs3EAHrJchIgRnl6l7D5QHPF5gmg==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryVersions": [
+        "0.0.0-stage",
+        "1.0.0-rc.1"
+      ],
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-11T10:14:56.183Z"
+    },
+    {
+      "name": "valixa-angular-auto",
+      "version": "1.0.0-rc.1",
+      "bytes": 16777,
+      "integrity": "sha512-Jr6cSVYrRvoXTEXCzENjcj74j/KVO3Bkt/yVR5EtpM38EWpjdGniiSxGGyf21t41cyHxe3UOW0q+f6LcD7jN7g==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryVersions": [
+        "0.0.0-stage",
+        "1.0.0-rc.1"
+      ],
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-11T10:14:57.088Z"
+    },
+    {
+      "name": "valixa-mui",
+      "version": "1.0.0-rc.1",
+      "bytes": 15017,
+      "integrity": "sha512-5T9badTXHRh+W9yawdMqHgkk5CLuAZx863w2Vck0ICezXCERl+wL6hyp+0D6ffephzxZqndgUjH01k9+NN5+Pg==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryVersions": [
+        "0.0.0-stage",
+        "1.0.0-rc.1"
+      ],
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-11T10:14:57.604Z"
+    },
+    {
+      "name": "valixa-vuetify",
+      "version": "1.0.0-rc.1",
+      "bytes": 15668,
+      "integrity": "sha512-4TxWgOfeHDtmppdKpwJR6a3hzjwqliSTXLrRKJq+vHcp703FYaZADsgW3g9PlKh6pdm/jhevTUO2UK993dy3gA==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryVersions": [
+        "0.0.0-stage",
+        "1.0.0-rc.1"
+      ],
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-11T10:14:58.444Z"
+    }
+  ]
+}
