@@ -26,4 +26,6 @@ Dependency graphs, field scheduling, conditional behaviors, form validation and
 English/Arabic localization are included. Framework bindings remain separate packages.
 See [API.md](API.md) and the [advanced guide](ADVANCED.md) for semantics and examples.
 
-MIT license. This initial version has not been published.
+MIT license. This 1.0.0-rc.2 candidate includes optional Standard Schema integration
+at `valixa/standard`, supporting Zod, Yup and Valibot without bundled providers.
+Version 1.0.0-rc.1 does not include this subpath. See docs/standard-schema.md in the repository.

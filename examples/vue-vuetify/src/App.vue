@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import GeneratedForm from './GeneratedForm.vue';
+import OrderForm from './OrderForm.vue';
 import { ref } from 'vue';
 import { VApp, VMain, VContainer, VChip, VBtn, VCard } from 'vuetify/components';
 import NativeLogin from './NativeLogin.vue';
 import RegistrationForm from './RegistrationForm.vue';
 import AdvancedForm from './AdvancedForm.vue';
 import ReactiveForm from './ReactiveForm.vue';
-const page = ref<'native' | 'registration' | 'advanced' | 'reactive' | 'auto'>('native');
+const page = ref<'native' | 'registration' | 'advanced' | 'reactive' | 'auto' | 'order'>('native');
 </script>
 <template>
   <v-app><v-main><v-container class="page">
@@ -14,8 +15,8 @@ const page = ref<'native' | 'registration' | 'advanced' | 'reactive' | 'auto'>('
     <nav aria-label="Examples"><v-btn :variant="page === 'native' ? 'flat' : 'outlined'" color="primary" @click="page = 'native'">Native Vue</v-btn>
       <v-btn :variant="page === 'registration' ? 'flat' : 'outlined'" color="primary" @click="page = 'registration'">Registration</v-btn>
       <v-btn :variant="page === 'advanced' ? 'flat' : 'outlined'" color="primary" @click="page = 'advanced'">Advanced</v-btn>
-      <v-btn :variant="page === 'reactive' ? 'flat' : 'outlined'" color="primary" @click="page = 'reactive'">Reactive engine</v-btn><v-btn variant="outlined" color="primary" @click="page = 'auto'">Auto Form</v-btn></nav>
-    <v-card variant="outlined" class="form-card"><GeneratedForm v-if="page === 'auto'" /><NativeLogin v-else-if="page === 'native'" /><RegistrationForm v-else-if="page === 'registration'" /><ReactiveForm v-else-if="page === 'reactive'" /><AdvancedForm v-else /></v-card>
+      <v-btn :variant="page === 'reactive' ? 'flat' : 'outlined'" color="primary" @click="page = 'reactive'">Reactive engine</v-btn><v-btn variant="outlined" color="primary" @click="page = 'auto'">Auto Form</v-btn><v-btn variant="outlined" color="primary" @click="page = 'order'">Purchase order</v-btn></nav>
+    <v-card variant="outlined" class="form-card"><OrderForm v-if="page === 'order'" /><GeneratedForm v-else-if="page === 'auto'" /><NativeLogin v-else-if="page === 'native'" /><RegistrationForm v-else-if="page === 'registration'" /><ReactiveForm v-else-if="page === 'reactive'" /><AdvancedForm v-else /></v-card>
     <footer>Examples use a local simulated API. No data leaves this page.</footer>
   </v-container></v-main></v-app>
 </template>

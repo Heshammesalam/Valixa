@@ -1,6 +1,6 @@
 {
   "name": "valixa-react",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0-rc.2",
   "description": "React external-store hooks and typed component bindings for Valixa",
   "type": "module",
   "license": "MIT",
@@ -36,8 +36,8 @@
   },
   "peerDependencies": {
     "react": "^19.2.0",
-    "valixa-auto": "^1.0.0-rc.1",
-    "valixa-devtools": "^1.0.0-rc.1"
+    "valixa-auto": "^1.0.0-rc.2",
+    "valixa-devtools": "^1.0.0-rc.2"
   },
   "engines": {
     "node": ">=20"

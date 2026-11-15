@@ -4,6 +4,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { root, config, publicationOrder } from './release-lib.mjs';
+import { releaseGates } from './release-gates.mjs';
 
 assert(process.env.GITHUB_ACTIONS === 'true', 'Publishing is restricted to the protected GitHub workflow');
 assert(process.env.RELEASE_CONFIGURATION_VERIFIED === 'true', 'Repository admin must verify package ownership, OIDC and environment protections before enabling release');
@@ -14,7 +15,7 @@ const manifest = JSON.parse(readFileSync(join(root, 'artifacts/release/manifest.
 assert(!manifest.errors.length && !manifest.blockers.length && manifest.version === config.version, 'Release artifact verification must pass');
 const verification = JSON.parse(readFileSync(join(root, 'artifacts/release/verification.json'), 'utf8'));
 assert(verification.complete && verification.version === config.version && verification.sourceSha === process.env.GITHUB_SHA, 'All gates must pass on this exact CI source SHA/version');
-for (const command of ['check', 'examples:build', 'test:browser', 'test:browser:release', 'test:packages', 'release:check', 'benchmark', 'benchmark:compare', 'benchmark:phase6', 'audit:security']) assert(verification.commands.some(item => item.command === command && item.exitCode === 0), `Missing successful gate: ${command}`);
+for (const command of releaseGates) assert(verification.commands.some(item => item.command === command && item.exitCode === 0), `Missing successful gate: ${command}`);
 const confirmations = [];
 for (const item of publicationOrder()) {
   const entry = manifest.packages.find(entry => entry.name === item.manifest.name);

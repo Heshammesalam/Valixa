@@ -1,4 +1,4 @@
-import { packageName } from './release-lib.mjs';
+import { packageName, consumerOverrides } from './release-lib.mjs';
 import { verifyProductionConsumer } from './release-browser-consumer.mjs';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
@@ -33,7 +33,7 @@ for (const variant of ['headless', 'react', 'vue', 'angular']) {
   const peers = variant === 'react' ? ['react', 'react-dom', '@types/react', '@types/react-dom', '@mui/material', '@emotion/react', '@emotion/styled'] : variant === 'vue' ? ['vue', 'vuetify', '@vue/server-renderer'] : variant === 'angular' ? ['@angular/core', '@angular/common', '@angular/forms', '@angular/compiler', '@angular/platform-browser', '@angular/platform-server', '@angular/material', '@angular/cdk', '@angular/build', '@angular/cli', '@angular/compiler-cli', 'rxjs', 'tslib', 'typescript'] : [];
   for (const peer of peers) dependencies[peer] = version(peer);
   if (variant === 'react' || variant === 'vue') { const viteRequire = createRequire(join(root,'examples/react/package.json')); dependencies.vite = JSON.parse(readFileSync(viteRequire.resolve('vite/package.json'),'utf8')).version; }
-  writeFileSync(join(directory, 'package.json'), JSON.stringify({ private: true, type: 'module', dependencies, pnpm: { overrides: { ...JSON.parse(readFileSync(join(root,'package.json'),'utf8')).pnpm.overrides, ...Object.fromEntries(selected.map(name => [name, tarballs[name]])) } } }, null, 2));
+  writeFileSync(join(directory, 'package.json'), JSON.stringify({ private: true, type: 'module', dependencies, pnpm: { overrides: { ...consumerOverrides(), ...Object.fromEntries(selected.map(name => [name, tarballs[name]])) } } }, null, 2));
   writeFileSync(join(directory, '.npmrc'), 'auto-install-peers=false\n');
   run(['install', '--ignore-workspace', '--prefer-offline', '--ignore-scripts', '--lockfile=false'], directory);
   const consumer = createRequire(join(directory, 'package.json'));

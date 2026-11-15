@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 export const root = fileURLToPath(new URL('../', import.meta.url));
 export const config = JSON.parse(readFileSync(join(root, 'release/config.json'), 'utf8'));
 export const packages = readdirSync(join(root, 'packages'), { withFileTypes: true }).filter(entry => entry.isDirectory()).map(entry => {
@@ -19,3 +19,9 @@ export function publicationOrder() {
 }
 
 export const packageName = folder => folder === 'core' ? 'valixa' : `valixa-${folder}`;
+
+/** Preserve private build-tool overrides when a consumer lives outside the workspace. */
+export function consumerOverrides() {
+  const overrides = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')).pnpm?.overrides ?? {};
+  return Object.fromEntries(Object.entries(overrides).map(([name, value]) => [name, typeof value === 'string' && value.startsWith('file:') ? `file:${resolve(root, value.slice(5)).replaceAll('\\', '/')}` : value]));
+}

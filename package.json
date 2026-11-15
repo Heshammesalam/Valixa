@@ -14,7 +14,7 @@
     "example:react": "pnpm --filter @valixa/example-react dev",
     "examples:build": "pnpm --filter @valixa/example-react --filter @valixa/example-vue --filter @valixa/example-angular -r build",
     "test:browser": "playwright test",
-    "test:packages": "node scripts/check-packages.mjs && node scripts/check-vue-packages.mjs && node scripts/check-angular-packages.mjs && node scripts/check-phase6-packages.mjs && node scripts/check-core-release.mjs",
+    "test:packages": "node scripts/check-packages.mjs && node scripts/check-vue-packages.mjs && node scripts/check-angular-packages.mjs && node scripts/check-phase6-packages.mjs && node scripts/check-core-release.mjs && node scripts/check-standard-package.mjs",
     "test:packages:vue": "node scripts/check-vue-packages.mjs",
     "example:vue": "pnpm --filter @valixa/example-vue dev",
     "examples:vue:build": "pnpm --filter @valixa/example-vue build",
@@ -37,7 +37,15 @@
     "audit:security": "pnpm audit --audit-level=low",
     "release:verify": "node scripts/verify-release.mjs",
     "benchmark:release": "node --expose-gc --import tsx benchmarks/phase-7-paired.ts",
-    "test:release": "node --test tests/release-tooling.test.mjs"
+    "test:release": "node --test tests/release-tooling.test.mjs",
+    "benchmark:vue-comparison": "node benchmarks/vue-comparison.mjs",
+    "test:standard": "vitest run tests/standard-schema.test.ts tests/vue-standard.test.ts",
+    "test:pilots": "playwright test tests/browser/order-pilots.spec.ts",
+    "test:packages:standard": "node scripts/check-standard-package.mjs",
+    "example:nuxt": "pnpm --filter @valixa/example-nuxt dev",
+    "examples:nuxt:build": "pnpm --filter @valixa/example-nuxt build",
+    "test:nuxt": "playwright test --config playwright.nuxt.config.ts",
+    "examples:nuxt:check": "pnpm --filter @valixa/example-nuxt exec nuxt typecheck"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.0",
@@ -91,12 +99,18 @@
     "valixa-auto": "workspace:*",
     "valixa-devtools": "workspace:*",
     "valixa-angular-auto": "workspace:*",
-    "valixa-angular-devtools": "workspace:*"
+    "valixa-angular-devtools": "workspace:*",
+    "esbuild": "^0.28.2",
+    "valibot": "^1.5.0",
+    "vee-validate": "^4.15.1",
+    "yup": "^1.7.1",
+    "zod": "^4.6.7"
   },
   "pnpm": {
     "overrides": {
       "glob@>=9 <14.0.2": "14.0.2",
-      "minimatch@>=7 <11.0.1": "11.0.1"
+      "minimatch@>=7 <11.0.1": "11.0.1",
+      "@rollup/plugin-node-resolve>deepmerge": "file:./vendor/deepmerge"
     }
   }
 }

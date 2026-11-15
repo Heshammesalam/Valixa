@@ -1,6 +1,6 @@
 {
   "name": "valixa",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0-rc.2",
   "description": "Headless, framework-independent form state and validation",
   "type": "module",
   "license": "MIT",
@@ -19,6 +19,10 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./standard": {
+      "types": "./dist/standard.d.ts",
+      "import": "./dist/standard.js"
     }
   },
   "scripts": {

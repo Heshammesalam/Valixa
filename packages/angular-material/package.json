@@ -1,6 +1,6 @@
 {
   "name": "valixa-angular-material",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0-rc.2",
   "type": "module",
   "license": "MIT",
   "sideEffects": false,
@@ -20,8 +20,8 @@
     "@angular/forms": "~21.2.0",
     "@angular/material": "~21.2.0",
     "@angular/cdk": "~21.2.0",
-    "valixa-angular": "^1.0.0-rc.1",
-    "valixa": "^1.0.0-rc.1",
+    "valixa-angular": "^1.0.0-rc.2",
+    "valixa": "^1.0.0-rc.2",
     "rxjs": "^7.8.0"
   },
   "dependencies": {

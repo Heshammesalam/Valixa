@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0-rc.2 — prepared, not published
+
+- Add optional `valixa/standard` support for Standard Schema v1 providers, preserving existing entry points.
+- Add typed explicit output parsing, collection/root issue mapping and cancellation-safe provider validation.
+- Add shared React/Vue purchase-order pilots, Vue SSR/hydration checks and a reproducible VeeValidate comparison.
+- Add a production Nuxt 4 fixture with request-isolation/hydration checks and a scoped, tested local fix for its transitive deepmerge build-tool advisory.
+- These changes are not part of the published 1.0.0-rc.1; no new release has been published.
+
 ## 1.0.0-rc.1 — published 2026-11-11
 
 All eleven public unscoped packages were published with tag `next`. Downloaded npm

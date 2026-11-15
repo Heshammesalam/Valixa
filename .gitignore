@@ -6,6 +6,8 @@ artifacts/
 test-results/
 playwright-report/
 .angular/
+.nuxt/
+.output/
 out-tsc/
 
 .env

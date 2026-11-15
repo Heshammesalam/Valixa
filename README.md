@@ -33,6 +33,10 @@ Repository: [Heshammesalam/Valixa](https://github.com/Heshammesalam/Valixa).
 
 ## Run locally
 
+The development tree adds optional [Standard Schema integration](docs/standard-schema.md)
+for Zod, Yup and Valibot, plus shared React/Vue purchase-order pilots. These additions
+are not yet published on npm. Run the examples and choose **Purchase order**.
+
 Use Node 24 and pnpm 10.26.2 (the versions used for local verification).
 
 ```sh

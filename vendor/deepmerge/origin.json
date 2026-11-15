@@ -1,0 +1,9 @@
+{
+  "name": "deepmerge",
+  "upstreamVersion": "4.3.1",
+  "upstreamFile": "dist/cjs.js",
+  "upstreamSha256": "2e5160f84a1141bd927264afe4d15766f1e6cf07daef182b37ff53fea121de7d",
+  "patchedSha256": "3cd0f550ded91dbe4b57820d7ae77b0828897fc92329f816f0aed4299e6c11a1",
+  "advisory": "GHSA-gcqx-w48m-w2h4",
+  "patch": "Define own data properties at every destination write; never invoke prototype setters"
+}

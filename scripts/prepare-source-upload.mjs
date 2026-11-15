@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { root } from './release-lib.mjs';
-const ignored = new Set(['node_modules', 'dist', 'artifacts', 'test-results', 'playwright-report', '.angular', 'out-tsc', '.git', '.codex', '.agents', '.aws']);
+const ignored = new Set(['node_modules', 'dist', 'artifacts', 'test-results', 'playwright-report', '.angular', '.nuxt', '.output', 'out-tsc', '.git', '.codex', '.agents', '.aws']);
 const files = [], flagged = [];
 function visit(path) {
   for (const entry of readdirSync(join(root, path), { withFileTypes: true })) {

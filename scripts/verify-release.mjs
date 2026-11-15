@@ -3,8 +3,9 @@ import { spawnSync } from 'node:child_process';
 import { closeSync, mkdirSync, openSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { root, config } from './release-lib.mjs';
+import { releaseGates } from './release-gates.mjs';
 const pnpm = process.env.npm_execpath; assert(pnpm?.includes('pnpm'), 'Run with pnpm release:verify');
-const commands = ['check', 'examples:build', 'test:browser', 'test:browser:release', 'test:packages', 'release:check', 'benchmark', 'benchmark:compare', 'benchmark:phase6', 'audit:security'];
+const commands = releaseGates;
 const directory = join(root, 'artifacts/release'); mkdirSync(directory, { recursive: true });
 const report = { version: config.version, sourceSha: process.env.GITHUB_SHA ?? null, date: new Date().toISOString(), commands: [], complete: false };
 for (const command of commands) {

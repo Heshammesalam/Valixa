@@ -1,6 +1,6 @@
 {
   "name": "valixa-auto",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0-rc.2",
   "type": "module",
   "license": "MIT",
   "description": "Framework-independent typed Auto Form plans",

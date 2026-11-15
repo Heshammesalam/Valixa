@@ -1,4 +1,4 @@
-import { packageName } from './release-lib.mjs';
+import { packageName, consumerOverrides } from './release-lib.mjs';
 import assert from 'node:assert/strict';
 import { attachAdvancedTypes, verifyAdvancedConsumer } from './advanced-consumer.mjs';
 import { execFileSync } from 'node:child_process';
@@ -34,7 +34,7 @@ for (const material of [false, true]) {
   if (material) for (const name of ['@angular/material', '@angular/cdk']) dependencies[name] = version(name);
   const devDependencies = Object.fromEntries(['@angular/build', '@angular/cli', '@angular/compiler-cli', 'typescript'].map(name => [name, version(name)]));
   writeFileSync(join(directory, 'package.json'), JSON.stringify({ private: true, type: 'module', dependencies, devDependencies,
-    pnpm: { overrides: { ...JSON.parse(readFileSync(join(root,'package.json'),'utf8')).pnpm.overrides, ...Object.fromEntries(selected.map(name => [name, tarballs[name]])) } } }, null, 2));
+    pnpm: { overrides: { ...consumerOverrides(), ...Object.fromEntries(selected.map(name => [name, tarballs[name]])) } } }, null, 2));
   writeFileSync(join(directory, '.npmrc'), 'auto-install-peers=false\n');
   run(['install', '--ignore-workspace', '--prefer-offline', '--ignore-scripts', '--lockfile=false'], directory);
   const consumerRequire = createRequire(join(directory, 'package.json'));

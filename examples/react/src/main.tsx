@@ -1,4 +1,5 @@
 import { GeneratedForm } from './GeneratedForm.js';
+import { OrderForm } from './OrderForm.js';
 import { StrictMode, useState } from 'react';
 import { ReactiveForm } from './ReactiveForm.js';
 import { createRoot } from 'react-dom/client';
@@ -134,16 +135,16 @@ function AdvancedForm() {
 }
 
 function App() {
-  const [page, setPage] = useState<'native' | 'registration' | 'advanced' | 'reactive' | 'auto'>('native');
+  const [page, setPage] = useState<'native' | 'registration' | 'advanced' | 'reactive' | 'auto' | 'order'>('native');
   return <ThemeProvider theme={theme}><CssBaseline /><Container maxWidth="sm" sx={{ py: { xs: 3, md: 7 } }}>
     <Stack spacing={3}><Box><Chip size="small" label="HEADLESS FORMS · REACT + MUI" variant="outlined" />
       <Typography variant="h3" component="h1" sx={{ mt: 2, fontWeight: 700, letterSpacing: '-0.04em' }}>Valixa</Typography>
       <Typography color="text.secondary" sx={{ mt: 1 }}>Your interface. One form engine.</Typography></Box>
-      <Stack component="nav" aria-label="Examples" direction="row" spacing={1}>
-        {(['native', 'registration', 'advanced', 'reactive', 'auto'] as const).map(tab => <Button key={tab} aria-pressed={page === tab} variant={page === tab ? 'contained' : 'outlined'}
-          onClick={() => setPage(tab)}>{tab === 'auto' ? 'Auto Form' : tab === 'native' ? 'Native HTML' : tab === 'registration' ? 'Registration' : tab === 'reactive' ? 'Reactive engine' : 'Advanced'}</Button>)}
+      <Stack component="nav" aria-label="Examples" direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap' }}>
+        {(['native', 'registration', 'advanced', 'reactive', 'auto', 'order'] as const).map(tab => <Button key={tab} aria-pressed={page === tab} variant={page === tab ? 'contained' : 'outlined'}
+          onClick={() => setPage(tab)}>{tab === 'order' ? 'Purchase order' : tab === 'auto' ? 'Auto Form' : tab === 'native' ? 'Native HTML' : tab === 'registration' ? 'Registration' : tab === 'reactive' ? 'Reactive engine' : 'Advanced'}</Button>)}
       </Stack>
-      <Paper variant="outlined" sx={{ p: { xs: 2, md: 4 } }}>{page === 'auto' ? <GeneratedForm /> : page === 'native' ? <NativeLogin /> : page === 'registration' ? <RegistrationForm /> : page === 'reactive' ? <ReactiveForm /> : <AdvancedForm />}</Paper>
+      <Paper variant="outlined" sx={{ p: { xs: 2, md: 4 } }}>{page === 'order' ? <OrderForm /> : page === 'auto' ? <GeneratedForm /> : page === 'native' ? <NativeLogin /> : page === 'registration' ? <RegistrationForm /> : page === 'reactive' ? <ReactiveForm /> : <AdvancedForm />}</Paper>
       <Typography variant="caption" color="text.secondary">Interactive examples use a local simulated API. No data leaves this page.</Typography>
     </Stack></Container></ThemeProvider>;
 }

@@ -1,6 +1,6 @@
 {
   "name": "valixa-devtools",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0-rc.2",
   "type": "module",
   "license": "MIT",
   "description": "Opt-in value-safe inspection and lifecycle tooling",
