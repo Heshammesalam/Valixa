@@ -22,7 +22,7 @@ for (const [framework, port] of [['React', 4173], ['Vue', 4174]] as const) {
     await page.getByRole('button', { name: 'Add item', exact: true }).click();
     await page.getByLabel('Product code', { exact: true }).nth(1).fill('PEN');
     await page.getByRole('button', { name: 'Move first item down', exact: true }).click();
-    expect(await page.getByTestId('order-row').nth(1).getAttribute('data-row-key')).toBe(firstKey);
+    await expect(page.getByTestId('order-row').nth(1)).toHaveAttribute('data-row-key', firstKey!);
     await expect(page.getByLabel('Quantity', { exact: true }).nth(1)).toHaveValue('2');
     await page.getByRole('button', { name: 'Remove first item', exact: true }).click();
     await page.getByLabel('Product code', { exact: true }).fill('TAKEN');
