@@ -24,6 +24,7 @@ test('isolated consumers receive absolute paths for private build-tool overrides
     assert(isAbsolute(value.slice(5))); assert(existsSync(value.slice(5)));
   }
   assert(overrides['@rollup/plugin-node-resolve>deepmerge'].endsWith('/vendor/deepmerge'));
+  assert.match(overrides.rollup, /^\d+\.\d+\.\d+$/);
 });
 test('compatibility normalization accepts module renames but cannot hide selector or type changes', () => {
   assert.equal(canonicalDeclaration("import {X} from 'valixa-react/auto';"), "import {X} from '@valixa/react/auto';");

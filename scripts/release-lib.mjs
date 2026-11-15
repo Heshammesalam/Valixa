@@ -1,6 +1,7 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join, resolve } from 'node:path';
+import { createRequire } from 'node:module';
 export const root = fileURLToPath(new URL('../', import.meta.url));
 export const config = JSON.parse(readFileSync(join(root, 'release/config.json'), 'utf8'));
 export const packages = readdirSync(join(root, 'packages'), { withFileTypes: true }).filter(entry => entry.isDirectory()).map(entry => {
@@ -23,5 +24,8 @@ export const packageName = folder => folder === 'core' ? 'valixa' : `valixa-${fo
 /** Preserve private build-tool overrides when a consumer lives outside the workspace. */
 export function consumerOverrides() {
   const overrides = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')).pnpm?.overrides ?? {};
-  return Object.fromEntries(Object.entries(overrides).map(([name, value]) => [name, typeof value === 'string' && value.startsWith('file:') ? `file:${resolve(root, value.slice(5)).replaceAll('\\', '/')}` : value]));
+  const fixtureRequire = createRequire(join(root, 'examples/react/package.json'));
+  const viteRequire = createRequire(fixtureRequire.resolve('vite/package.json'));
+  const rollup = JSON.parse(readFileSync(viteRequire.resolve('rollup/package.json'), 'utf8')).version;
+  return { ...Object.fromEntries(Object.entries(overrides).map(([name, value]) => [name, typeof value === 'string' && value.startsWith('file:') ? `file:${resolve(root, value.slice(5)).replaceAll('\\', '/')}` : value])), rollup };
 }
