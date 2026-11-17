@@ -1,5 +1,9 @@
 # Development upgrade: schema interoperability and application pilots
 
+Historical pre-publication development report. These changes were subsequently
+published in [1.0.0-rc.2](releases/publication-1.0.0-rc.2.md); the original development
+evidence and remaining production-adoption limits below are retained.
+
 Date: 15 November 2026. These are local development changes, not a new npm release.
 The existing published version remains 1.0.0-rc.1. Stable 1.0.0 was not promoted.
 

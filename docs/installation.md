@@ -1,6 +1,6 @@
 # Installation
 
-The published release candidate is **1.0.0-rc.1**, available as public unscoped
+The published release candidate is **1.0.0-rc.2**, available as public unscoped
 packages. Use exact matching versions or the `next` tag. Stable 1.0.0 is not published.
 
 ```sh
@@ -9,7 +9,7 @@ npm install valixa@next
 
 Install matching Valixa versions together. npm also assigned `latest` automatically
 during the first publication; that does not make this candidate a stable release.
-See the [registry verification record](releases/publication-1.0.0-rc.1.md).
+See the [registry verification record](releases/publication-1.0.0-rc.2.md).
 
 | Application | Valixa packages | Framework peers |
 | --- | --- | --- |

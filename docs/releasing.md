@@ -1,8 +1,13 @@
 # Release procedure, approval and rollback
 
+The RC2 local CLI publication is [complete and verified](releases/publication-1.0.0-rc.2.md).
+Commands below describe the review/release procedure, not instructions to republish
+an existing immutable version. Future releases need a new explicitly approved version.
+The protected OIDC workflow remains disabled until trusted publishers are verified.
+
 ## Version train
 
-All 11 packages use fixed versions. The prepared candidate is **1.0.0-rc.1**, dist-tag
+All 11 packages use fixed versions. The published candidate is **1.0.0-rc.2**, dist-tag
 **next**; stable target is **1.0.0**, dist-tag **latest**. A candidate is not silently
 promoted, and preparation does not publish it. Optional documented capabilities are
 not promises of unsupported controls/framework majors. If a package fails criteria,
@@ -23,7 +28,7 @@ or peer requirements; actual manifest order is authoritative.
 ## Reviewable local candidate
 
 ```sh
-pnpm release:prepare -- --version 1.0.0-rc.1 --repository https://github.com/Heshammesalam/Valixa
+pnpm release:prepare -- --version 1.0.0-rc.2 --repository https://github.com/Heshammesalam/Valixa
 pnpm install --frozen-lockfile
 pnpm check
 pnpm examples:build
@@ -79,13 +84,13 @@ approval of the one-time local bootstrap without GitHub OIDC provenance. The
 protected workflow below remains unchanged and disabled until trusted publishers
 can be configured for the newly created packages.
 
-After explicit approval of all 11 names at 1.0.0-rc.1 and completion of prerequisites,
-dispatch **Approved npm release** on main with input `version: 1.0.0-rc.1`.
+After explicit approval of all 11 names at 1.0.0-rc.2 and completion of prerequisites,
+dispatch **Approved npm release** on main with input `version: 1.0.0-rc.2`.
 The verify job runs all gates before the protected publish job can request approval.
 The publish helper executes, in dependency order, the equivalent of:
 
 ```sh
-npm publish artifacts/release/valixa-1.0.0-rc.1.tgz --ignore-scripts --access public --tag next --provenance --registry https://registry.npmjs.org/
+npm publish artifacts/release/valixa-1.0.0-rc.2.tgz --ignore-scripts --access public --tag next --provenance --registry https://registry.npmjs.org/
 ```
 
 It checks exact checksums and registry preflight first, then verifies each registry

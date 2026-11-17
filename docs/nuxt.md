@@ -47,5 +47,6 @@ official upstream release. It adds a local maintenance responsibility and should
 be removed when an official verified fix becomes available. It is only used by
 private build tooling and is not a dependency or bundled file of any Valixa library.
 
-The new Standard Schema subpath is not yet on npm; the published 1.0.0-rc.1 alone
-cannot run this development fixture. No new public version was released here.
+This fixture requires valixa 1.0.0-rc.2 or newer for the Standard Schema subpath.
+Version 1.0.0-rc.1 alone does not include that entry point. See the
+[verified RC2 publication](releases/publication-1.0.0-rc.2.md).

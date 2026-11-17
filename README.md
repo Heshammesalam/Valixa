@@ -23,7 +23,7 @@ original workloads; `pnpm benchmark:compare` pairs preserved Phase 5 with curren
 
 ## Release status and documentation
 
-All eleven public unscoped packages are published at **1.0.0-rc.1**, tag **next**. This is a release candidate; stable target **1.0.0** has not been published. See the [registry verification record](docs/releases/publication-1.0.0-rc.1.md), [release-readiness report](docs/phase-7-release-readiness.md), [documentation index](docs/index.md), and [release procedure](docs/releasing.md).
+All eleven public unscoped packages are published at **1.0.0-rc.2**, tag **next**. This is a release candidate; stable target **1.0.0** has not been published. See the [registry verification record](docs/releases/publication-1.0.0-rc.2.md), [release-readiness report](docs/phase-7-release-readiness.md), [documentation index](docs/index.md), and [release procedure](docs/releasing.md).
 
 ```sh
 npm install valixa@next
@@ -33,9 +33,9 @@ Repository: [Heshammesalam/Valixa](https://github.com/Heshammesalam/Valixa).
 
 ## Run locally
 
-The development tree adds optional [Standard Schema integration](docs/standard-schema.md)
-for Zod, Yup and Valibot, plus shared React/Vue purchase-order pilots. These additions
-are not yet published on npm. Run the examples and choose **Purchase order**.
+Version 1.0.0-rc.2 includes optional [Standard Schema integration](docs/standard-schema.md)
+for Zod, Yup and Valibot. The repository also includes shared React/Vue purchase-order
+pilots and a [verified Nuxt fixture](docs/nuxt.md). Run the examples and choose **Purchase order**.
 
 Use Node 24 and pnpm 10.26.2 (the versions used for local verification).
 

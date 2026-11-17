@@ -3,7 +3,7 @@
 - [Installation and package choice](installation.md)
 - [Quick Start and JavaScript](quick-start.md)
 - [TypeScript and inference](typescript.md)
-- [Standard Schema: Zod, Yup and Valibot (unreleased)](standard-schema.md)
+- [Standard Schema: Zod, Yup and Valibot (1.0.0-rc.2+)](standard-schema.md)
 - [Development upgrade and verification](development-upgrade.md), [scoped VeeValidate comparison](vee-comparison.md)
 - React: [hooks](../packages/react/README.md), [MUI](../packages/mui/README.md)
 - Vue: [composables](../packages/vue/README.md), [Vuetify](../packages/vuetify/README.md)

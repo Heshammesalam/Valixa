@@ -1,5 +1,8 @@
 # Phase 7 release readiness
 
+Historical first-RC report. For the current RC2 publication and its expanded
+verification gates, see [1.0.0-rc.2](releases/publication-1.0.0-rc.2.md).
+
 Review date: 11 November 2026. **Verdict: READY WITH DOCUMENTED LIMITATIONS; first public RC publication completed after explicit approval. Protected OIDC publication remains NOT READY until npm publisher setup.**
 All eleven public unscoped packages are published at 1.0.0-rc.1 and verified by
 downloading their npm tarballs. No GitHub release or release tag was created.

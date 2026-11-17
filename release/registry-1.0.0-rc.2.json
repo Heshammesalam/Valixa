@@ -1,0 +1,194 @@
+{
+  "complete": true,
+  "source": "ec5cb1a35a737d5eba680fb50aeb8c4ff5bf9659",
+  "manifestSha256": "4252a9ecfc6f6ff26ef7f1dc2bf11b78c485dd01bd8690a26e7a40fe29dd8878",
+  "packages": [
+    {
+      "name": "valixa",
+      "version": "1.0.0-rc.2",
+      "bytes": 77808,
+      "integrity": "sha512-/+V8MgknCgieuZ0Nr67cCKDZq47YRnqJODuWgJuKu/xBBjuO80q/f4M9bpc8XzvR1n/pbGe03CjMEf6RqQZeIA==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.2"
+      },
+      "previousTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryPublishedAt": "2026-11-15T12:47:55.562Z",
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-17T07:03:02.385Z"
+    },
+    {
+      "name": "valixa-angular",
+      "version": "1.0.0-rc.2",
+      "bytes": 17541,
+      "integrity": "sha512-8XqSXO2GaUY1aRzLSWuBWKgl7rj4FSPe7FSmfm3HTKXnRXfW6YPD0IT+rFdAc3qK4AGjZGscw75EzB9vWw3e4Q==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.2"
+      },
+      "previousTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryPublishedAt": "2026-11-15T12:50:42.387Z",
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-17T07:03:03.137Z"
+    },
+    {
+      "name": "valixa-auto",
+      "version": "1.0.0-rc.2",
+      "bytes": 10840,
+      "integrity": "sha512-fEG8C5bjexzLUpBnEu1aDcCPeX8ewOimisifFT1EbNTcfXjFY00/BluPluHXfNzTvGsrHNB6jn+CGhv38mBBWg==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.2"
+      },
+      "previousTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryPublishedAt": "2026-11-15T12:52:40.645Z",
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-17T07:03:03.764Z"
+    },
+    {
+      "name": "valixa-devtools",
+      "version": "1.0.0-rc.2",
+      "bytes": 23604,
+      "integrity": "sha512-dEA17DpeBcTtZBMc57cG2zBNSJzlGl2uqziEi6TDWn68Nua8DJhh/eAekcxed9ZmqE1+lDcOX1uyOHKg0O4p2w==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.2"
+      },
+      "previousTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryPublishedAt": "2026-11-15T12:55:32.461Z",
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-17T07:03:04.346Z"
+    },
+    {
+      "name": "valixa-angular-devtools",
+      "version": "1.0.0-rc.2",
+      "bytes": 3378,
+      "integrity": "sha512-b/Zbma7Ky+bE655sxFQ/AOlCwyX81VjmvoMMKnj0W1/dzJJ7/vJTGbxbMJApch7PgSLTeb6ab2VJWOCd+FKwvQ==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.2"
+      },
+      "previousTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryPublishedAt": "2026-11-15T13:01:49.803Z",
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-17T07:03:04.916Z"
+    },
+    {
+      "name": "valixa-angular-material",
+      "version": "1.0.0-rc.2",
+      "bytes": 9509,
+      "integrity": "sha512-09gpgP6w5zyFFUjCbZMbO/dOPJr+z6Hhf8guZ/OiG5PsP61kIjvqqEk4KkPhhfbce2ULLut5aJHKlqVlxusMxQ==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.2"
+      },
+      "previousTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryPublishedAt": "2026-11-15T13:03:58.632Z",
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-17T07:03:05.495Z"
+    },
+    {
+      "name": "valixa-react",
+      "version": "1.0.0-rc.2",
+      "bytes": 15536,
+      "integrity": "sha512-9IzGRGyLX20/vC2QzCTlNK1n3rfxIaNuTsTDrx/rgNqmu/54GSWQlh5O7FBG25J3BsZGxjx3rYFXj0PPnQAZHw==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.2"
+      },
+      "previousTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryPublishedAt": "2026-11-17T06:51:23.511Z",
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-17T07:03:06.052Z"
+    },
+    {
+      "name": "valixa-vue",
+      "version": "1.0.0-rc.2",
+      "bytes": 17203,
+      "integrity": "sha512-7fe5Nw7rhCMT2C6xZW4h7VceWsfb7Wa6YfS9zSm/YiBmoYxiHUvZXas1DE/QHMDsJUwoNJ1qD+ykiprZMt2a2w==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.2"
+      },
+      "previousTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryPublishedAt": "2026-11-17T06:54:32.865Z",
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-17T07:03:06.661Z"
+    },
+    {
+      "name": "valixa-angular-auto",
+      "version": "1.0.0-rc.2",
+      "bytes": 16777,
+      "integrity": "sha512-yOkL6toKuMMRRs4Pi1EFVo3K7UZedkwOU31e/Vfw+Z1JagTsu5qh+h5QrbBb0t/n/8yXfuwTcCPWfYZ6eGYs4Q==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.2"
+      },
+      "previousTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryPublishedAt": "2026-11-17T06:56:30.024Z",
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-17T07:03:07.184Z"
+    },
+    {
+      "name": "valixa-mui",
+      "version": "1.0.0-rc.2",
+      "bytes": 15017,
+      "integrity": "sha512-ZsDOJHL2JBn1jqU1H0DXDPQVnpiGkK2yQqMZ93q87rrlfOLv+DpTHyBKVi8Fprd1tllCR7kDTx/ZJ0EdXTmDBA==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.2"
+      },
+      "previousTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryPublishedAt": "2026-11-17T06:59:25.039Z",
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-17T07:03:07.720Z"
+    },
+    {
+      "name": "valixa-vuetify",
+      "version": "1.0.0-rc.2",
+      "bytes": 15668,
+      "integrity": "sha512-RjgMKVmmh1hjqzXS+0m+ysfDamvKnCjLxJjX/JsGdgfuPYMw0/Vdbh4bhen5h7F6dz1R4TnNQW6xwUd0wu81ug==",
+      "registryTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.2"
+      },
+      "previousTags": {
+        "latest": "1.0.0-rc.1",
+        "next": "1.0.0-rc.1"
+      },
+      "registryPublishedAt": "2026-11-17T07:01:32.459Z",
+      "downloadedTarballMatches": true,
+      "confirmedAt": "2026-11-17T07:03:08.285Z"
+    }
+  ]
+}

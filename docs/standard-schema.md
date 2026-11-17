@@ -1,7 +1,7 @@
-# Standard Schema integration (unreleased)
+# Standard Schema integration (1.0.0-rc.2+)
 
-The development tree adds the optional `valixa/standard` entry point. The published
-1.0.0-rc.1 does not contain it yet. Existing entry points and signatures are retained;
+Published 1.0.0-rc.2 adds the optional `valixa/standard` entry point. Version
+1.0.0-rc.1 does not contain it. Existing entry points and signatures are retained;
 no vendor library or Standard Schema package is a runtime dependency of core.
 
 Compatible providers implement [Standard Schema v1](https://standardschema.dev/).
@@ -71,3 +71,12 @@ in Chromium, Firefox and WebKit. See [Nuxt integration](nuxt.md) for the exact s
 and build-tool security patch. No automatic-import Nuxt module or other Nuxt majors
 are claimed. This entry point uses TypeScript's NoInfer utility (TypeScript 5.4+;
 tested with 5.9), without changing existing entry-point declarations.
+
+## Message localization
+
+Valixa's built-in rules use its locale system. Provider-supplied strings remain
+provider-owned: `form.setLocale()` does not translate text returned by Zod, Yup or
+Valibot. Configure the provider or application translation callbacks and revalidate.
+If replacing a schema object, create a new adapter and form owner; reassigning a
+local variable does not update an existing adapter's captured schema. In SSR, keep
+request-specific locale configuration isolated between requests.
